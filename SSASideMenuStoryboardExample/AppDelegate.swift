@@ -18,10 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         // Override point for customization after application launch.
         self.beaconManager.delegate = self
         
+        // authorize to use location services , the description can be edited in info.plist
         self.beaconManager.requestAlwaysAuthorization()
         
+        // register alert
+        UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: .alert, categories: nil))
         
+        // set the beacons to be monitor
+        let beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 3, minor: 14125, identifier: "Jack Berry")   // Jack Berry
         
+        self.beaconManager.startMonitoring(for: beaconRegion)
+
         return true
     }
 
@@ -46,7 +53,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func beaconManager(_ manager: Any, didStartMonitoringFor region: CLBeaconRegion) {
+        NSLog("Beacon start monitoring for region...");
+    }
+    
+    // Trigger when entering the beacon range
+    func beaconManager(_ manager: Any, didEnter region: CLBeaconRegion) {
+        NSLog("enter");
+        let notification = UILocalNotification()
+        notification.alertBody = "You enter! "
+        UIApplication.shared.presentLocalNotificationNow(notification)
+    }
+    
+    // Trigger when beacon is out of range for at least 30s
+    func beaconManager(_ manager: Any, didExitRegion region: CLBeaconRegion) {
+        NSLog("exit");
+        let notification = UILocalNotification()
+        notification.alertBody = "You exit! "
+        UIApplication.shared.presentLocalNotificationNow(notification)
+    }
+    
+    // Trigger when the beacon state changed
+    func beaconManager(_ manager: Any, didDetermineState state: CLRegionState, for region: CLBeaconRegion) {
+        NSLog("determinteState")
+        switch state {
+        case .unknown:
+            NSLog("unknown")
+        case .inside:
+            NSLog("inside")
+        case .outside:
+            NSLog("outside")
+        }
+    }
+    
+    func beaconManager(_ manager: Any, rangingBeaconsDidFailFor region: CLBeaconRegion?, withError error: Error) {
+        print("fail regioning \(error)");
+    }
+    
+    func beaconManager(_ manager: Any, monitoringDidFailFor region: CLBeaconRegion?, withError error: Error) {
+        print("fail monitoring \(error)");
+    }
 }
 
