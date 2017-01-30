@@ -6,16 +6,22 @@
 //  Copyright (c) 2015 SebastianAndersen. All rights reserved.
 //
 
-import UIKit
+import UIKit	
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate {
 
     var window: UIWindow?
-
+    let beaconManager = ESTBeaconManager();
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.beaconManager.delegate = self
+        
+        self.beaconManager.requestAlwaysAuthorization()
+        
+        
+        
         return true
     }
 
