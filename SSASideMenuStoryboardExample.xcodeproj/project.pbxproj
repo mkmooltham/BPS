@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2336E871E3F150F00C5C670 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */; };
+		B25A67211E3C84E00085AE62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67201E3C84E00085AE62 /* CoreLocation.framework */; };
+		B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */; };
+		B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67241E3C85020085AE62 /* SystemConfiguration.framework */; };
 		BB1067FB1DF0163F00BE6543 /* ParkInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */; };
 		BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */; };
 		BB75BBA61E2F743B0064F6BC /* FindCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB75BBA51E2F743B0064F6BC /* FindCarController.swift */; };
@@ -38,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = EstimoteSDK/EstimoteSDK.framework; sourceTree = "<group>"; };
+		B2336E881E3F15BE00C5C670 /* SSASideMenuStoryboardExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SSASideMenuStoryboardExample.entitlements; sourceTree = "<group>"; };
+		B25A67201E3C84E00085AE62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		B25A67241E3C85020085AE62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B25A672C1E3C9EDD0085AE62 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkSpaceController.swift; sourceTree = "<group>"; };
 		BB75BBA51E2F743B0064F6BC /* FindCarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindCarController.swift; path = ../FindCarController.swift; sourceTree = "<group>"; };
 		BBAE24B81E28CF0700F7E89B /* publicFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = publicFunction.swift; sourceTree = "<group>"; };
@@ -67,6 +77,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2336E871E3F150F00C5C670 /* EstimoteSDK.framework in Frameworks */,
+				B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */,
+				B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */,
+				B25A67211E3C84E00085AE62 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +94,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B25A671D1E3C84980085AE62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */,
+				B25A67241E3C85020085AE62 /* SystemConfiguration.framework */,
+				B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */,
+				B25A67201E3C84E00085AE62 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC00C75A1ACC65CD00BB4A99 = {
 			isa = PBXGroup;
 			children = (
 				DC00C7651ACC65CD00BB4A99 /* SSASideMenuStoryboardExample */,
 				DC00C77B1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests */,
 				DC00C7641ACC65CD00BB4A99 /* Products */,
+				B25A671D1E3C84980085AE62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +127,8 @@
 		DC00C7651ACC65CD00BB4A99 /* SSASideMenuStoryboardExample */ = {
 			isa = PBXGroup;
 			children = (
+				B2336E881E3F15BE00C5C670 /* SSASideMenuStoryboardExample.entitlements */,
+				B25A672C1E3C9EDD0085AE62 /* ObjCBridge.h */,
 				DC8F15F81AE946DA009CC3C3 /* SSASideMenu */,
 				DC00C7681ACC65CD00BB4A99 /* AppDelegate.swift */,
 				DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */,
@@ -209,6 +237,14 @@
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = TS38G64292;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					DC00C7771ACC65CD00BB4A99 = {
 						CreatedOnToolsVersion = 6.3;
@@ -408,11 +444,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TS38G64292;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
 				INFOPLIST_FILE = SSASideMenuStoryboardExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RAYW2.BeaconPS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -422,11 +464,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TS38G64292;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
 				INFOPLIST_FILE = SSASideMenuStoryboardExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RAYW2.BeaconPS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
