@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
 
     var window: UIWindow?
     let beaconManager = ESTBeaconManager();
+    // the beacons to be monitoring
+    let beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 3, minor: 14125, identifier: "Jack Berry")   // Jack Berry
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,10 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         // register alert
         UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: .alert, categories: nil))
         
-        // set the beacons to be monitor
-        let beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 3, minor: 14125, identifier: "Jack Berry")   // Jack Berry
         
-        self.beaconManager.startMonitoring(for: beaconRegion)
+        beaconManager.returnAllRangedBeaconsAtOnce = true
+        
+        beaconManager.startMonitoring(for: beaconRegion)
+        
+        // ranging the beacon rssi every second
+        // beaconManager.startRangingBeacons(in: beaconRegion)
 
         return true
     }
@@ -40,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        print("Did enter background, stop ranging...")
+//        beaconManager.stopMonitoringForAllRegions()
+//        beaconManager.stopRangingBeaconsInAllRegions()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -52,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+//        beaconManager.stopMonitoringForAllRegions()
+//        beaconManager.stopRangingBeaconsInAllRegions()
     }
     
     func beaconManager(_ manager: Any, didStartMonitoringFor region: CLBeaconRegion) {
@@ -85,6 +95,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         case .outside:
             NSLog("outside")
         }
+    }
+    
+    func beaconManager(_ manager: Any, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        print(beacons)
+    }
+    
+    
+    func beaconManager(_ manager: Any, didFailWithError error: Error) {
+        print(error);
     }
     
     func beaconManager(_ manager: Any, rangingBeaconsDidFailFor region: CLBeaconRegion?, withError error: Error) {
