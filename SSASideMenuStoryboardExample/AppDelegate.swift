@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 SebastianAndersen. All rights reserved.
 //
 
-import UIKit	
+import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate {
@@ -18,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // add beaconManger delegate
         self.beaconManager.delegate = self
         
         // authorize to use location services , the description can be edited in info.plist
@@ -26,13 +29,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         // register alert
         UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: .alert, categories: nil))
         
-        
         beaconManager.returnAllRangedBeaconsAtOnce = true
         
+        // start monitoring for push notification
         beaconManager.startMonitoring(for: beaconRegion)
         
         // ranging the beacon rssi every second
         // beaconManager.startRangingBeacons(in: beaconRegion)
+
+        
+        // Parse client configuration
+        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+            configuration.server = "http://opw0011.ddns.net:8000/parse/"
+            configuration.applicationId = "RAYW2_BPS"
+            configuration.clientKey = "291fa14b5f8dc421c65f53ab9886edce"
+        }))
+        
+        // Test function
+        let query = PFQuery(className:"ParkingSpace")
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) objects.")
+                
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId ?? "no id")
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.localizedDescription)")
+            }
+        }
 
         return true
     }
@@ -100,7 +130,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     func beaconManager(_ manager: Any, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         print(beacons)
     }
-    
     
     func beaconManager(_ manager: Any, didFailWithError error: Error) {
         print(error);
