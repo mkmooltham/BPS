@@ -44,25 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
             configuration.applicationId = "RAYW2_BPS"
             configuration.clientKey = "291fa14b5f8dc421c65f53ab9886edce"
         }))
-        
-        // Test function
-        let query = PFQuery(className:"ParkingSpace")
-        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) objects.")
-                
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        print(object.objectId ?? "no id")
-                    }
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.localizedDescription)")
-            }
-        }
 
         return true
     }

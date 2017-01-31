@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var findCarLogo: UIImageView!
     @IBOutlet weak var parkSpaceLogo: UIImageView!
+    @IBOutlet weak var labelNumAvailable: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,27 @@ class HomeViewController: UIViewController {
         self.parkSpaceLogo.layer.shadowOffset = CGSize(width: 1, height: -1)
         self.parkSpaceLogo.layer.shadowRadius = 7
         
+        
+        // Get data from parse
+        // TODO: change to live query on the # of available parking space
+        let query = PFQuery(className:"CarPark")
+        query.getFirstObjectInBackground { (object: PFObject?, error: Error?) in
+            if let errorFound = error {
+                // Log details of the failure
+                print("Error: \(errorFound) \(errorFound.localizedDescription)")
+                return
+            }
+            if let carPark = object {
+                let numAvailable = carPark["availableSpace"] as? Int
+                let numTotalAvailable = carPark["totalAvailableSpace"] as? Int
+                let hourlyRate = carPark["hourlyRate"] as? Int
+                
+                print("numAvailable:\(numAvailable) numTotalAvailable:\(numTotalAvailable) hourlyRate:\(hourlyRate)")
+                
+                // update the label
+                self.labelNumAvailable.text = "\(numAvailable!) /\(numTotalAvailable!)"
+            }
+        }
         
     }
 
