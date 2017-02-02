@@ -72,7 +72,8 @@ class AccountController: UIViewController {
         self.addSubview(subView: self.currentViewController!.view, toView: self.containerView)
         super.viewDidLoad()
         
-        
+        //Tap
+        self.hideKeyboardWhenTappedAround()
     }
     
     

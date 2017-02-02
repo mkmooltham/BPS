@@ -39,6 +39,14 @@ class ProfileController: UIViewController {
         }
     }
     
+    override func viewWillLayoutSubviews() {
+        //Blur
+        coverView.addBlurEffect()
+        //Round
+        let dSize: CGFloat = min(proPicIcon.frame.height, proPicIcon.frame.width)
+        proPicIcon.layer.cornerRadius = dSize/2.0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,16 +58,10 @@ class ProfileController: UIViewController {
         //profile Picture
         proPicIcon.image = UIImage(named: "propic.jpg")
         coverView.image = UIImage(named: "propic.jpg")
-        coverView.addBlurEffect()
         //border
         proPicIcon.layer.borderWidth = 1
         proPicIcon.layer.borderColor =  UIColor.gray.cgColor
         proPicIcon.layer.masksToBounds = true
-        //circle
-        proPicIcon.layer.cornerRadius = proPicIcon.frame.size.width/2
-        proPicIcon.clipsToBounds = true
-        proPicBorder.layer.cornerRadius = proPicBorder.frame.size.width/2
-        proPicBorder.clipsToBounds = true
         //round corner
         logoutButton.layer.cornerRadius = 10
         logoutButton.layer.cornerRadius = 10
@@ -93,12 +95,29 @@ class ProfileController: UIViewController {
         
         //Tap
         self.hideKeyboardWhenTappedAround()
+        
+        //Rotation
+        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //remove rotation observer
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //rotation
+    func rotated(){
+    //circle
+        proPicIcon.layer.cornerRadius = proPicIcon.frame.size.width/2
+        proPicIcon.clipsToBounds = true
+        proPicBorder.layer.cornerRadius = proPicBorder.frame.size.width/2
+        proPicBorder.clipsToBounds = true
+        coverView.addBlurEffect()
     }
     
     func addSubview(subView:UIView, toView parentView:UIView) {

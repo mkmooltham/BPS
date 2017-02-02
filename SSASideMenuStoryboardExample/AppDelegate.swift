@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         
         // ranging the beacon rssi every second
         // beaconManager.startRangingBeacons(in: beaconRegion)
+        
 
         return true
     }

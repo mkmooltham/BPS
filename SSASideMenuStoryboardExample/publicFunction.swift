@@ -12,7 +12,7 @@ import UIKit
 let bgColor = "000E29"
 let titleSize = CGFloat(22)
 let barButtonSize = CGFloat(45)
-var signIned = true
+var signIned = false
 
 //Custom button
 let menuButton = UIButton(type: .custom)
