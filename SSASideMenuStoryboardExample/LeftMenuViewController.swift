@@ -65,7 +65,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
    
-        let titles: [String] = ["Home", "Park Status", "Record", "Coupon", "Profile"]
+        let titles: [String] = ["Home", "Park Status", "Record", "Coupon", "Account"]
         
         let images: [String] = ["IconHome", "IconEmpty", "IconCalendar", "IconSettings", "IconProfile"]
         
@@ -107,9 +107,16 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
             sideMenuViewController?.hideMenuViewController()
         case 4:
             let storyboard = self.storyboard
-            let controller1 = storyboard?.instantiateViewController(withIdentifier: "SignIn")
-            sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
-            sideMenuViewController?.hideMenuViewController()
+            if signIned == false{
+                let controller1 = storyboard?.instantiateViewController(withIdentifier: "Account")
+                sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
+                sideMenuViewController?.hideMenuViewController()
+            }else{
+                let controller1 = storyboard?.instantiateViewController(withIdentifier: "Profile")
+                sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
+                sideMenuViewController?.hideMenuViewController()
+            }
+            
         default:
             break
         }

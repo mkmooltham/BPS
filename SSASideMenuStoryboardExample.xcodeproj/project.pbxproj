@@ -16,7 +16,11 @@
 		BB75BBA61E2F743B0064F6BC /* FindCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB75BBA51E2F743B0064F6BC /* FindCarController.swift */; };
 		BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE24B81E28CF0700F7E89B /* publicFunction.swift */; };
 		BBC272E51E23957100235AE3 /* CouponController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC272E41E23957100235AE3 /* CouponController.swift */; };
-		BBD566731E2E19F300CFD32A /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD566721E2E19F300CFD32A /* SignInController.swift */; };
+		BBC4108A1E41B49700700E7B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC410891E41B49700700E7B /* LoginController.swift */; };
+		BBC4108C1E41BFCB00700E7B /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4108B1E41BFCB00700E7B /* SignInController.swift */; };
+		BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4108D1E41CF0100700E7B /* AccountController.swift */; };
+		BBD566731E2E19F300CFD32A /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD566721E2E19F300CFD32A /* ProfileController.swift */; };
+		BBFA06851E431C91005BD5B1 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFA06841E431C91005BD5B1 /* DashboardController.swift */; };
 		BBFD9EC91E25E1990053AC4B /* RecordTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */; };
 		BBFD9ECA1E25E1990053AC4B /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */; };
 		BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9EF01E2607180053AC4B /* RecordController.swift */; };
@@ -52,7 +56,11 @@
 		BB75BBA51E2F743B0064F6BC /* FindCarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindCarController.swift; path = ../FindCarController.swift; sourceTree = "<group>"; };
 		BBAE24B81E28CF0700F7E89B /* publicFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = publicFunction.swift; sourceTree = "<group>"; };
 		BBC272E41E23957100235AE3 /* CouponController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponController.swift; sourceTree = "<group>"; };
-		BBD566721E2E19F300CFD32A /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		BBC410891E41B49700700E7B /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		BBC4108B1E41BFCB00700E7B /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		BBC4108D1E41CF0100700E7B /* AccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		BBD566721E2E19F300CFD32A /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		BBFA06841E431C91005BD5B1 /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableController.swift; sourceTree = "<group>"; };
 		BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		BBFD9EF01E2607180053AC4B /* RecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordController.swift; sourceTree = "<group>"; };
@@ -140,8 +148,12 @@
 				BBFD9EF01E2607180053AC4B /* RecordController.swift */,
 				BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */,
 				BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */,
-				BBD566721E2E19F300CFD32A /* SignInController.swift */,
+				BBC4108D1E41CF0100700E7B /* AccountController.swift */,
+				BBD566721E2E19F300CFD32A /* ProfileController.swift */,
 				BBC272E41E23957100235AE3 /* CouponController.swift */,
+				BBC4108B1E41BFCB00700E7B /* SignInController.swift */,
+				BBC410891E41B49700700E7B /* LoginController.swift */,
+				BBFA06841E431C91005BD5B1 /* DashboardController.swift */,
 				BBAE24B81E28CF0700F7E89B /* publicFunction.swift */,
 				DC00C76C1ACC65CD00BB4A99 /* Main.storyboard */,
 				DC00C76F1ACC65CD00BB4A99 /* Images.xcassets */,
@@ -300,15 +312,19 @@
 				BBFD9EC91E25E1990053AC4B /* RecordTableController.swift in Sources */,
 				DC00C7691ACC65CD00BB4A99 /* AppDelegate.swift in Sources */,
 				DC00C78E1ACC661F00BB4A99 /* HomeViewController.swift in Sources */,
-				BBD566731E2E19F300CFD32A /* SignInController.swift in Sources */,
+				BBD566731E2E19F300CFD32A /* ProfileController.swift in Sources */,
+				BBFA06851E431C91005BD5B1 /* DashboardController.swift in Sources */,
+				BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */,
 				BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */,
 				BB75BBA61E2F743B0064F6BC /* FindCarController.swift in Sources */,
+				BBC4108A1E41B49700700E7B /* LoginController.swift in Sources */,
 				BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */,
 				BBC272E51E23957100235AE3 /* CouponController.swift in Sources */,
 				DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */,
 				DC00C7901ACC661F00BB4A99 /* RightMenuViewController.swift in Sources */,
 				BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */,
 				DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */,
+				BBC4108C1E41BFCB00700E7B /* SignInController.swift in Sources */,
 				BBFD9ECA1E25E1990053AC4B /* RecordTableViewCell.swift in Sources */,
 				BB1067FB1DF0163F00BE6543 /* ParkInfoController.swift in Sources */,
 			);

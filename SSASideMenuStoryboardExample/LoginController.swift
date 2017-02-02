@@ -1,5 +1,5 @@
 //
-//  SignInController.swift
+//  loginController.swift
 //  SSASideMenuStoryboardExample
 //
 //  Created by RAYW2 on 1/2/2017.
@@ -8,18 +8,17 @@
 
 import UIKit
 
-class SignInController: UIViewController {
-   
-    @IBOutlet weak var createLoginName: UITextField!
-    @IBOutlet weak var createLoginPassward: UITextField!
-    @IBOutlet weak var confirmPassward: UITextField!
-   
+class LoginController: UIViewController {
+    
+    @IBOutlet weak var loginName: UITextField!
+    @IBOutlet weak var loginPassward: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Config
         //textfield
-        let textfieldArray: [UITextField] = [self.createLoginName, self.createLoginPassward, self.confirmPassward]
+        let textfieldArray: [UITextField] = [self.loginName, self.loginPassward]
         for item in textfieldArray{
             let border = CALayer()
             let width = CGFloat(2.0)
@@ -32,7 +31,7 @@ class SignInController: UIViewController {
         
         //Tap
         self.hideKeyboardWhenTappedAround()
-        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +39,4 @@ class SignInController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
 }
-
-
