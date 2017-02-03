@@ -996,9 +996,9 @@
                                 <exclude reference="blc-uX-vaL"/>
                                 <exclude reference="dc8-Ay-FVf"/>
                                 <exclude reference="hsG-Kf-fDt"/>
-                                <exclude reference="X3o-oC-ATG"/>
                                 <exclude reference="hUc-qg-Ose"/>
                                 <exclude reference="m87-49-KZa"/>
+                                <exclude reference="X3o-oC-ATG"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -1037,12 +1037,12 @@
                                 <exclude reference="blc-uX-vaL"/>
                                 <include reference="dc8-Ay-FVf"/>
                                 <include reference="hsG-Kf-fDt"/>
-                                <exclude reference="Mbh-5p-cqg"/>
-                                <include reference="X3o-oC-ATG"/>
                                 <exclude reference="Pig-Ms-npr"/>
                                 <exclude reference="WhJ-BJ-ss8"/>
                                 <include reference="hUc-qg-Ose"/>
                                 <include reference="m87-49-KZa"/>
+                                <exclude reference="Mbh-5p-cqg"/>
+                                <include reference="X3o-oC-ATG"/>
                             </mask>
                         </variation>
                     </view>
