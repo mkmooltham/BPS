@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -434,7 +434,7 @@
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Akb-Xu-48r">
-                                <rect key="frame" x="0.0" y="64" width="414" height="102.66666666666666"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="102.33333333333334"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="165" id="t35-qO-riu"/>
@@ -451,10 +451,10 @@
                                 </variation>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="C5G-IX-K0t">
-                                <rect key="frame" x="0.0" y="166.66666666666669" width="414" height="512.33333333333326"/>
+                                <rect key="frame" x="0.0" y="166.33333333333331" width="414" height="512.66666666666674"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="floorPlan" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-JF-8H1">
-                                        <rect key="frame" x="0.0" y="0.0" width="413.66666666666669" height="512.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="413.66666666666669" height="512.66666666666663"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -624,7 +624,7 @@
                                     <constraint firstAttribute="width" secondItem="ojs-PZ-GWy" secondAttribute="height" multiplier="1:1" id="nvF-0V-CD9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Find Car">
+                                <state key="normal" title="Find My Car">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
@@ -637,13 +637,30 @@
                                     <constraint firstAttribute="width" secondItem="qtv-yj-e7I" secondAttribute="height" multiplier="1:1" id="ZVs-yY-h1z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Park Space">
+                                <state key="normal" title="Park My Car">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="hxC-Ya-gpm" kind="show" id="Cg5-fK-Lv8"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3cW-zC-NCh" userLabel="StackAvailableParkingSpace">
+                                <rect key="frame" x="20" y="84" width="374" height="67.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Parking Spaces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWx-Qy-rQI">
+                                        <rect key="frame" x="54" y="0.0" width="266.33333333333331" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##/##" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vln-4y-PjR">
+                                        <rect key="frame" x="154.33333333333334" y="38.666666666666671" width="65.333333333333314" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -658,11 +675,13 @@
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="width" secondItem="4j5-Yr-1ZT" secondAttribute="width" id="6gY-iR-Jtr"/>
                             <constraint firstItem="4j5-Yr-1ZT" firstAttribute="leading" secondItem="nke-5G-lLg" secondAttribute="trailing" id="7zh-R1-1Sc"/>
                             <constraint firstAttribute="trailing" secondItem="OVv-pZ-5a6" secondAttribute="trailing" id="9bR-uC-R89"/>
+                            <constraint firstItem="3cW-zC-NCh" firstAttribute="top" secondItem="TZi-Qf-BNn" secondAttribute="bottom" constant="20" id="AwM-hD-12A"/>
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="centerY" secondItem="qtv-yj-e7I" secondAttribute="centerY" id="DCE-Tv-jEE"/>
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="top" secondItem="nke-5G-lLg" secondAttribute="bottom" id="Dsv-lt-POt"/>
                             <constraint firstAttribute="trailing" secondItem="nke-5G-lLg" secondAttribute="trailing" id="F0X-zn-MQW"/>
                             <constraint firstItem="XU4-Wd-xRN" firstAttribute="top" secondItem="4j5-Yr-1ZT" secondAttribute="bottom" id="O1t-ul-wRp"/>
                             <constraint firstAttribute="trailing" secondItem="jCG-JX-Utp" secondAttribute="trailing" id="Rf3-a1-utm"/>
+                            <constraint firstItem="3cW-zC-NCh" firstAttribute="leading" secondItem="WIV-N5-8Jo" secondAttribute="leadingMargin" id="SJr-qP-OM2"/>
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="height" secondItem="nke-5G-lLg" secondAttribute="height" multiplier="2:3" id="UhJ-fI-0k1"/>
                             <constraint firstAttribute="bottom" secondItem="OVv-pZ-5a6" secondAttribute="bottom" id="Ysb-Zl-cN6"/>
                             <constraint firstItem="OVv-pZ-5a6" firstAttribute="top" secondItem="WIV-N5-8Jo" secondAttribute="top" id="bRy-kP-lrt"/>
@@ -671,6 +690,7 @@
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="width" secondItem="qtv-yj-e7I" secondAttribute="width" multiplier="1:0.8" id="ieB-ii-hbf"/>
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="height" secondItem="4j5-Yr-1ZT" secondAttribute="height" id="jAP-H6-W8H"/>
                             <constraint firstItem="4j5-Yr-1ZT" firstAttribute="width" secondItem="ojs-PZ-GWy" secondAttribute="width" multiplier="1:0.8" id="jmY-Ml-DP6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3cW-zC-NCh" secondAttribute="trailing" id="jop-1j-EOw"/>
                             <constraint firstItem="XU4-Wd-xRN" firstAttribute="top" secondItem="jCG-JX-Utp" secondAttribute="bottom" id="jxb-gt-qhT"/>
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="leading" secondItem="4j5-Yr-1ZT" secondAttribute="trailing" id="sKu-pr-x8m"/>
                             <constraint firstItem="jCG-JX-Utp" firstAttribute="centerX" secondItem="qtv-yj-e7I" secondAttribute="centerX" id="uyO-Ae-8Ub"/>
@@ -710,13 +730,14 @@
                     <navigationItem key="navigationItem" id="Ip5-Bz-D48"/>
                     <connections>
                         <outlet property="findCarLogo" destination="4j5-Yr-1ZT" id="Spd-os-e9d"/>
+                        <outlet property="labelNumAvailable" destination="Vln-4y-PjR" id="oyj-la-azU"/>
                         <outlet property="logo" destination="nke-5G-lLg" id="9Bq-qk-SFn"/>
                         <outlet property="parkSpaceLogo" destination="jCG-JX-Utp" id="YSe-lI-c8o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgG-3s-oa1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="672" y="-530"/>
+            <point key="canvasLocation" x="671.01449275362324" y="-530.70652173913049"/>
         </scene>
         <!--Sign In Controller-->
         <scene sceneID="Al1-Iw-GaD">
