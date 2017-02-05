@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21DB07F1E403EA600861070 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21DB07E1E403EA600861070 /* Bolts.framework */; };
+		B21DB0811E403EAE00861070 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21DB0801E403EAE00861070 /* Parse.framework */; };
+		B21DB0841E405D1600861070 /* Parse.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B21DB0801E403EAE00861070 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B21DB0851E405D1E00861070 /* Bolts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B21DB07E1E403EA600861070 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2336E871E3F150F00C5C670 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */; };
 		B25A67211E3C84E00085AE62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67201E3C84E00085AE62 /* CoreLocation.framework */; };
 		B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */; };
@@ -45,7 +49,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B21DB0831E405D0900861070 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B21DB0851E405D1E00861070 /* Bolts.framework in CopyFiles */,
+				B21DB0841E405D1600861070 /* Parse.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B21DB07E1E403EA600861070 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
+		B21DB0801E403EAE00861070 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
 		B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = EstimoteSDK/EstimoteSDK.framework; sourceTree = "<group>"; };
 		B2336E881E3F15BE00C5C670 /* SSASideMenuStoryboardExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SSASideMenuStoryboardExample.entitlements; sourceTree = "<group>"; };
 		B25A67201E3C84E00085AE62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -89,6 +109,8 @@
 				B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */,
 				B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */,
 				B25A67211E3C84E00085AE62 /* CoreLocation.framework in Frameworks */,
+				B21DB0811E403EAE00861070 /* Parse.framework in Frameworks */,
+				B21DB07F1E403EA600861070 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +127,8 @@
 		B25A671D1E3C84980085AE62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B21DB0801E403EAE00861070 /* Parse.framework */,
+				B21DB07E1E403EA600861070 /* Bolts.framework */,
 				B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */,
 				B25A67241E3C85020085AE62 /* SystemConfiguration.framework */,
 				B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */,
@@ -206,6 +230,7 @@
 				DC00C75F1ACC65CD00BB4A99 /* Sources */,
 				DC00C7601ACC65CD00BB4A99 /* Frameworks */,
 				DC00C7611ACC65CD00BB4A99 /* Resources */,
+				B21DB0831E405D0900861070 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -464,6 +489,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/EstimoteSDK",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SSASideMenuStoryboardExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -484,6 +510,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/EstimoteSDK",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SSASideMenuStoryboardExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
