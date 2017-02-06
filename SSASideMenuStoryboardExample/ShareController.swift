@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import CalendarKit
-import DataTools
 
 class ShareController: UIViewController{
     
@@ -50,9 +48,6 @@ class ShareController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //CalendarKit
-    override func eventViewsForDate
     
     
 }
