@@ -13,8 +13,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var findCarLogo: UIImageView!
     @IBOutlet weak var parkSpaceLogo: UIImageView!
+    @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var labelNumAvailable: UILabel!
-    
+    @IBOutlet weak var infoBoardBackground: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ class HomeViewController: UIViewController {
         //Config
         title = "Home"
         
-        //shadow
+        //Fluorescent
         self.findCarLogo.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
         self.findCarLogo.layer.shadowOpacity = 1
         self.findCarLogo.layer.shadowOffset = CGSize(width: 1, height: -1)
@@ -48,6 +49,23 @@ class HomeViewController: UIViewController {
         self.parkSpaceLogo.layer.shadowOffset = CGSize(width: 1, height: -1)
         self.parkSpaceLogo.layer.shadowRadius = 7
         
+        self.labelAddress.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        self.labelAddress.layer.shadowOpacity = 0.8
+        self.labelAddress.layer.shadowOffset = CGSize(width: 1, height: -1)
+        self.labelAddress.layer.shadowRadius = 5
+        
+        self.labelNumAvailable.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        self.labelNumAvailable.layer.shadowOpacity = 0.5
+        self.labelNumAvailable.layer.shadowOffset = CGSize(width: 1, height: -1)
+        self.labelNumAvailable.layer.shadowRadius = 5
+
+        //round corner
+        infoBoardBackground.layer.cornerRadius = 10
+        //shawdow
+        infoBoardBackground.layer.shadowColor = UIColor.black.cgColor
+        infoBoardBackground.layer.shadowOpacity = 1
+        infoBoardBackground.layer.shadowOffset = CGSize(width: 1, height: 1)
+        infoBoardBackground.layer.shadowRadius = 10
         
         // Get data from parse
         // TODO: change to live query on the # of available parking space

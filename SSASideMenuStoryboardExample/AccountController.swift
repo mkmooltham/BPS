@@ -43,7 +43,6 @@ class AccountController: UIViewController {
     //Config
         //round corner
         switchButton.layer.cornerRadius = 10
-        switchButton.layer.cornerRadius = 10
         //shadow
         switchButton.layer.shadowColor = UIColor.black.cgColor
         switchButton.layer.shadowOpacity = 1

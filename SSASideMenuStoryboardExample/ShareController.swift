@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CalendarKit
+import DataTools
 
-class CouponController: UIViewController {
-    @IBOutlet weak var name: UILabel!
+class ShareController: UIViewController{
+    
+    var current = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,20 +23,12 @@ class CouponController: UIViewController {
         //self.view.addSubview(imageView)
         
         //Title
-        title = "Coupon"
+        title = "Share Park Time"
         
         //Config
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        label.text = "I am Handsome Jack I am Handsome Jack I am Handsome Jack I am Handsome Jack"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 20)
-        label.textAlignment = .center
-        label.numberOfLines = 4
-        label.lineBreakMode = .byTruncatingTail
-        let fullScreenSize = UIScreen.main.bounds.size
-        label.center = CGPoint(x:fullScreenSize.width*0.5,y:fullScreenSize.height*0.5)
-        self.view.addSubview(label)
+
         
+                
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)
         menuButton.frame = CGRect(x: 0, y: 0, width: barButtonSize, height: barButtonSize)
@@ -51,11 +46,13 @@ class CouponController: UIViewController {
         
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //CalendarKit
+    override func eventViewsForDate
     
     
 }

@@ -64,7 +64,6 @@ class ProfileController: UIViewController {
         proPicIcon.layer.masksToBounds = true
         //round corner
         logoutButton.layer.cornerRadius = 10
-        logoutButton.layer.cornerRadius = 10
         //shadow
         logoutButton.layer.shadowColor = UIColor.black.cgColor
         logoutButton.layer.shadowOpacity = 0.2

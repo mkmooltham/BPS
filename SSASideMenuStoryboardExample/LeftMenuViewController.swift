@@ -65,7 +65,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
    
-        let titles: [String] = ["Home", "Park Status", "Record", "Coupon", "Account"]
+        let titles: [String] = ["Home", "Park Status", "Record", "Share", "Account"]
         
         let images: [String] = ["IconHome", "IconEmpty", "IconCalendar", "IconSettings", "IconProfile"]
         
