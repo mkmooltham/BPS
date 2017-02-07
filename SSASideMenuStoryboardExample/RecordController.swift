@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class RecordController: UIViewController {
     @IBOutlet weak var name: UILabel!
@@ -39,6 +40,13 @@ class RecordController: UIViewController {
         rightSwipe.direction = .right
         view.addGestureRecognizer(rightSwipe)
         
+        guard let currentUser = PFUser.current() else {
+            // Redirect to login/signup page
+            print("user is not login yet")
+            let controller = storyboard?.instantiateViewController(withIdentifier: "Account")
+            sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+            return
+        }
     }
     
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileController: UIViewController {
     
@@ -20,6 +21,15 @@ class ProfileController: UIViewController {
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func logoutButton(_ sender: Any) {
+        // Logout from the server
+        PFUser.logOutInBackground(block: { (error: Error?) in
+            if let error = error {
+                print("cannot logout \(error.localizedDescription)")
+            } else {
+                print("logout success")
+            }
+        })
+        
         signIned = false
         let controller1 = storyboard?.instantiateViewController(withIdentifier: "Account")
         sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
