@@ -18,6 +18,7 @@ class RecordTableController: UITableViewController {
     var selectedIndexPath : IndexPath?
     
     override func viewDidLoad() {
+        //Default expanded cell
         let indexPath = IndexPath(row: 0, section: 0)
         self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
         self.tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
@@ -88,6 +89,8 @@ class RecordTableController: UITableViewController {
             text.layer.shadowOffset = CGSize(width: 0, height: 0)
             text.layer.shadowRadius = 5
         }
+        
+        //Data
 
         return cell
     }

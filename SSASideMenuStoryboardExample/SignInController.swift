@@ -11,16 +11,23 @@ import Parse
 
 class SignInController: UIViewController {
    
+    @IBOutlet weak var createEmail: UITextField!
     @IBOutlet weak var createLoginName: UITextField!
     @IBOutlet weak var createLoginPassward: UITextField!
     @IBOutlet weak var confirmPassward: UITextField!
-   
+    @IBOutlet weak var createAccountButton: UIButton!
+    @IBAction func createAccountButton(_ sender: Any) {
+        signIned = true
+        let controller1 = storyboard?.instantiateViewController(withIdentifier: "Profile")
+        sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Config
         //textfield
-        let textfieldArray: [UITextField] = [self.createLoginName, self.createLoginPassward, self.confirmPassward]
+        let textfieldArray: [UITextField] = [self.createEmail, self.createLoginName, self.createLoginPassward, self.confirmPassward]
         for item in textfieldArray{
             let border = CALayer()
             let width = CGFloat(2.0)
@@ -30,6 +37,14 @@ class SignInController: UIViewController {
             item.layer.addSublayer(border)
             item.layer.masksToBounds = true
         }
+        //Button
+        //round corner
+        createAccountButton.layer.cornerRadius = 10
+        //shadow
+        createAccountButton.layer.shadowColor = UIColor.black.cgColor
+        createAccountButton.layer.shadowOpacity = 1
+        createAccountButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        createAccountButton.layer.shadowRadius = 10
         
         //Tap
         self.hideKeyboardWhenTappedAround()

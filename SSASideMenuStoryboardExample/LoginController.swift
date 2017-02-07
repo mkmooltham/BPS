@@ -13,6 +13,13 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var loginName: UITextField!
     @IBOutlet weak var loginPassward: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBAction func loginButton(_ sender: Any) {
+        signIned = true
+        let controller1 = storyboard?.instantiateViewController(withIdentifier: "Profile")
+        sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,14 @@ class LoginController: UIViewController {
             item.layer.addSublayer(border)
             item.layer.masksToBounds = true
         }
+        //Button
+        //round corner
+        loginButton.layer.cornerRadius = 10
+        //shadow
+        loginButton.layer.shadowColor = UIColor.black.cgColor
+        loginButton.layer.shadowOpacity = 1
+        loginButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        loginButton.layer.shadowRadius = 10
         
         //Tap
         self.hideKeyboardWhenTappedAround()

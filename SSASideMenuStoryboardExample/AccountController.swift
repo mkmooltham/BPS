@@ -26,13 +26,11 @@ class AccountController: UIViewController {
             newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
             self.currentViewController = newViewController
-            switchButton.setTitle("Create Account", for: .normal)
         } else {
             let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "loginView")
             newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
             self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
             self.currentViewController = newViewController
-            switchButton.setTitle("Login", for: .normal)
         }
 
     }
@@ -41,13 +39,6 @@ class AccountController: UIViewController {
         super.viewDidLoad()
         
     //Config
-        //round corner
-        switchButton.layer.cornerRadius = 10
-        //shadow
-        switchButton.layer.shadowColor = UIColor.black.cgColor
-        switchButton.layer.shadowOpacity = 1
-        switchButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        switchButton.layer.shadowRadius = 10
         
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)
