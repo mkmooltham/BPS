@@ -23,9 +23,12 @@ This project use [Carthage](https://github.com/carthage/carthage) and [CocoaPods
 Optional: Run `carthage update --pathform iOS` to update the frameworks to the latest (listed in `Cartfile`)
 
 **CocoaPods Setup**
- ```
- pod install
- ```
+
+ 1. Install the dependencies
+ 
+  ```
+  pod install
+  ```
 
 ## TODOs
 **SDKs**
@@ -36,13 +39,15 @@ Optional: Run `carthage update --pathform iOS` to update the frameworks to the l
 - [ ] Add [Parse Live Query SDK](https://github.com/ParsePlatform/ParseLiveQuery-iOS-OSX)
 
 **Workflows**
-- [ ] Sign up & Sign in
+- [x] Sign up & Sign in
 - [ ] Check-in parking space
 - [ ] Check-out parking space
 - [ ] Online payment
-
+- [ ] Release timeslots (car park owner)
+ 
 **UI Design**
 - [x] Sign up & Sign in page
-- [ ] Show brief car park information in home view
+- [x] Show brief car park information in home view
 - [ ] Hour picker in check in
 - [ ] Floor plan web view
+- [ ] Show a Google map button to display the car park location
