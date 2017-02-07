@@ -80,11 +80,15 @@ class HomeViewController: UIViewController {
                 let numAvailable = carPark["availableSpace"] as? Int
                 let numTotalAvailable = carPark["totalAvailableSpace"] as? Int
                 let hourlyRate = carPark["hourlyRate"] as? Int
+                let name = carPark["name"] as? String
+                let address = carPark["address"] as? String
                 
-                print("numAvailable:\(numAvailable) numTotalAvailable:\(numTotalAvailable) hourlyRate:\(hourlyRate)")
+                print("numAvailable:\(numAvailable) numTotalAvailable:\(numTotalAvailable) hourlyRate:\(hourlyRate) name:\(name) address:\(address)")
                 
                 // update the label
                 self.labelNumAvailable.text = "\(numAvailable!) /\(numTotalAvailable!)"
+                self.labelAddress.text = address!
+                // TODO: add hourly rate to the UI
             }
         }
         
