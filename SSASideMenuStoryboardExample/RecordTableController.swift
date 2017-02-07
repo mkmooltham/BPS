@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 let cellID = "cell"
 
 var titleColor: [String] = ["#0091EA","#FF3D00","#6200EA","#C51162"]
@@ -19,6 +21,33 @@ class RecordTableController: UITableViewController {
         let indexPath = IndexPath(row: 0, section: 0)
         self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
         self.tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
+        
+        // Load parking records from the Server
+        guard let currentUser = PFUser.current() else {
+            // Redirect to login/signup page
+            print("user is not login yet")
+            return
+        }
+        
+        let query = PFQuery(className: "ParkingRecord")
+        query.whereKey("user", equalTo: currentUser)
+        query.includeKey("parkingSpace")
+        query.findObjectsInBackground { (records: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            
+            // success retrieve parking recrods
+            print("Success get parking records: \(records)")
+            for record in records! {
+                let parkingSpace = record["parkingSpace"] as? PFObject
+                print("parkingSpace: \(parkingSpace?["parkingLotId"]) checkinTime: \(record["checkinTime"]) checkoutTime: \(record["checkoutTime"])")
+            }
+            
+            // TODO: map the records array to the table list view
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
