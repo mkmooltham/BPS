@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginController: UIViewController {
     
@@ -39,4 +40,44 @@ class LoginController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func signinButtonClicked(_ sender: UIButton) {
+        print("Signin button is clicked")
+        
+        // input validation
+        guard let username = loginName.text, !username.isEmpty else {
+            showError(title: "Missing Username", message: "Please fill in the username")
+            return
+        }
+        
+        guard let password = loginPassward.text, !password.isEmpty else {
+            showError(title: "Missing Password", message: "Please enter the password")
+            return
+        }
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+                self.showError(title: "Login failed", message: error.localizedDescription)
+                return
+            }
+            
+            // login success
+            print("Login success \(user)")
+            
+            // TODO: redirect to somewhere
+        }
+        
+    }
+    
+    // generic function to show popup error message
+    func showError(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+        }
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
