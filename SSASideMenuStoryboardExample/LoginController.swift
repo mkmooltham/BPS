@@ -45,19 +45,22 @@ class LoginController: UIViewController {
         
         // input validation
         guard let username = loginName.text, !username.isEmpty else {
-            showError(title: "Missing Username", message: "Please fill in the username")
+            present(getErrorAlertCtrl(title: "Missing Username", message: "Please fill in the username"),
+                    animated: true, completion: nil)
             return
         }
         
         guard let password = loginPassward.text, !password.isEmpty else {
-            showError(title: "Missing Password", message: "Please enter the password")
+            present(getErrorAlertCtrl(title: "Missing Password", message: "Please enter the password"),
+                    animated: true, completion: nil)
             return
         }
         
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
-                self.showError(title: "Login failed", message: error.localizedDescription)
+                self.present(getErrorAlertCtrl(title: "Login failed", message: error.localizedDescription),
+                             animated: true, completion: nil)
                 return
             }
             
@@ -67,17 +70,5 @@ class LoginController: UIViewController {
             // TODO: redirect to somewhere
         }
         
-    }
-    
-    // generic function to show popup error message
-    func showError(title:String, message:String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-            (result : UIAlertAction) -> Void in
-        }
-        
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
     }
 }

@@ -46,17 +46,20 @@ class SignInController: UIViewController {
         
         // Basic Validation on the input field
         guard let username = createLoginName.text, !username.isEmpty else {
-            showError(title: "Missing Username", message: "Please fill in the username")
+            present(getErrorAlertCtrl(title: "Missing Username", message: "Please fill in the username"),
+                    animated: true, completion: nil)
             return
         }
         
         guard let password = createLoginPassward.text, !password.isEmpty else {
-            showError(title: "Missing Password", message: "Please fill in the password")
+            present(getErrorAlertCtrl(title: "Missing Password", message: "Please fill in the password"),
+                    animated: true, completion: nil)
             return
         }
         
         guard let passwordConfirm = confirmPassward.text, !passwordConfirm.isEmpty, password == passwordConfirm else {
-            showError(title: "Password Mismatch", message: "Please enter the same password again")
+            present(getErrorAlertCtrl(title: "Password Mismatch", message: "Please enter the same password again"),
+                    animated: true, completion: nil)
             return
         }
         
@@ -69,7 +72,8 @@ class SignInController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
                 // Show warning alert to user
-                self.showError(title: "Sign up failed", message: error.localizedDescription)
+                let alertCtrl = getErrorAlertCtrl(title: "Sign up failed", message: error.localizedDescription)
+                self.present(alertCtrl, animated: true, completion: nil)
                 
             } else {
                 // login success
@@ -79,20 +83,6 @@ class SignInController: UIViewController {
                 
             }
         }
-    }
-    
-    
-    // generic function to show popup error message
-    func showError(title:String, message:String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-            (result : UIAlertAction) -> Void in
-            print("OK")
-        }
-        
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
     }
 }
 

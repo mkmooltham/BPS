@@ -40,6 +40,20 @@ func hexColor (hex:String) -> UIColor {
     )
 }
 
+// Generic function to show popup error message
+// Usage: present(alertController, animated: true, completion: nil)
+func getErrorAlertCtrl(title:String, message:String) -> UIAlertController {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+    
+    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+        (result : UIAlertAction) -> Void in
+        print("OK")
+    }
+    
+    alertController.addAction(okAction)
+    return alertController
+}
+
 //blurEffect
 extension UIImageView
 {
