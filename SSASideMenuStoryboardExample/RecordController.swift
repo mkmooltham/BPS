@@ -40,9 +40,12 @@ class RecordController: UIViewController {
         rightSwipe.direction = .right
         view.addGestureRecognizer(rightSwipe)
         
-        guard let currentUser = PFUser.current() else {
-            // Redirect to login/signup page
+        // Make sure the user is logined, otherwise redirect to the login page
+        guard PFUser.current() != nil else {
             print("user is not login yet")
+            present(getErrorAlertCtrl(title: "Login Required", message: "Please sign in first"),
+                    animated: true, completion: nil)
+            
             let controller = storyboard?.instantiateViewController(withIdentifier: "Account")
             sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
             return
