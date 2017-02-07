@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SignInController: UIViewController {
    
@@ -40,7 +41,59 @@ class SignInController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func signupButtonClicked(_ sender: Any) {
+        print("Sign up btn is clicked")
+        
+        // Basic Validation on the input field
+        guard let username = createLoginName.text, !username.isEmpty else {
+            showError(title: "Missing Username", message: "Please fill in the username")
+            return
+        }
+        
+        guard let password = createLoginPassward.text, !password.isEmpty else {
+            showError(title: "Missing Password", message: "Please fill in the password")
+            return
+        }
+        
+        guard let passwordConfirm = confirmPassward.text, !passwordConfirm.isEmpty, password == passwordConfirm else {
+            showError(title: "Password Mismatch", message: "Please enter the same password again")
+            return
+        }
+        
+        
+        let user = PFUser()
+        user.username = username
+        user.password = passwordConfirm
+        
+        user.signUpInBackground { (success:Bool, error:Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+                // Show warning alert to user
+                self.showError(title: "Sign up failed", message: error.localizedDescription)
+                
+            } else {
+                // login success
+                print("success login \(success)")
+                
+                // TODO: redirect to somewhere else
+                
+            }
+        }
+    }
     
+    
+    // generic function to show popup error message
+    func showError(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            print("OK")
+        }
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 
