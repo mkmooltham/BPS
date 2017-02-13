@@ -44,7 +44,7 @@ class FindCarController: UIViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navbarFont, NSForegroundColorAttributeName:UIColor.lightText]
         
         //zoom config
-        scrollView.backgroundColor = hexColor(hex: "#212121")
+        scrollView.backgroundColor = hexColor(hex: "#000e29")
         setZoomScale()
         
         //Orientation change

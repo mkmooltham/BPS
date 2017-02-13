@@ -394,6 +394,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="413.66666666666669" height="512.33333333333337"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="KYa-JF-8H1" firstAttribute="top" secondItem="C5G-IX-K0t" secondAttribute="top" id="6nr-f6-Iu6"/>
                                     <constraint firstItem="KYa-JF-8H1" firstAttribute="centerY" secondItem="C5G-IX-K0t" secondAttribute="centerY" id="DZb-JG-MhX"/>
@@ -1112,7 +1113,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cover" translatesAutoresizingMaskIntoConstraints="NO" id="TEY-zX-33B">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K6S-46-8tr">
                                 <rect key="frame" x="0.0" y="64" width="414" height="102.66666666666666"/>
@@ -1138,6 +1139,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="512.33333333333337"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="USz-UO-DVR" firstAttribute="centerX" secondItem="1Bu-jf-BXa" secondAttribute="centerX" id="1LJ-XP-f29"/>
                                     <constraint firstAttribute="bottom" secondItem="USz-UO-DVR" secondAttribute="bottom" id="9Ir-xB-yZD"/>
@@ -1503,7 +1505,7 @@
         <image name="carLot_logo" width="100" height="100"/>
         <image name="charge_logo" width="81" height="46"/>
         <image name="find_my_car" width="500" height="500"/>
-        <image name="floorPlan" width="312" height="401"/>
+        <image name="floorPlan" width="600" height="800"/>
         <image name="get_car_lot" width="500" height="500"/>
         <image name="propic" width="236" height="268"/>
         <image name="timer_logo" width="68" height="81"/>
