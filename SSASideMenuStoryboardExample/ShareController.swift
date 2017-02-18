@@ -17,37 +17,32 @@ enum SelectedStyle {
 
 class ShareController: DayViewController {
     
-    var data = [["Breakfast at Tiffany's",
-                 "New York, 5th avenue"],
+    var data = [["Reserved",
+                 "HKUST"],
                 
-                ["Workout",
-                 "Tufteparken"],
+                ["Reserved",
+                 "HKUST"],
                 
-                ["Meeting with Alex",
-                 "Home",
-                 "Oslo, Tjuvholmen"],
+                ["Reserved",
+                 "HKUST"],
                 
-                ["Beach Volleyball",
-                 "Ipanema Beach",
-                 "Rio De Janeiro"],
+                ["Reserved",
+                 "HKUST"],
                 
-                ["WWDC",
-                 "Moscone West Convention Center",
-                 "747 Howard St"],
+                ["Free",
+                 "HKUST"],
                 
-                ["Google I/O",
-                 "Shoreline Amphitheatre",
-                 "One Amphitheatre Parkway"],
+                ["Free",
+                 "HKUST"],
                 
-                ["✈️️ to Svalbard ❄️️❄️️❄️️❤️️",
-                 "Oslo Gardermoen"],
+                ["Free",
+                 "HKUST"],
                 
-                ["💻📲 Developing CalendarKit",
-                 "🌍 Worldwide"],
+                ["Rent Out",
+                 "HKUST"],
                 
-                ["Software Development Lecture",
-                 "Mikpoli MB310",
-                 "Craig Federighi"],
+                ["Rent Out",
+                 "HKUST"],
                 
                 ]
     
