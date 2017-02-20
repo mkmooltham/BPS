@@ -1,5 +1,5 @@
 PODS:
-  - CalendarKit (0.1.3):
+  - CalendarKit (0.1.5):
     - DateToolsSwift
     - DynamicColor
     - Neon
@@ -11,7 +11,7 @@ DEPENDENCIES:
   - CalendarKit
 
 SPEC CHECKSUMS:
-  CalendarKit: 8087bacfccc5295910d397e49a6c1d53548daee5
+  CalendarKit: 98d431ff54647094db5abae7ec3810667cd02a75
   DateToolsSwift: 27336736d877c8734159da1f37afbda2aa704649
   DynamicColor: 4786d650c69da6c3f2cbfe068348288ec4e5521f
   Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
