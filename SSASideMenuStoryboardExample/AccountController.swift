@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class AccountController: UIViewController {
     
@@ -14,11 +15,6 @@ class AccountController: UIViewController {
     weak var currentViewController: UIViewController?
     @IBOutlet weak var switchButton: UIButton!
     
-    @IBAction func loginButton(_ sender: Any) {
-        signIned = true
-        let controller1 = storyboard?.instantiateViewController(withIdentifier: "Profile")
-        sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
-    }
     
     @IBAction func switchButton(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -64,6 +60,13 @@ class AccountController: UIViewController {
         
         //Tap
         self.hideKeyboardWhenTappedAround()
+        
+        // Check if the user has logined, if true, direct to profile page
+        if PFUser.current() != nil {
+            signIned = true
+            let controller1 = storyboard?.instantiateViewController(withIdentifier: "Profile")
+            sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
+        }
     }
     
     
