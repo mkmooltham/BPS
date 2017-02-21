@@ -16,11 +16,7 @@ class SignInController: UIViewController {
     @IBOutlet weak var createLoginPassward: UITextField!
     @IBOutlet weak var confirmPassward: UITextField!
     @IBOutlet weak var createAccountButton: UIButton!
-    @IBAction func createAccountButton(_ sender: Any) {
-        signIned = true
-        let controller1 = storyboard?.instantiateViewController(withIdentifier: "Profile")
-        sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +91,9 @@ class SignInController: UIViewController {
                 print("success login \(success)")
                 
                 // TODO: redirect to somewhere else
+                signIned = true
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
+                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
                 
             }
         }
