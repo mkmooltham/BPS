@@ -15,12 +15,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var loginPassward: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBAction func loginButton(_ sender: Any) {
-        signIned = true
-        let controller1 = storyboard?.instantiateViewController(withIdentifier: "Profile")
-        sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +51,7 @@ class LoginController: UIViewController {
     }
     
     @IBAction func signinButtonClicked(_ sender: UIButton) {
-        print("Signin button is clicked")
+        print("Login button is clicked")
         
         // input validation
         guard let username = loginName.text, !username.isEmpty else {
@@ -83,7 +78,13 @@ class LoginController: UIViewController {
             print("Login success \(user)")
             
             // TODO: redirect to somewhere
+            signIned = true
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
+            self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+            
         }
+        
+
         
     }
 }
