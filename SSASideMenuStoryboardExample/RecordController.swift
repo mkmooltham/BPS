@@ -36,9 +36,9 @@ class RecordController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         let navbarFont = UIFont(name: "Ubuntu", size: titleSize) ?? UIFont.systemFont(ofSize: titleSize)
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navbarFont, NSForegroundColorAttributeName:UIColor.lightText]
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(SSASideMenu.presentLeftMenuViewController))
-        rightSwipe.direction = .right
-        view.addGestureRecognizer(rightSwipe)
+//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(SSASideMenu.presentLeftMenuViewController))
+//        rightSwipe.direction = .right
+//        view.addGestureRecognizer(rightSwipe)
         
         // Make sure the user is logined, otherwise redirect to the login page
         guard PFUser.current() != nil else {

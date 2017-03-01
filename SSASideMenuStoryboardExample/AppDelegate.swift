@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //Set status bar color to light
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         // add beaconManger delegate
         self.beaconManager.delegate = self
         

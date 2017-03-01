@@ -157,15 +157,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dml-65-6Ky">
-                                            <rect key="frame" x="0.0" y="64" width="696" height="156"/>
+                                            <rect key="frame" x="0.0" y="64" width="374" height="156"/>
                                             <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4f7-o5-Hi9" userLabel="Cell Title Color">
-                                            <rect key="frame" x="0.0" y="24.999999999999996" width="696" height="38.666666666666657"/>
+                                            <rect key="frame" x="0.0" y="24.999999999999996" width="374" height="38.666666666666657"/>
                                             <color key="backgroundColor" red="0.0" green="0.62745098040000002" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf1-78-Xlf">
-                                            <rect key="frame" x="35" y="33.666666666666657" width="627" height="20.333333333333336"/>
+                                            <rect key="frame" x="19" y="33.666666666666657" width="337" height="20.333333333333336"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sML-r3-YeM">
-                                            <rect key="frame" x="158.66666666666669" y="83.666666666666686" width="218.00000000000006" height="44.333333333333314"/>
+                                            <rect key="frame" x="158.66666666666666" y="83.666666666666686" width="57" height="44.333333333333314"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -202,31 +202,31 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charge" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rx0-yT-f29">
-                                            <rect key="frame" x="158.66666666666669" y="158" width="218.00000000000006" height="44"/>
+                                            <rect key="frame" x="158.66666666666666" y="158" width="57" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InTime_logo" translatesAutoresizingMaskIntoConstraints="NO" id="uUn-Jo-w8U">
-                                            <rect key="frame" x="396.66666666666669" y="83.666666666666686" width="49" height="49.333333333333314"/>
+                                            <rect key="frame" x="235.66666666666669" y="83.666666666666686" width="49.000000000000057" height="49.333333333333314"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="uUn-Jo-w8U" secondAttribute="height" multiplier="1:1" id="5sK-6m-oDh"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In time" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhW-7N-NY3">
-                                            <rect key="frame" x="455.66666666666674" y="83.666666666666686" width="217.33333333333326" height="49.333333333333314"/>
+                                            <rect key="frame" x="294.66666666666674" y="83.666666666666686" width="56.333333333333314" height="49.333333333333314"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OutTime_logo" translatesAutoresizingMaskIntoConstraints="NO" id="nR3-kj-6Ba">
-                                            <rect key="frame" x="396.66666666666669" y="153" width="49" height="49"/>
+                                            <rect key="frame" x="235.66666666666669" y="153" width="49.000000000000057" height="49"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="nR3-kj-6Ba" secondAttribute="height" multiplier="1:1" id="Q14-lN-zOo"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outtime" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAC-Uh-eB6">
-                                            <rect key="frame" x="455.66666666666674" y="153" width="217.33333333333326" height="49"/>
+                                            <rect key="frame" x="294.66666666666674" y="153" width="56.333333333333314" height="49"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -371,7 +371,7 @@
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Akb-Xu-48r">
-                                <rect key="frame" x="0.0" y="64" width="414" height="102.66666666666666"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="102.33333333333334"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="165" id="t35-qO-riu"/>
@@ -388,10 +388,10 @@
                                 </variation>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="C5G-IX-K0t">
-                                <rect key="frame" x="0.0" y="166.66666666666669" width="414" height="512.33333333333326"/>
+                                <rect key="frame" x="0.0" y="166.33333333333331" width="414" height="512.66666666666674"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="floorPlan" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-JF-8H1">
-                                        <rect key="frame" x="0.0" y="0.0" width="413.33333333333331" height="512.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="413.33333333333331" height="512.66666666666663"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -563,7 +563,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojs-PZ-GWy">
-                                <rect key="frame" x="20.333333333333371" y="549.33333333333348" width="165.66666666666669" height="165.66666666666663"/>
+                                <rect key="frame" x="20.333333333333329" y="549.33333333333348" width="165.66666666666669" height="165.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ojs-PZ-GWy" secondAttribute="height" multiplier="1:1" id="nvF-0V-CD9"/>
                                 </constraints>
@@ -601,13 +601,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Park" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVp-2B-i3I">
-                                        <rect key="frame" x="0.0" y="16.333333333333329" width="374" height="28.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="44" width="374" height="28.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HKUST North Gate Car Park" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZI-e5-Yj2">
-                                        <rect key="frame" x="18.666666666666657" y="60" width="336.66666666666663" height="111.33333333333334"/>
+                                        <rect key="frame" x="18.666666666666657" y="87.666666666666657" width="336.66666666666663" height="83.666666666666686"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="7KD-Kl-yVx"/>
                                         </constraints>
@@ -689,7 +689,7 @@
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qtv-yj-e7I" firstAttribute="width" secondItem="qtv-yj-e7I" secondAttribute="height" multiplier="1:1" id="0zu-Kp-uCf"/>
                             <constraint firstItem="4j5-Yr-1ZT" firstAttribute="leading" secondItem="WIV-N5-8Jo" secondAttribute="leading" id="1Ok-GE-gpa"/>
@@ -801,6 +801,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_View" translatesAutoresizingMaskIntoConstraints="NO" id="SZk-lC-HZM">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5P9-HS-zLS">
                                 <rect key="frame" x="0.0" y="368" width="414" height="368"/>
@@ -851,10 +852,10 @@
                                 <exclude reference="KbC-Wx-ny4"/>
                                 <exclude reference="WxG-Bk-Qzo"/>
                                 <exclude reference="djZ-M8-S1j"/>
-                                <exclude reference="6Sx-eV-4nf"/>
-                                <exclude reference="G4q-7U-DKv"/>
                                 <exclude reference="cWq-Zb-Scn"/>
                                 <exclude reference="rKj-cw-vlc"/>
+                                <exclude reference="6Sx-eV-4nf"/>
+                                <exclude reference="G4q-7U-DKv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -865,14 +866,14 @@
                                 <exclude reference="aXW-HY-nAC"/>
                                 <include reference="djZ-M8-S1j"/>
                                 <exclude reference="fZ8-u0-hSB"/>
-                                <include reference="6Sx-eV-4nf"/>
-                                <include reference="G4q-7U-DKv"/>
-                                <exclude reference="VB7-wN-V2z"/>
-                                <exclude reference="fzx-TW-ll4"/>
                                 <exclude reference="1kB-4C-S7Z"/>
                                 <exclude reference="6vM-bI-xqr"/>
                                 <include reference="cWq-Zb-Scn"/>
                                 <include reference="rKj-cw-vlc"/>
+                                <include reference="6Sx-eV-4nf"/>
+                                <include reference="G4q-7U-DKv"/>
+                                <exclude reference="VB7-wN-V2z"/>
+                                <exclude reference="fzx-TW-ll4"/>
                             </mask>
                         </variation>
                     </view>
@@ -1114,7 +1115,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K6S-46-8tr">
-                                <rect key="frame" x="0.0" y="64" width="414" height="102.66666666666666"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="102.33333333333334"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="165" id="gtK-5S-V1L"/>
@@ -1131,10 +1132,10 @@
                                 </variation>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Bu-jf-BXa">
-                                <rect key="frame" x="0.0" y="166.66666666666669" width="414" height="512.33333333333326"/>
+                                <rect key="frame" x="0.0" y="166.33333333333331" width="414" height="512.66666666666674"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="floorPlan" translatesAutoresizingMaskIntoConstraints="NO" id="USz-UO-DVR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="512.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="512.66666666666663"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>

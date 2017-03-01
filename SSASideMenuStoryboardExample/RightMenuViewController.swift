@@ -65,7 +65,7 @@ extension RightMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
         
-        let titles: [String] = ["Home", "Calendar"]
+        let titles: [String] = ["",""]
 
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 21)

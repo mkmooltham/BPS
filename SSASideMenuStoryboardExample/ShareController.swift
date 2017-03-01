@@ -63,20 +63,16 @@ class ShareController: DayViewController {
         var style: CalendarStyle!
         style = StyleGenerator.darkStyle()
         updateStyle(style)        
-        
+
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)
         menuButton.frame = CGRect(x: 0, y: 0, width: barButtonSize, height: barButtonSize)
         menuButton.addTarget(self, action: #selector(SSASideMenu.presentLeftMenuViewController), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(color: hexColor(hex: "000e29")), for: .default)
         navigationController?.navigationBar.isTranslucent = true
         let navbarFont = UIFont(name: "Ubuntu", size: titleSize) ?? UIFont.systemFont(ofSize: titleSize)
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navbarFont, NSForegroundColorAttributeName:UIColor.lightText]
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(SSASideMenu.presentLeftMenuViewController))
-        rightSwipe.direction = .right
-        view.addGestureRecognizer(rightSwipe)
     }
  
     // MARK: DayViewDataSource
