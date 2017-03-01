@@ -14,6 +14,13 @@ let cellID = "cell"
 var titleColor: [String] = ["#0091EA","#FF3D00","#6200EA","#C51162"]
 var cellColor: [String] = ["#80D8FF","#FF9E80","#EA80FC","#FF80AB"]
 
+var parkTitle: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
+var carLotNum: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
+var parkTime: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
+var chargeFee: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
+var checkInTime: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
+var checkOutTime: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
+
 class RecordTableController: UITableViewController {
     var selectedIndexPath : IndexPath?
     
@@ -48,6 +55,19 @@ class RecordTableController: UITableViewController {
             }
             
             // TODO: map the records array to the table list view
+            var i=0
+            for record in records! {
+                if(i<15){
+                    parkTitle[i] = String(i)
+                    carLotNum[i] = String(i)
+                    parkTime[i] = String(i)
+                    chargeFee[i] = String(i)
+                    checkInTime[i] = String(i)
+                    checkOutTime[i] = String(i)
+                }
+                i = i+1
+            }
+            self.tableView.reloadData()
         }
     }
     
@@ -64,8 +84,13 @@ class RecordTableController: UITableViewController {
         
         let imageArray: [UIImageView] = [cell.cellBackground, cell.spaceLogo, cell.parkTimeLogo, cell.chargeLogo, cell.inTimeLogo, cell.outTimeLogo]
         let labelArray: [UILabel] = [cell.spaceText, cell.parkTimeText, cell.chargeText, cell.inTimeText, cell.outTimeText]
-        
-        cell.titleLabel.text = "Test Title"
+        //Content
+        cell.titleLabel.text = parkTitle[indexPath.row]
+        cell.spaceText.text = carLotNum[indexPath.row]
+        cell.parkTimeText.text = parkTime[indexPath.row]
+        cell.chargeText.text = chargeFee[indexPath.row]
+        cell.inTimeText.text = checkInTime[indexPath.row]
+        cell.outTimeText.text = checkOutTime[indexPath.row]
         //color
         cell.cellTitleBoard.backgroundColor = hexColor(hex: titleColor[indexPath.row % titleColor.count])
         cell.cellBackground.backgroundColor = hexColor(hex: cellColor[indexPath.row % cellColor.count])
