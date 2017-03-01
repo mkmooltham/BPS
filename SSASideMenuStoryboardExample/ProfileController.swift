@@ -15,6 +15,8 @@ class ProfileController: UIViewController {
     @IBOutlet weak var proPicIcon: UIImageView!
     @IBOutlet weak var proPicBorder: UIImageView!
     @IBOutlet weak var backgroundView: UIImageView!
+    @IBOutlet weak var labelUserName: UILabel!
+    @IBOutlet weak var labelUserEmail: UILabel!
 
     @IBOutlet weak var profileContainer: UIView!
     weak var currentViewController: UIViewController?
@@ -107,6 +109,14 @@ class ProfileController: UIViewController {
         
         //Rotation
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        
+        // Get user information and disaply in the labels
+        
+        labelUserName.text = PFUser.current()?.username
+        labelUserEmail.text = PFUser.current()?.email
+        // TODO: show license plate number
+        
     }
     
     override func didReceiveMemoryWarning() {

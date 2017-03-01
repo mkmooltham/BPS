@@ -10,6 +10,7 @@ import UIKit
 import Parse
 
 let cellID = "cell"
+var recordsArray: [PFObject]? = []
 
 var titleColor: [String] = ["#0091EA","#FF3D00","#6200EA","#C51162"]
 var cellColor: [String] = ["#80D8FF","#FF9E80","#EA80FC","#FF80AB"]

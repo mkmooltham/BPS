@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -960,6 +960,20 @@
                                     <action selector="logoutButton:" destination="Im7-Th-Dls" eventType="touchUpInside" id="vRy-BE-bje"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyx-8O-9Ax">
+                                <rect key="frame" x="186" y="410" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md4-yv-vPJ">
+                                <rect key="frame" x="186" y="439" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1085,9 +1099,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="ota-yg-kCc"/>
                     <connections>
-                        <outlet property="ProfileContainer" destination="Isd-5a-Led" id="9KF-ze-NyQ"/>
                         <outlet property="backgroundView" destination="hHz-Wg-dAq" id="G6r-4G-ged"/>
                         <outlet property="coverView" destination="vq1-Zk-QIW" id="QrJ-uF-vZ2"/>
+                        <outlet property="labelUserEmail" destination="md4-yv-vPJ" id="azy-Ce-eaz"/>
+                        <outlet property="labelUserName" destination="yyx-8O-9Ax" id="H4h-db-Gh1"/>
                         <outlet property="logoutButton" destination="hc1-Fr-rMU" id="Rqc-5D-Ygs"/>
                         <outlet property="proPicBorder" destination="6j5-et-mNP" id="OPG-dd-vMd"/>
                         <outlet property="proPicIcon" destination="4rE-rP-r9S" id="yTL-87-mwi"/>
@@ -1287,7 +1302,6 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButton:" destination="n8i-4t-Ydc" eventType="touchUpInside" id="4Go-VK-PCe"/>
                                     <action selector="loginButton:" destination="FLi-zL-CY4" eventType="touchUpInside" id="X6N-Aa-9SJ"/>
                                     <action selector="signinButtonClicked:" destination="n8i-4t-Ydc" eventType="touchUpInside" id="ma9-s2-BoD"/>
                                     <action selector="signupButtonClicked:" destination="5aq-HC-qYr" eventType="touchUpInside" id="DTP-Ni-SiP"/>
@@ -1421,8 +1435,6 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="createAccountButton:" destination="5aq-HC-qYr" eventType="touchUpInside" id="k65-K3-FKT"/>
-                                    <action selector="loginButton:" destination="FLi-zL-CY4" eventType="touchUpInside" id="deS-LP-kCx"/>
                                     <action selector="signupButtonClicked:" destination="5aq-HC-qYr" eventType="touchUpInside" id="cVn-Ru-S9y"/>
                                 </connections>
                             </button>
