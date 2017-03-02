@@ -10,17 +10,11 @@ import UIKit
 import Parse
 
 let cellID = "cell"
-var recordsArray: [PFObject]? = []
+var parkingRecords: [ParkingRecord] = []
 
 var titleColor: [String] = ["#0091EA","#FF3D00","#6200EA","#C51162"]
 var cellColor: [String] = ["#80D8FF","#FF9E80","#EA80FC","#FF80AB"]
 
-var parkTitle: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
-var carLotNum: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
-var parkTime: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
-var chargeFee: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
-var checkInTime: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
-var checkOutTime: [String] = ["1","2","3","1","2","3","1","2","3","1","2","3","1","2","3"]
 
 class RecordTableController: UITableViewController {
     var selectedIndexPath : IndexPath?
@@ -28,7 +22,7 @@ class RecordTableController: UITableViewController {
     override func viewDidLoad() {
         //Default expanded cell
         let indexPath = IndexPath(row: 0, section: 0)
-        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+//        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
         self.tableView.delegate?.tableView!(self.tableView, didSelectRowAt: indexPath)
         
         // Load parking records from the Server
@@ -53,21 +47,11 @@ class RecordTableController: UITableViewController {
             for record in records! {
                 let parkingSpace = record["parkingSpace"] as? PFObject
                 print("parkingSpace: \(parkingSpace?["parkingLotId"]) checkinTime: \(record["checkinTime"]) checkoutTime: \(record["checkoutTime"])")
+                
+                // map the records array to the ParkingRecord object array
+                parkingRecords.append(ParkingRecord(name: parkingSpace?["parkingLotId"] as? String, checkinTimeString: record["checkinTime"] as? Date, checkoutTimeString: record["checkoutTime"] as? Date))
             }
-            
-            // TODO: map the records array to the table list view
-            var i=0
-            for record in records! {
-                if(i<15){
-                    parkTitle[i] = String(i)
-                    carLotNum[i] = String(i)
-                    parkTime[i] = String(i)
-                    chargeFee[i] = String(i)
-                    checkInTime[i] = String(i)
-                    checkOutTime[i] = String(i)
-                }
-                i = i+1
-            }
+
             self.tableView.reloadData()
         }
     }
@@ -77,7 +61,7 @@ class RecordTableController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return parkingRecords.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,13 +69,15 @@ class RecordTableController: UITableViewController {
         
         let imageArray: [UIImageView] = [cell.cellBackground, cell.spaceLogo, cell.parkTimeLogo, cell.chargeLogo, cell.inTimeLogo, cell.outTimeLogo]
         let labelArray: [UILabel] = [cell.spaceText, cell.parkTimeText, cell.chargeText, cell.inTimeText, cell.outTimeText]
+        let selectedRow = indexPath.row
+        
         //Content
-        cell.titleLabel.text = parkTitle[indexPath.row]
-        cell.spaceText.text = carLotNum[indexPath.row]
-        cell.parkTimeText.text = parkTime[indexPath.row]
-        cell.chargeText.text = chargeFee[indexPath.row]
-        cell.inTimeText.text = checkInTime[indexPath.row]
-        cell.outTimeText.text = checkOutTime[indexPath.row]
+        cell.titleLabel.text = parkingRecords[selectedRow].dateString
+        cell.spaceText.text = parkingRecords[selectedRow].parkingSpaceName
+//        cell.parkTimeText.text = parkTime[indexPath.row]
+//        cell.chargeText.text = chargeFee[indexPath.row]
+        cell.inTimeText.text = parkingRecords[selectedRow].checkinTimeString
+        cell.outTimeText.text = parkingRecords[selectedRow].checkoutTimeString
         //color
         cell.cellTitleBoard.backgroundColor = hexColor(hex: titleColor[indexPath.row % titleColor.count])
         cell.cellBackground.backgroundColor = hexColor(hex: cellColor[indexPath.row % cellColor.count])
