@@ -14,6 +14,7 @@
 		B21DB0841E405D1600861070 /* Parse.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B21DB0801E403EAE00861070 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B21DB0851E405D1E00861070 /* Bolts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B21DB07E1E403EA600861070 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2336E871E3F150F00C5C670 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */; };
+		B23929DD1E67F44100C06C27 /* ParkingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23929DC1E67F44100C06C27 /* ParkingRecord.swift */; };
 		B25A67211E3C84E00085AE62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67201E3C84E00085AE62 /* CoreLocation.framework */; };
 		B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */; };
 		B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67241E3C85020085AE62 /* SystemConfiguration.framework */; };
@@ -76,6 +77,7 @@
 		B21DB0801E403EAE00861070 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
 		B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = EstimoteSDK/EstimoteSDK.framework; sourceTree = "<group>"; };
 		B2336E881E3F15BE00C5C670 /* SSASideMenuStoryboardExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SSASideMenuStoryboardExample.entitlements; sourceTree = "<group>"; };
+		B23929DC1E67F44100C06C27 /* ParkingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRecord.swift; sourceTree = "<group>"; };
 		B25A67201E3C84E00085AE62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B25A67241E3C85020085AE62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -194,6 +196,7 @@
 				DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */,
 				BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */,
 				BB75BBA51E2F743B0064F6BC /* FindCarController.swift */,
+				B23929DC1E67F44100C06C27 /* ParkingRecord.swift */,
 				DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */,
 				BBFD9EF01E2607180053AC4B /* RecordController.swift */,
 				BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */,
@@ -465,6 +468,7 @@
 				DC00C78E1ACC661F00BB4A99 /* HomeViewController.swift in Sources */,
 				BBD566731E2E19F300CFD32A /* ProfileController.swift in Sources */,
 				BBFA06851E431C91005BD5B1 /* DashboardController.swift in Sources */,
+				B23929DD1E67F44100C06C27 /* ParkingRecord.swift in Sources */,
 				BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */,
 				BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */,
 				BB75BBA61E2F743B0064F6BC /* FindCarController.swift in Sources */,
