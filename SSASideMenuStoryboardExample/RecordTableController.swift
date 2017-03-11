@@ -68,14 +68,14 @@ class RecordTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! RecordTableViewCell
         
         let imageArray: [UIImageView] = [cell.cellBackground, cell.spaceLogo, cell.parkTimeLogo, cell.chargeLogo, cell.inTimeLogo, cell.outTimeLogo]
-        let labelArray: [UILabel] = [cell.spaceText, cell.parkTimeText, cell.chargeText, cell.inTimeText, cell.outTimeText]
+        let labelArray: [UILabel] = [cell.titleLabel, cell.spaceText, cell.parkTimeText, cell.chargeText, cell.inTimeText, cell.outTimeText]
         let selectedRow = indexPath.row
         
         //Content
         cell.titleLabel.text = parkingRecords[selectedRow].dateString
         cell.spaceText.text = parkingRecords[selectedRow].parkingSpaceName
-//        cell.parkTimeText.text = parkTime[indexPath.row]
-//        cell.chargeText.text = chargeFee[indexPath.row]
+        cell.parkTimeText.text = "1 hr"
+        cell.chargeText.text = "$30"
         cell.inTimeText.text = parkingRecords[selectedRow].checkinTimeString
         cell.outTimeText.text = parkingRecords[selectedRow].checkoutTimeString
         //color
@@ -91,15 +91,15 @@ class RecordTableController: UITableViewController {
         cell.cellTitleBoard.layer.shadowRadius = 10
         for image in imageArray{
             image.layer.shadowColor = UIColor.black.cgColor
-            image.layer.shadowOpacity = 0.5
-            image.layer.shadowOffset = CGSize(width: 0, height: 0)
-            image.layer.shadowRadius = 5
+            image.layer.shadowOpacity = 0.8
+            image.layer.shadowOffset = CGSize(width: -0.4, height: 0.7)
+            image.layer.shadowRadius = 1
         }
         for text in labelArray{
             text.layer.shadowColor = UIColor.black.cgColor
-            text.layer.shadowOpacity = 1
-            text.layer.shadowOffset = CGSize(width: 0, height: 0)
-            text.layer.shadowRadius = 5
+            text.layer.shadowOpacity = 0.8
+            text.layer.shadowOffset = CGSize(width: -0.4, height: 0.7)
+            text.layer.shadowRadius = 1
         }
         
         //Data
