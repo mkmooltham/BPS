@@ -138,7 +138,11 @@ class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        parkTimeText.text = String(pickerData[row])+" HOURS"
+        if(pickerData[row]==1){
+            parkTimeText.text = String(pickerData[row])+" HOUR"
+        }else{
+            parkTimeText.text = String(pickerData[row])+" HOURS"
+        }
         self.hideKeyboardWhenTappedAround()
     }
     
