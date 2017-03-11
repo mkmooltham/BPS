@@ -14,12 +14,14 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapImage: UIImageView!
     @IBOutlet weak var infoBoardView: UIImageView!
+    @IBOutlet weak var carLotNum: UILabel!
+    @IBOutlet weak var carLotTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Title
-        title = "Park Space"
+        title = "Park My Car"
         
         //Config
         //round corner
@@ -30,6 +32,14 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
         arrivedButton.layer.shadowOpacity = 1
         arrivedButton.layer.shadowOffset = CGSize(width: 1, height: -1)
         arrivedButton.layer.shadowRadius = 10
+        carLotNum.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        carLotNum.layer.shadowOpacity = 0.8
+        carLotNum.layer.shadowOffset = CGSize(width: 1, height: -1)
+        carLotNum.layer.shadowRadius = 5
+        carLotTitle.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        carLotTitle.layer.shadowOpacity = 0.8
+        carLotTitle.layer.shadowOffset = CGSize(width: 1, height: -1)
+        carLotTitle.layer.shadowRadius = 5
         
         //Naivgation Bar
         self.navigationItem.hidesBackButton = true
@@ -68,9 +78,9 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
         let widthScale = scrollViewSize.width / (imageViewSize.width)
         let heightScale = scrollViewSize.height / (imageViewSize.height)
         
-        scrollView.zoomScale = min(widthScale, heightScale)
-        scrollView.minimumZoomScale = min(widthScale, heightScale)
-        scrollView.maximumZoomScale = 2.0
+        scrollView.zoomScale = min(widthScale, heightScale)*1.5
+        scrollView.minimumZoomScale = scrollView.zoomScale
+        scrollView.maximumZoomScale = scrollView.zoomScale+2
     }
     
     override func viewWillLayoutSubviews() {

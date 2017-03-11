@@ -9,16 +9,39 @@
 import UIKit
 import Parse
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate{
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var findCarLogo: UIImageView!
     @IBOutlet weak var parkSpaceLogo: UIImageView!
     @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var labelNumAvailable: UILabel!
     @IBOutlet weak var infoBoardBackground: UIImageView!
+    @IBOutlet weak var parkModeText: UILabel!
+    @IBOutlet weak var switchControl: UISwitch!
+    @IBOutlet weak var parkTimeText: UITextField!
+    
+    var pickerData = Array(1...24)
+    var picker = UIPickerView()
+    
+    //switch Park Mode
+    @IBAction func changeParkMode(_ sender: UISwitch) {
+        if switchControl.isOn == true{
+            parkModeText.text="Busy Mode"
+            parkTimeText.isHidden = false
+            parkTimeText.inputView = picker
+        } else{
+            parkModeText.text="Fast Mode"
+            parkTimeText.isHidden = true
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //picker
+        picker.delegate = self
+        picker.dataSource = self
         
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)
@@ -58,6 +81,11 @@ class HomeViewController: UIViewController {
         self.labelNumAvailable.layer.shadowOpacity = 0.5
         self.labelNumAvailable.layer.shadowOffset = CGSize(width: 1, height: -1)
         self.labelNumAvailable.layer.shadowRadius = 5
+        
+        self.parkModeText.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        self.parkModeText.layer.shadowOpacity = 0.8
+        self.parkModeText.layer.shadowOffset = CGSize(width: 1, height: -1)
+        self.parkModeText.layer.shadowRadius = 5
 
         //round corner
         infoBoardBackground.layer.cornerRadius = 10
@@ -98,7 +126,25 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    //Picker View Table
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
+        return 1
+    }
+    
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        parkTimeText.text = String(pickerData[row])+" HOURS"
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(pickerData[row])
+    }
+    
 }
 
