@@ -18,8 +18,7 @@ class ProfileController: UIViewController {
     @IBOutlet weak var labelUserName: UILabel!
     @IBOutlet weak var labelUserEmail: UILabel!
 
-    @IBOutlet weak var profileContainer: UIView!
-    weak var currentViewController: UIViewController?
+
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func logoutButton(_ sender: Any) {
@@ -35,20 +34,6 @@ class ProfileController: UIViewController {
         signIned = false
         let controller1 = storyboard?.instantiateViewController(withIdentifier: "Account")
         sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
-    }
-    
-    @IBAction func swapViewButton(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "dashboardView")
-            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
-            self.currentViewController = newViewController
-        } else {
-            let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "dashboardView")
-            newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-            self.cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
-            self.currentViewController = newViewController
-        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -96,14 +81,6 @@ class ProfileController: UIViewController {
         rightSwipe.direction = .right
         view.addGestureRecognizer(rightSwipe)
         
-        //Container
-        self.currentViewController = self.storyboard?.instantiateViewController(withIdentifier: "dashboardView")
-        self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.addChildViewController(self.currentViewController!)
-        self.profileContainer.addSubview(currentViewController!.view)
-        addSubview(subView: self.currentViewController!.view, toView: self.profileContainer)
-        super.viewDidLoad()
-        
         //Tap
         self.hideKeyboardWhenTappedAround()
         
@@ -149,24 +126,6 @@ class ProfileController: UIViewController {
         parentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|",
                                                                                  options: [], metrics: nil, views: viewBindingsDict))
     }
-    
-    func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
-        oldViewController.willMove(toParentViewController: nil)
-        self.addChildViewController(newViewController)
-        self.addSubview(subView: newViewController.view, toView:self.profileContainer!)
-        newViewController.view.alpha = 0
-       // newViewController.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5, animations: {
-            newViewController.view.alpha = 1
-            oldViewController.view.alpha = 0
-        },
-                                   completion: { finished in
-                                    oldViewController.view.removeFromSuperview()
-                                    oldViewController.removeFromParentViewController()
-                                    newViewController.didMove(toParentViewController: self)
-        })
-    }
-    
 
 }
 
