@@ -13,11 +13,12 @@ class ProfileController: UIViewController {
     
     @IBOutlet weak var coverView: UIImageView!
     @IBOutlet weak var proPicIcon: UIImageView!
-    @IBOutlet weak var proPicBorder: UIImageView!
     @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var labelUserName: UILabel!
     @IBOutlet weak var labelUserEmail: UILabel!
-
+    @IBOutlet weak var spaceBoard: UIImageView!
+    @IBOutlet weak var timerBoard: UIImageView!
+    @IBOutlet weak var inTimeBoard: UIImageView!
 
     
     @IBOutlet weak var logoutButton: UIButton!
@@ -60,12 +61,11 @@ class ProfileController: UIViewController {
         proPicIcon.layer.borderColor =  UIColor.gray.cgColor
         proPicIcon.layer.masksToBounds = true
         //round corner
-        logoutButton.layer.cornerRadius = 10
+        spaceBoard.layer.cornerRadius = 10
+        timerBoard.layer.cornerRadius = 10
+        inTimeBoard.layer.cornerRadius = 10
         //shadow
-        logoutButton.layer.shadowColor = UIColor.black.cgColor
-        logoutButton.layer.shadowOpacity = 0.2
-        logoutButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        logoutButton.layer.shadowRadius = 10
+ 
         
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)
@@ -111,8 +111,6 @@ class ProfileController: UIViewController {
     //circle
         proPicIcon.layer.cornerRadius = proPicIcon.frame.size.width/2
         proPicIcon.clipsToBounds = true
-        proPicBorder.layer.cornerRadius = proPicBorder.frame.size.width/2
-        proPicBorder.clipsToBounds = true
         coverView.addBlurEffect()
     }
     
