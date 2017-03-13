@@ -74,7 +74,10 @@ class ProfileController: UIViewController {
         totalParkTimeText.layer.shadowOpacity = 1
         totalParkTimeText.layer.shadowOffset = CGSize(width: 1, height: -1)
         totalParkTimeText.layer.shadowRadius = 7
- 
+        logoutButton.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        logoutButton.layer.shadowOpacity = 1
+        logoutButton.layer.shadowOffset = CGSize(width: 1, height: -1)
+        logoutButton.layer.shadowRadius = 7
         
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)

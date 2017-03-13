@@ -67,7 +67,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
    
         let titles: [String] = ["Home", "Park Record", "Park Share", "Profile"]
         
-        let images: [String] = ["IconHome", "IconCalendar", "IconSettings", "IconProfile"]
+        let images: [String] = ["IconHome", "IconCalendar", "IconShare", "IconProfile"]
         
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 21)

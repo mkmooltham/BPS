@@ -20,9 +20,9 @@ class ShareController: UIViewController {
         //Config
         addEventButton.layer.cornerRadius = addEventButton.frame.height/2
         addEventButton.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
-        addEventButton.layer.shadowOpacity = 0.7
+        addEventButton.layer.shadowOpacity = 0.6
         addEventButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        addEventButton.layer.shadowRadius = 10
+        addEventButton.layer.shadowRadius = 8
         
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)
