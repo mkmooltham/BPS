@@ -54,7 +54,7 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,9 +65,9 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
    
-        let titles: [String] = ["Home", "Park Status", "Record", "Share", "Account"]
+        let titles: [String] = ["Home", "Park Record", "Park Share", "Profile"]
         
-        let images: [String] = ["IconHome", "IconEmpty", "IconCalendar", "IconSettings", "IconProfile"]
+        let images: [String] = ["IconHome", "IconCalendar", "IconSettings", "IconProfile"]
         
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 21)
@@ -92,20 +92,16 @@ extension LeftMenuViewController: UITableViewDelegate, UITableViewDataSource {
             sideMenuViewController?.hideMenuViewController()
             break
         case 1:
-            sideMenuViewController?.contentViewController = UINavigationController(rootViewController: ParkInfoViewController())
-            sideMenuViewController?.hideMenuViewController()
-            break
-        case 2:
             let storyboard = self.storyboard
             let controller2 = storyboard?.instantiateViewController(withIdentifier: "Record")
             sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller2!)
             sideMenuViewController?.hideMenuViewController()
-        case 3:
+        case 2:
             let storyboard = self.storyboard
-            let controller1 = storyboard?.instantiateViewController(withIdentifier: "ParkInfo")
+            let controller1 = storyboard?.instantiateViewController(withIdentifier: "Share")
             sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller1!)
             sideMenuViewController?.hideMenuViewController()
-        case 4:
+        case 3:
             let storyboard = self.storyboard
             if signIned == false{
                 let controller1 = storyboard?.instantiateViewController(withIdentifier: "Account")

@@ -19,7 +19,8 @@ class ProfileController: UIViewController {
     @IBOutlet weak var spaceBoard: UIImageView!
     @IBOutlet weak var timerBoard: UIImageView!
     @IBOutlet weak var inTimeBoard: UIImageView!
-
+    @IBOutlet weak var averageHourText: UILabel!
+    @IBOutlet weak var totalParkTimeText: UILabel!
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func logoutButton(_ sender: Any) {
@@ -64,7 +65,15 @@ class ProfileController: UIViewController {
         spaceBoard.layer.cornerRadius = 10
         timerBoard.layer.cornerRadius = 10
         inTimeBoard.layer.cornerRadius = 10
-        //shadow
+        //Fluorescent
+        averageHourText.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        averageHourText.layer.shadowOpacity = 1
+        averageHourText.layer.shadowOffset = CGSize(width: 1, height: -1)
+        averageHourText.layer.shadowRadius = 7
+        totalParkTimeText.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
+        totalParkTimeText.layer.shadowOpacity = 1
+        totalParkTimeText.layer.shadowOffset = CGSize(width: 1, height: -1)
+        totalParkTimeText.layer.shadowRadius = 7
  
         
         //Navigation bar

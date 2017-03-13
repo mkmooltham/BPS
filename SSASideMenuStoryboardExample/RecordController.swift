@@ -15,11 +15,6 @@ class RecordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Background
-        //let imageView = UIImageView(frame: self.view.bounds)
-        //imageView.image = UIImage(named: "Background_View.png")
-        //self.view.addSubview(imageView)
-        
         //Title
         title = "Record"
         

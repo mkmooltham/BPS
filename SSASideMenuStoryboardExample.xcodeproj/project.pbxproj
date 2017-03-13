@@ -19,10 +19,11 @@
 		B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */; };
 		B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67241E3C85020085AE62 /* SystemConfiguration.framework */; };
 		BB1067FB1DF0163F00BE6543 /* ParkInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */; };
+		BB1C90101E765B180016FFCB /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C900F1E765B180016FFCB /* ShareController.swift */; };
 		BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */; };
 		BB75BBA61E2F743B0064F6BC /* FindCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB75BBA51E2F743B0064F6BC /* FindCarController.swift */; };
 		BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE24B81E28CF0700F7E89B /* publicFunction.swift */; };
-		BBC272E51E23957100235AE3 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC272E41E23957100235AE3 /* ShareController.swift */; };
+		BBC272E51E23957100235AE3 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC272E41E23957100235AE3 /* CalendarController.swift */; };
 		BBC4108A1E41B49700700E7B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC410891E41B49700700E7B /* LoginController.swift */; };
 		BBC4108C1E41BFCB00700E7B /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4108B1E41BFCB00700E7B /* SignInController.swift */; };
 		BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4108D1E41CF0100700E7B /* AccountController.swift */; };
@@ -81,10 +82,11 @@
 		B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B25A67241E3C85020085AE62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B25A672C1E3C9EDD0085AE62 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		BB1C900F1E765B180016FFCB /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkSpaceController.swift; sourceTree = "<group>"; };
 		BB75BBA51E2F743B0064F6BC /* FindCarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindCarController.swift; path = ../FindCarController.swift; sourceTree = "<group>"; };
 		BBAE24B81E28CF0700F7E89B /* publicFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = publicFunction.swift; sourceTree = "<group>"; };
-		BBC272E41E23957100235AE3 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
+		BBC272E41E23957100235AE3 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		BBC410891E41B49700700E7B /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		BBC4108B1E41BFCB00700E7B /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		BBC4108D1E41CF0100700E7B /* AccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
@@ -200,8 +202,9 @@
 				BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */,
 				BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */,
 				BBC4108D1E41CF0100700E7B /* AccountController.swift */,
+				BB1C900F1E765B180016FFCB /* ShareController.swift */,
+				BBC272E41E23957100235AE3 /* CalendarController.swift */,
 				BBD566721E2E19F300CFD32A /* ProfileController.swift */,
-				BBC272E41E23957100235AE3 /* ShareController.swift */,
 				BBFAC5631E542B3C00EED558 /* StyleGenerator.swift */,
 				BBC4108B1E41BFCB00700E7B /* SignInController.swift */,
 				BBC410891E41B49700700E7B /* LoginController.swift */,
@@ -463,6 +466,7 @@
 				BBFD9EC91E25E1990053AC4B /* RecordTableController.swift in Sources */,
 				DC00C7691ACC65CD00BB4A99 /* AppDelegate.swift in Sources */,
 				DC00C78E1ACC661F00BB4A99 /* HomeViewController.swift in Sources */,
+				BB1C90101E765B180016FFCB /* ShareController.swift in Sources */,
 				BBD566731E2E19F300CFD32A /* ProfileController.swift in Sources */,
 				B23929DD1E67F44100C06C27 /* ParkingRecord.swift in Sources */,
 				BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */,
@@ -471,7 +475,7 @@
 				BBC4108A1E41B49700700E7B /* LoginController.swift in Sources */,
 				BBFAC5641E542B3C00EED558 /* StyleGenerator.swift in Sources */,
 				BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */,
-				BBC272E51E23957100235AE3 /* ShareController.swift in Sources */,
+				BBC272E51E23957100235AE3 /* CalendarController.swift in Sources */,
 				DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */,
 				DC00C7901ACC661F00BB4A99 /* RightMenuViewController.swift in Sources */,
 				BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */,
