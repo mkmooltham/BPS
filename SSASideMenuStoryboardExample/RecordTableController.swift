@@ -35,6 +35,7 @@ class RecordTableController: UITableViewController {
         let query = PFQuery(className: "ParkingRecord")
         query.whereKey("user", equalTo: currentUser)
         query.includeKey("parkingSpace")
+        query.order(byDescending: "checkinTime")
         query.findObjectsInBackground { (records: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error)
