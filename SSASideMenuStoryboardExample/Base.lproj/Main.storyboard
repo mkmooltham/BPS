@@ -1594,13 +1594,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIE-lO-EDK">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <connections>
-                                    <segue destination="4Lp-wa-7bg" kind="embed" id="D9u-TN-aKI"/>
+                                    <segue destination="4Lp-wa-7bg" kind="embed" identifier="calendarSegue" id="D9u-TN-aKI"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEW-6s-bbO">
-                                <rect key="frame" x="334" y="170" width="50" height="50"/>
+                                <rect key="frame" x="324" y="626" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="O5e-Dm-hMj"/>
+                                    <constraint firstAttribute="width" constant="60" id="O5e-Dm-hMj"/>
                                 </constraints>
                                 <state key="normal" image="addEvent">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1614,8 +1614,8 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="mEW-6s-bbO" secondAttribute="trailing" constant="10" id="24z-cv-i1O"/>
                             <constraint firstItem="nIE-lO-EDK" firstAttribute="leading" secondItem="SIL-ej-08J" secondAttribute="leading" id="5d0-Qn-UMn"/>
-                            <constraint firstItem="mEW-6s-bbO" firstAttribute="top" secondItem="SIL-ej-08J" secondAttribute="topMargin" constant="170" id="Bju-0W-Bb1"/>
                             <constraint firstItem="nIE-lO-EDK" firstAttribute="top" secondItem="kLV-U1-oCr" secondAttribute="bottom" id="GGW-OA-xrJ"/>
+                            <constraint firstItem="v5C-E0-hgS" firstAttribute="top" secondItem="mEW-6s-bbO" secondAttribute="bottom" constant="50" id="Pnt-RY-Szr"/>
                             <constraint firstItem="mEW-6s-bbO" firstAttribute="width" secondItem="mEW-6s-bbO" secondAttribute="height" multiplier="1:1" id="V7E-F4-y0N"/>
                             <constraint firstItem="v5C-E0-hgS" firstAttribute="top" secondItem="nIE-lO-EDK" secondAttribute="bottom" id="gqE-cg-ReS"/>
                             <constraint firstAttribute="trailing" secondItem="nIE-lO-EDK" secondAttribute="trailing" id="q3u-t3-hbz"/>
@@ -1647,6 +1647,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pgh-nO-6QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2161" y="178"/>
+        </scene>
+        <!--Add Event Controller-->
+        <scene sceneID="MVy-Lf-yAu">
+            <objects>
+                <viewController storyboardIdentifier="popUpAddEvent" id="4CF-Bz-5Nk" customClass="AddEventController" customModule="SSASideMenuStoryboardExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rdS-G7-fIN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vad-bX-50d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5sg-49-VIR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-4s-eFn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FHW-fy-1Mk">
+                                <rect key="frame" x="21" y="184" width="372.33333333333331" height="515.33333333333337"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMH-MO-gkd">
+                                <rect key="frame" x="116" y="612" width="182" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closePopUp:" destination="4CF-Bz-5Nk" eventType="touchUpInside" id="Clx-lM-ota"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHP-39-CTl">
+                                <rect key="frame" x="-52" y="260" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aHN-4s-eFn" firstAttribute="centerY" secondItem="5sg-49-VIR" secondAttribute="centerY" id="5so-l4-U9M"/>
+                            <constraint firstItem="Vad-bX-50d" firstAttribute="top" secondItem="iMH-MO-gkd" secondAttribute="bottom" constant="76" id="A8v-gD-PFh"/>
+                            <constraint firstItem="aHN-4s-eFn" firstAttribute="centerX" secondItem="5sg-49-VIR" secondAttribute="centerX" id="Inf-TT-IlL"/>
+                            <constraint firstItem="aHN-4s-eFn" firstAttribute="width" secondItem="5sg-49-VIR" secondAttribute="width" id="VMj-W9-IgS"/>
+                            <constraint firstItem="FHW-fy-1Mk" firstAttribute="centerY" secondItem="5sg-49-VIR" secondAttribute="centerY" multiplier="1.2" id="eOn-1l-R0a"/>
+                            <constraint firstItem="aHN-4s-eFn" firstAttribute="height" secondItem="5sg-49-VIR" secondAttribute="height" id="eXK-Q6-eLN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iMH-MO-gkd" secondAttribute="trailing" constant="96" id="fcm-95-lQk"/>
+                            <constraint firstItem="FHW-fy-1Mk" firstAttribute="centerX" secondItem="5sg-49-VIR" secondAttribute="centerX" id="oFX-wa-zLl"/>
+                            <constraint firstItem="FHW-fy-1Mk" firstAttribute="height" secondItem="5sg-49-VIR" secondAttribute="height" multiplier="0.7" id="qvU-is-4BY"/>
+                            <constraint firstItem="FHW-fy-1Mk" firstAttribute="width" secondItem="5sg-49-VIR" secondAttribute="width" multiplier="0.9" id="rb4-kB-zpU"/>
+                            <constraint firstItem="iMH-MO-gkd" firstAttribute="leading" secondItem="5sg-49-VIR" secondAttribute="leadingMargin" constant="96" id="ro4-uq-84w"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popUpBackground" destination="FHW-fy-1Mk" id="GIZ-w9-blv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HnN-sh-WVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2910" y="186"/>
         </scene>
     </scenes>
     <resources>

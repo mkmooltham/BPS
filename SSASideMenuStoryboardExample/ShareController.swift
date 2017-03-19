@@ -10,6 +10,7 @@ import UIKit
 
 class ShareController: UIViewController {
     @IBOutlet weak var addEventButton: UIButton!
+    private var embeddedViewController: CalendarController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,19 @@ class ShareController: UIViewController {
 
     }
     
-    @IBAction func addEvent(_ sender: UIButton) {
-        if(addEventButton.currentTitle=="+"){
-            addEventButton.setTitle("-", for: .normal)
-        }else{
-            addEventButton.setTitle("+", for: .normal)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let vc = segue.destination as? CalendarController, segue.identifier == "calendarSegue" {
+            self.embeddedViewController = vc
         }
+    }
+    
+    @IBAction func addEvent(_ sender: UIButton) {
+//        self.embeddedViewController.addEventToCalendar()
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpAddEvent") as! AddEventController
+        self.addChildViewController(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
     }
     
     override func didReceiveMemoryWarning() {
