@@ -20,6 +20,8 @@
 		B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67241E3C85020085AE62 /* SystemConfiguration.framework */; };
 		BB1067FB1DF0163F00BE6543 /* ParkInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */; };
 		BB1C90101E765B180016FFCB /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C900F1E765B180016FFCB /* ShareController.swift */; };
+		BB1FA15E1E7FAB6F0056A0DE /* PickerVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */; };
+		BB1FA49D1E80054C004555FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1FA49B1E80054C004555FD /* Main.storyboard */; };
 		BB46A60B1E7E6C3D0057EFEE /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */; };
 		BB5E4B421E76BEDC00D16C38 /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */; };
 		BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */; };
@@ -35,7 +37,6 @@
 		BBFD9ECA1E25E1990053AC4B /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */; };
 		BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9EF01E2607180053AC4B /* RecordController.swift */; };
 		DC00C7691ACC65CD00BB4A99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C7681ACC65CD00BB4A99 /* AppDelegate.swift */; };
-		DC00C76E1ACC65CD00BB4A99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC00C76C1ACC65CD00BB4A99 /* Main.storyboard */; };
 		DC00C7701ACC65CD00BB4A99 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC00C76F1ACC65CD00BB4A99 /* Images.xcassets */; };
 		DC00C7731ACC65CD00BB4A99 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC00C7711ACC65CD00BB4A99 /* LaunchScreen.xib */; };
 		DC00C77F1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C77E1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift */; };
@@ -85,6 +86,8 @@
 		B25A67241E3C85020085AE62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B25A672C1E3C9EDD0085AE62 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		BB1C900F1E765B180016FFCB /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
+		BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerVIewController.swift; sourceTree = "<group>"; };
+		BB1FA49C1E80054C004555FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
 		BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
 		BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkSpaceController.swift; sourceTree = "<group>"; };
@@ -103,7 +106,6 @@
 		DC00C7631ACC65CD00BB4A99 /* SSASideMenuStoryboardExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSASideMenuStoryboardExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC00C7671ACC65CD00BB4A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC00C7681ACC65CD00BB4A99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC00C76D1ACC65CD00BB4A99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC00C76F1ACC65CD00BB4A99 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC00C7721ACC65CD00BB4A99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DC00C7781ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSASideMenuStoryboardExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +210,7 @@
 				BBC4108D1E41CF0100700E7B /* AccountController.swift */,
 				BB1C900F1E765B180016FFCB /* ShareController.swift */,
 				BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */,
+				BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */,
 				BBC272E41E23957100235AE3 /* CalendarController.swift */,
 				BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */,
 				BBD566721E2E19F300CFD32A /* ProfileController.swift */,
@@ -215,8 +218,8 @@
 				BBC4108B1E41BFCB00700E7B /* SignInController.swift */,
 				BBC410891E41B49700700E7B /* LoginController.swift */,
 				BBAE24B81E28CF0700F7E89B /* publicFunction.swift */,
-				DC00C76C1ACC65CD00BB4A99 /* Main.storyboard */,
 				DC00C76F1ACC65CD00BB4A99 /* Images.xcassets */,
+				BB1FA49B1E80054C004555FD /* Main.storyboard */,
 				DC00C7711ACC65CD00BB4A99 /* LaunchScreen.xib */,
 				DC00C7661ACC65CD00BB4A99 /* Supporting Files */,
 			);
@@ -356,7 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC00C76E1ACC65CD00BB4A99 /* Main.storyboard in Resources */,
+				BB1FA49D1E80054C004555FD /* Main.storyboard in Resources */,
 				DC00C7731ACC65CD00BB4A99 /* LaunchScreen.xib in Resources */,
 				DC00C7701ACC65CD00BB4A99 /* Images.xcassets in Resources */,
 			);
@@ -472,6 +475,7 @@
 				BBFD9EC91E25E1990053AC4B /* RecordTableController.swift in Sources */,
 				DC00C7691ACC65CD00BB4A99 /* AppDelegate.swift in Sources */,
 				DC00C78E1ACC661F00BB4A99 /* HomeViewController.swift in Sources */,
+				BB1FA15E1E7FAB6F0056A0DE /* PickerVIewController.swift in Sources */,
 				BB1C90101E765B180016FFCB /* ShareController.swift in Sources */,
 				BBD566731E2E19F300CFD32A /* ProfileController.swift in Sources */,
 				B23929DD1E67F44100C06C27 /* ParkingRecord.swift in Sources */,
@@ -513,10 +517,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DC00C76C1ACC65CD00BB4A99 /* Main.storyboard */ = {
+		BB1FA49B1E80054C004555FD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DC00C76D1ACC65CD00BB4A99 /* Base */,
+				BB1FA49C1E80054C004555FD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

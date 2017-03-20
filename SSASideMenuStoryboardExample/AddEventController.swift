@@ -10,6 +10,13 @@ import UIKit
 
 class AddEventController: UIViewController {
     @IBOutlet weak var popUpBackground: UIImageView!
+    @IBOutlet weak var weekDayPicker: UIPickerView!
+    
+    let calendarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CalendarView") as! CalendarController
+    let shareVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Share") as! ShareController
+    
+    var selectedDay = Date()
+    var selectedTime = "0000"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +25,12 @@ class AddEventController: UIViewController {
         
         //config
         popUpBackground.layer.cornerRadius = 10
+        
+        //weekDayPicker
+        let pickerVC = PickerViewController()
+        self.addChildViewController(pickerVC)
+        weekDayPicker.delegate = pickerVC
+        weekDayPicker.dataSource = pickerVC
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,6 +40,12 @@ class AddEventController: UIViewController {
     
     //close button
     @IBAction func closePopUp(_ sender: UIButton) {
+        calendarVC.addEventToCalendar(dur: "3.5")
+        self.view.removeFromSuperview()
+//        self.removeAnimate()
+    }
+    
+    @IBAction func cancelPopUp(_ sender: UIButton) {
         self.removeAnimate()
     }
     
@@ -52,5 +71,6 @@ class AddEventController: UIViewController {
             }
         });
     }
+    
 }
 

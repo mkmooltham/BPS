@@ -9,6 +9,7 @@
 import UIKit
 
 class ShareController: UIViewController {
+    
     @IBOutlet weak var addEventButton: UIButton!
     private var embeddedViewController: CalendarController!
     
@@ -48,7 +49,7 @@ class ShareController: UIViewController {
     }
     
     @IBAction func addEvent(_ sender: UIButton) {
-//        self.embeddedViewController.addEventToCalendar()
+        self.embeddedViewController.addEventToCalendar(dur: "2.5")
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpAddEvent") as! AddEventController
         self.addChildViewController(popUpVC)
         popUpVC.view.frame = self.view.frame

@@ -23,10 +23,10 @@ class CalendarController: DayViewController {
         updateStyle(style)
         }
     
-    func addEventToCalendar(){
-        let secondEvent = TimeSlot(year: "2017",month: "3",day: "15",hour: "7",minute: "30",duration: "2.5",event: .freeUp)
-        timeSlotList.append(secondEvent)
-        dayView.reloadData()
+    func addEventToCalendar(dur: String){
+        let secondEvent = TimeSlot(year: "2017",month: "3",day: "20",hour: "7",minute: "30",duration: dur,event: .freeUp)
+        self.timeSlotList.append(secondEvent)
+        self.dayView.reloadData()
     }
     
     override func eventViewsForDate(_ date: Date) -> [EventView] {
