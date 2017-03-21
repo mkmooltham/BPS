@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShareController: UIViewController, AddEventCOntrollerDelegate {
+class ShareController: UIViewController, AddEventControllerDelegate {
     
     @IBOutlet weak var addEventButton: UIButton!
     private var embeddedViewController: CalendarController!

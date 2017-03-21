@@ -23,6 +23,7 @@
 		BB1FA15E1E7FAB6F0056A0DE /* PickerVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */; };
 		BB1FA49D1E80054C004555FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1FA49B1E80054C004555FD /* Main.storyboard */; };
 		BB46A60B1E7E6C3D0057EFEE /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */; };
+		BB56E42B1E811B71001B2649 /* DurationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */; };
 		BB5E4B421E76BEDC00D16C38 /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */; };
 		BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */; };
 		BB75BBA61E2F743B0064F6BC /* FindCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB75BBA51E2F743B0064F6BC /* FindCarController.swift */; };
@@ -89,6 +90,7 @@
 		BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerVIewController.swift; sourceTree = "<group>"; };
 		BB1FA49C1E80054C004555FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
+		BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPickerViewController.swift; sourceTree = "<group>"; };
 		BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
 		BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkSpaceController.swift; sourceTree = "<group>"; };
 		BB75BBA51E2F743B0064F6BC /* FindCarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindCarController.swift; path = ../FindCarController.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				BB1C900F1E765B180016FFCB /* ShareController.swift */,
 				BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */,
 				BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */,
+				BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */,
 				BBC272E41E23957100235AE3 /* CalendarController.swift */,
 				BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */,
 				BBD566721E2E19F300CFD32A /* ProfileController.swift */,
@@ -480,6 +483,7 @@
 				BBD566731E2E19F300CFD32A /* ProfileController.swift in Sources */,
 				B23929DD1E67F44100C06C27 /* ParkingRecord.swift in Sources */,
 				BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */,
+				BB56E42B1E811B71001B2649 /* DurationPickerViewController.swift in Sources */,
 				BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */,
 				BB46A60B1E7E6C3D0057EFEE /* AddEventController.swift in Sources */,
 				BB75BBA61E2F743B0064F6BC /* FindCarController.swift in Sources */,

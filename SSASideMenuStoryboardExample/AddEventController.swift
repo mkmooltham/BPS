@@ -8,15 +8,16 @@
 
 import UIKit
 
-protocol AddEventCOntrollerDelegate {
+protocol AddEventControllerDelegate {
     func pushEventToCalendar()
 }
 
 class AddEventController: UIViewController{
     @IBOutlet weak var popUpBackground: UIImageView!
     @IBOutlet weak var weekDayPicker: UIPickerView!
+    @IBOutlet weak var durationPicker: UIPickerView!
     
-    var delegate: AddEventCOntrollerDelegate!
+    var delegate: AddEventControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +32,18 @@ class AddEventController: UIViewController{
         self.addChildViewController(pickerVC)
         weekDayPicker.delegate = pickerVC
         weekDayPicker.dataSource = pickerVC
+        //durationPicker
+        let durPickerVC = DurationPickerViewController()
+        self.addChildViewController(durPickerVC)
+        durationPicker.delegate = durPickerVC
+        durationPicker.dataSource = durPickerVC
+        print("\(whatTimeIndex), \(whatEndTimeIndex)")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //Sugue back to superview
     
     //confirm button
     @IBAction func closePopUp(_ sender: UIButton) {
