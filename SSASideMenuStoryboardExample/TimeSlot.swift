@@ -9,7 +9,7 @@
 import UIKit
 
 enum eventType {
-    case freeUp
+    case release
     case selfUse
     case rentOut
     case noEvent
@@ -27,20 +27,31 @@ class TimeSlot {
     public var eventColor: UIColor = .white
     
     init(){}
-    
-    init(year:String, month:String, day:String , hour:String, minute:String, duration:String, event:eventType){
-        start_year = NSString(string: year).integerValue
-        start_month = NSString(string: month).integerValue
-        start_day = NSString(string: day).integerValue
-        start_hour = NSString(string: hour).integerValue
-        start_minute = NSString(string: minute).integerValue
-        
+   
+    init(dateIndex: Int, timeIndex:Int, duration:String, event:eventType){
+        //translate date
+        let formatter = DateFormatter()
+        let selectedDate = pickerWeek[dateIndex]!
+        formatter.dateFormat = "y"
+        start_year = NSString(string: formatter.string(from: selectedDate)).integerValue
+        formatter.dateFormat = "M"
+        start_month = NSString(string: formatter.string(from: selectedDate)).integerValue
+        formatter.dateFormat = "d"
+        start_day = NSString(string: formatter.string(from: selectedDate)).integerValue
+        //translate time
+        let selectedTime = pickerTime[timeIndex]
+        var index = selectedTime.index(selectedTime.startIndex, offsetBy: 2)
+        start_hour = NSString(string: selectedTime.substring(to: index)).integerValue
+        index = selectedTime.index(selectedTime.startIndex, offsetBy: 2)
+        start_minute = NSString(string: selectedTime.substring(from: index)).integerValue
+
+        //translate duration
         duration_hour = NSString(string: duration).integerValue
         if(Int((NSString(string: duration).floatValue*10))%10 == 0){duration_minute=0}else{duration_minute=30};
         
         switch event {
-        case .freeUp:
-            eventTitle = "Free Up"
+        case .release:
+            eventTitle = "Released"
             eventColor = .green
         case .selfUse:
             eventTitle = "Self Use"

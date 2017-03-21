@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShareController: UIViewController {
+class ShareController: UIViewController, AddEventCOntrollerDelegate {
     
     @IBOutlet weak var addEventButton: UIButton!
     private var embeddedViewController: CalendarController!
@@ -39,6 +39,7 @@ class ShareController: UIViewController {
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(SSASideMenu.presentLeftMenuViewController))
         rightSwipe.direction = .right
         view.addGestureRecognizer(rightSwipe)
+        
 
     }
     
@@ -48,9 +49,15 @@ class ShareController: UIViewController {
         }
     }
     
+    func pushEventToCalendar(){
+        self.embeddedViewController.addEventToCalendar(dateid: whatDayIndex, timeid: whatTimeIndex, dur: "2.5")
+    }
+    
     @IBAction func addEvent(_ sender: UIButton) {
-        self.embeddedViewController.addEventToCalendar(dur: "2.5")
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpAddEvent") as! AddEventController
+        whatTimeIndex = 0
+        whatDayIndex = 0
+        popUpVC.delegate = self
         self.addChildViewController(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)

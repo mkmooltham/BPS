@@ -12,8 +12,6 @@ import DateToolsSwift
 
 class CalendarController: DayViewController {
     
-    var timeSlotList = [TimeSlot()]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,9 +21,9 @@ class CalendarController: DayViewController {
         updateStyle(style)
         }
     
-    func addEventToCalendar(dur: String){
-        let secondEvent = TimeSlot(year: "2017",month: "3",day: "20",hour: "7",minute: "30",duration: dur,event: .freeUp)
-        self.timeSlotList.append(secondEvent)
+    func addEventToCalendar(dateid: Int,timeid: Int ,dur: String){
+        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, duration: dur, event: .release)
+        timeSlotList.append(secondEvent)
         self.dayView.reloadData()
     }
     
@@ -56,7 +54,6 @@ class CalendarController: DayViewController {
     
     // MARK: DayViewDelegate
     override func dayViewDidSelectEventView(_ eventview: EventView) {
-        
         print("Event has been selected: \(eventview.data)")
     }
     override func dayViewDidLongPressEventView(_ eventView: EventView) {
