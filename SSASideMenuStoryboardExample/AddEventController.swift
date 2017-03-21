@@ -16,6 +16,7 @@ class AddEventController: UIViewController{
     @IBOutlet weak var popUpBackground: UIImageView!
     @IBOutlet weak var weekDayPicker: UIPickerView!
     @IBOutlet weak var durationPicker: UIPickerView!
+    @IBOutlet weak var dateTitle: UILabel!
     
     var delegate: AddEventControllerDelegate!
 
@@ -25,6 +26,7 @@ class AddEventController: UIViewController{
         self.showAnimate()
         
         //config
+        dateTitle.text = "Select Date\nfor Weekly Schedule"
         popUpBackground.layer.cornerRadius = 10
         
         //weekDayPicker
@@ -37,7 +39,6 @@ class AddEventController: UIViewController{
         self.addChildViewController(durPickerVC)
         durationPicker.delegate = durPickerVC
         durationPicker.dataSource = durPickerVC
-        print("\(whatTimeIndex), \(whatEndTimeIndex)")
     }
     
     override func didReceiveMemoryWarning() {

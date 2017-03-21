@@ -50,7 +50,7 @@ class ShareController: UIViewController, AddEventControllerDelegate {
     }
     
     func pushEventToCalendar(){
-        self.embeddedViewController.addEventToCalendar(dateid: whatDayIndex, timeid: whatTimeIndex, dur: "2.5")
+        self.embeddedViewController.addEventToCalendar(dateid: whatDayIndex, timeid: whatTimeIndex,timeendid: whatEndTimeIndex, dur: "2.5")
     }
     
     @IBAction func addEvent(_ sender: UIButton) {

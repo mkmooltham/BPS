@@ -21,8 +21,8 @@ class CalendarController: DayViewController {
         updateStyle(style)
         }
     
-    func addEventToCalendar(dateid: Int,timeid: Int ,dur: String){
-        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, duration: dur, event: .release)
+    func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int ,dur: String){
+        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, duration: dur, event: .release)
         timeSlotList.append(secondEvent)
         self.dayView.reloadData()
     }

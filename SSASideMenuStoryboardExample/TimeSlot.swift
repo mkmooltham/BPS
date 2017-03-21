@@ -28,7 +28,7 @@ class TimeSlot {
     
     init(){}
    
-    init(dateIndex: Int, timeIndex:Int, duration:String, event:eventType){
+    init(dateIndex: Int, timeIndex:Int, timeEndIndex:Int, duration:String, event:eventType){
         //translate date
         let formatter = DateFormatter()
         let selectedDate = pickerWeek[dateIndex]!
@@ -46,8 +46,8 @@ class TimeSlot {
         start_minute = NSString(string: selectedTime.substring(from: index)).integerValue
 
         //translate duration
-        duration_hour = NSString(string: duration).integerValue
-        if(Int((NSString(string: duration).floatValue*10))%10 == 0){duration_minute=0}else{duration_minute=30};
+        duration_hour = Int(Float(timeEndIndex-timeIndex)*0.5)
+        duration_minute = Int((Float(timeEndIndex-timeIndex)*0.5-Float(duration_hour))*60)
         
         switch event {
         case .release:

@@ -1666,11 +1666,15 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FHW-fy-1Mk">
                                 <rect key="frame" x="21" y="184" width="372" height="515"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQ5-Vr-bVS">
+                                <rect key="frame" x="20" y="244" width="372" height="396"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMH-MO-gkd">
-                                <rect key="frame" x="79.666666666666657" y="644" width="88.999999999999972" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="68" y="650" width="72" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Confirm">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1688,23 +1692,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1u-au-TTm">
-                                <rect key="frame" x="47" y="307.33333333333331" width="320" height="77"/>
+                                <rect key="frame" x="49" y="337" width="316" height="77"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqx-GP-vkv">
-                                <rect key="frame" x="47" y="276.33333333333331" width="238" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date for weekly schedule" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqx-GP-vkv">
+                                <rect key="frame" x="49" y="284" width="316" height="53"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFA-GO-yuE">
-                                <rect key="frame" x="199.66666666666663" y="276.33333333333331" width="167.33333333333337" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFA-GO-yuE">
+                                <rect key="frame" x="216" y="459" width="149" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPl-dz-fA0">
-                                <rect key="frame" x="250.66666666666669" y="644" width="78.000000000000057" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="279" y="650" width="63" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1712,51 +1716,58 @@
                                     <action selector="cancelPopUp:" destination="4CF-Bz-5Nk" eventType="touchUpInside" id="m82-Rm-9nh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6L-IJ-0rI">
-                                <rect key="frame" x="39.666666666666657" y="404.33333333333331" width="334.66666666666663" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6L-IJ-0rI">
+                                <rect key="frame" x="49" y="459" width="164" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsT-0v-dfK">
-                                <rect key="frame" x="47" y="435" width="320" height="78"/>
+                                <rect key="frame" x="49" y="482" width="316" height="78"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fPl-dz-fA0" firstAttribute="bottom" secondItem="iMH-MO-gkd" secondAttribute="bottom" id="05x-XO-bLM"/>
-                            <constraint firstItem="o6L-IJ-0rI" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" multiplier="0.9" id="0Jr-tF-UG5"/>
-                            <constraint firstItem="H1u-au-TTm" firstAttribute="top" secondItem="yqx-GP-vkv" secondAttribute="bottom" constant="10" id="5jB-nc-LPc"/>
+                            <constraint firstItem="o6L-IJ-0rI" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" multiplier="0.44" id="0Jr-tF-UG5"/>
+                            <constraint firstItem="H1u-au-TTm" firstAttribute="top" secondItem="yqx-GP-vkv" secondAttribute="bottom" id="5jB-nc-LPc"/>
                             <constraint firstItem="aHN-4s-eFn" firstAttribute="centerY" secondItem="5sg-49-VIR" secondAttribute="centerY" id="5so-l4-U9M"/>
-                            <constraint firstItem="kFA-GO-yuE" firstAttribute="top" secondItem="yqx-GP-vkv" secondAttribute="top" id="9hS-sg-xLb"/>
-                            <constraint firstItem="yqx-GP-vkv" firstAttribute="leading" secondItem="H1u-au-TTm" secondAttribute="leading" id="BKn-uR-axd"/>
-                            <constraint firstItem="fPl-dz-fA0" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" multiplier="1.4" id="Ctq-0T-zoq"/>
+                            <constraint firstItem="tQ5-Vr-bVS" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" id="8I7-23-5Tf"/>
+                            <constraint firstItem="o6L-IJ-0rI" firstAttribute="top" secondItem="kFA-GO-yuE" secondAttribute="top" id="BeY-xs-evs"/>
+                            <constraint firstItem="fPl-dz-fA0" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" multiplier="1.5" id="Ctq-0T-zoq"/>
+                            <constraint firstItem="qsT-0v-dfK" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" multiplier="0.85" id="D6V-Jz-ozc"/>
+                            <constraint firstItem="tQ5-Vr-bVS" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" id="E48-2l-H76"/>
                             <constraint firstItem="aHN-4s-eFn" firstAttribute="centerX" secondItem="5sg-49-VIR" secondAttribute="centerX" id="Inf-TT-IlL"/>
-                            <constraint firstItem="o6L-IJ-0rI" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" id="Jea-7b-DK6"/>
+                            <constraint firstItem="tQ5-Vr-bVS" firstAttribute="top" secondItem="JWa-lS-fDi" secondAttribute="bottom" constant="10" id="RPK-Hv-Eh5"/>
                             <constraint firstItem="aHN-4s-eFn" firstAttribute="width" secondItem="5sg-49-VIR" secondAttribute="width" id="VMj-W9-IgS"/>
-                            <constraint firstItem="kFA-GO-yuE" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" multiplier="0.45" id="Wyb-OV-z5B"/>
-                            <constraint firstItem="iMH-MO-gkd" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" multiplier="0.6" id="XWh-fZ-VSI"/>
+                            <constraint firstItem="H1u-au-TTm" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" multiplier="0.85" id="WAw-IL-luG"/>
+                            <constraint firstItem="kFA-GO-yuE" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" multiplier="0.4" id="Wyb-OV-z5B"/>
+                            <constraint firstItem="iMH-MO-gkd" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" multiplier="0.5" id="XWh-fZ-VSI"/>
+                            <constraint firstItem="yqx-GP-vkv" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" id="aQq-MA-2YA"/>
                             <constraint firstItem="FHW-fy-1Mk" firstAttribute="centerY" secondItem="5sg-49-VIR" secondAttribute="centerY" multiplier="1.2" id="eOn-1l-R0a"/>
                             <constraint firstItem="aHN-4s-eFn" firstAttribute="height" secondItem="5sg-49-VIR" secondAttribute="height" id="eXK-Q6-eLN"/>
-                            <constraint firstItem="o6L-IJ-0rI" firstAttribute="top" secondItem="H1u-au-TTm" secondAttribute="bottom" constant="20" id="fRR-B3-SPi"/>
+                            <constraint firstItem="fPl-dz-fA0" firstAttribute="top" secondItem="tQ5-Vr-bVS" secondAttribute="bottom" constant="10" id="f91-yY-OhS"/>
+                            <constraint firstItem="o6L-IJ-0rI" firstAttribute="top" secondItem="H1u-au-TTm" secondAttribute="bottom" constant="45" id="fRR-B3-SPi"/>
+                            <constraint firstItem="qsT-0v-dfK" firstAttribute="leading" secondItem="o6L-IJ-0rI" secondAttribute="leading" id="fkE-fR-9eK"/>
                             <constraint firstItem="H1u-au-TTm" firstAttribute="height" secondItem="FHW-fy-1Mk" secondAttribute="height" multiplier="0.15" id="hWT-gr-gbz"/>
                             <constraint firstItem="qsT-0v-dfK" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" id="iYg-CQ-S0q"/>
                             <constraint firstItem="kFA-GO-yuE" firstAttribute="trailing" secondItem="H1u-au-TTm" secondAttribute="trailing" id="izt-6N-bki"/>
                             <constraint firstItem="JWa-lS-fDi" firstAttribute="top" secondItem="FHW-fy-1Mk" secondAttribute="top" constant="15" id="j4x-Oe-lyq"/>
                             <constraint firstItem="Vad-bX-50d" firstAttribute="top" secondItem="iMH-MO-gkd" secondAttribute="bottom" constant="50" id="kWa-yQ-0u7"/>
+                            <constraint firstItem="yqx-GP-vkv" firstAttribute="width" secondItem="H1u-au-TTm" secondAttribute="width" id="nFd-hQ-hKG"/>
                             <constraint firstItem="FHW-fy-1Mk" firstAttribute="centerX" secondItem="5sg-49-VIR" secondAttribute="centerX" id="oFX-wa-zLl"/>
                             <constraint firstItem="FHW-fy-1Mk" firstAttribute="height" secondItem="5sg-49-VIR" secondAttribute="height" multiplier="0.7" id="qvU-is-4BY"/>
                             <constraint firstItem="FHW-fy-1Mk" firstAttribute="width" secondItem="5sg-49-VIR" secondAttribute="width" multiplier="0.9" id="rb4-kB-zpU"/>
                             <constraint firstItem="JWa-lS-fDi" firstAttribute="centerX" secondItem="5sg-49-VIR" secondAttribute="centerX" id="t7L-Ir-e9k"/>
-                            <constraint firstItem="yqx-GP-vkv" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" multiplier="0.64" id="vMX-D6-FbP"/>
                             <constraint firstItem="qsT-0v-dfK" firstAttribute="height" secondItem="FHW-fy-1Mk" secondAttribute="height" multiplier="0.15" id="vWO-Bh-I1B"/>
                             <constraint firstItem="H1u-au-TTm" firstAttribute="centerX" secondItem="FHW-fy-1Mk" secondAttribute="centerX" id="vXK-K6-0rE"/>
                             <constraint firstItem="JWa-lS-fDi" firstAttribute="width" secondItem="FHW-fy-1Mk" secondAttribute="width" id="xXu-lU-nnz"/>
-                            <constraint firstItem="qsT-0v-dfK" firstAttribute="top" secondItem="o6L-IJ-0rI" secondAttribute="bottom" constant="10" id="z2a-Fk-CFa"/>
-                            <constraint firstItem="yqx-GP-vkv" firstAttribute="centerY" secondItem="FHW-fy-1Mk" secondAttribute="centerY" multiplier="0.65" id="zd5-7P-Bun"/>
+                            <constraint firstItem="qsT-0v-dfK" firstAttribute="top" secondItem="o6L-IJ-0rI" secondAttribute="bottom" id="z2a-Fk-CFa"/>
+                            <constraint firstItem="yqx-GP-vkv" firstAttribute="centerY" secondItem="FHW-fy-1Mk" secondAttribute="centerY" multiplier="0.7" id="zd5-7P-Bun"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dateTitle" destination="yqx-GP-vkv" id="vJo-KW-ld3"/>
                         <outlet property="durationPicker" destination="qsT-0v-dfK" id="Yif-eh-Vlj"/>
                         <outlet property="popUpBackground" destination="FHW-fy-1Mk" id="GIZ-w9-blv"/>
                         <outlet property="weekDayPicker" destination="H1u-au-TTm" id="nDv-k7-ilJ"/>

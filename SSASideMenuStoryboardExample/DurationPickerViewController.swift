@@ -38,15 +38,12 @@ class DurationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(component == 0){
-            print("row \(row)")
             if(whatEndTimeIndex+row-whatTimeIndex<pickerEndTime.count-1){whatEndTimeIndex = whatEndTimeIndex+row-whatTimeIndex}else{whatEndTimeIndex = pickerEndTime.count-1}
             whatTimeIndex = row
             pickerView.reloadAllComponents()
         }else{
-            print("row \(row)")
             whatEndTimeIndex = row+1+whatTimeIndex
         }
-        print("\(whatTimeIndex),\(whatEndTimeIndex)")
     }
     
     
