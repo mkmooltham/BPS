@@ -24,11 +24,12 @@ class TimeSlot {
     public var duration_hour: Int = 0
     public var duration_minute: Int = 0
     public var eventTitle: String = ""
+    public var spaceID: String = ""
     public var eventColor: UIColor = .white
     
     init(){}
    
-    init(dateIndex: Int, timeIndex:Int, timeEndIndex:Int, duration:String, event:eventType){
+    init(dateIndex: Int, timeIndex:Int, timeEndIndex:Int, space:String ,event:eventType){
         //translate date
         let formatter = DateFormatter()
         let selectedDate = pickerWeek[dateIndex]!
@@ -38,6 +39,7 @@ class TimeSlot {
         start_month = NSString(string: formatter.string(from: selectedDate)).integerValue
         formatter.dateFormat = "d"
         start_day = NSString(string: formatter.string(from: selectedDate)).integerValue
+        
         //translate time
         let selectedTime = pickerTime[timeIndex]
         var index = selectedTime.index(selectedTime.startIndex, offsetBy: 2)
@@ -45,10 +47,14 @@ class TimeSlot {
         index = selectedTime.index(selectedTime.startIndex, offsetBy: 2)
         start_minute = NSString(string: selectedTime.substring(from: index)).integerValue
 
-        //translate duration
+        //translate endTime
         duration_hour = Int(Float(timeEndIndex-timeIndex)*0.5)
         duration_minute = Int((Float(timeEndIndex-timeIndex)*0.5-Float(duration_hour))*60)
         
+        //translate space ID
+        spaceID = space
+        
+        //translate event type
         switch event {
         case .release:
             eventTitle = "Released"

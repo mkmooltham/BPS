@@ -28,10 +28,10 @@ class DurationPickerViewController: UIViewController, UIPickerViewDelegate, UIPi
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if(component == 0){
             let titleData = pickerTime[row]
-            return NSAttributedString(string: titleData, attributes: [NSForegroundColorAttributeName:UIColor.white])
+            return NSAttributedString(string: titleData, attributes: [NSForegroundColorAttributeName:hexColor(hex: "#66CCFF")])
         }else{
             let titleData = pickerEndTime[row+1+whatTimeIndex]
-            return NSAttributedString(string: titleData, attributes: [NSForegroundColorAttributeName:UIColor.white])
+            return NSAttributedString(string: titleData, attributes: [NSForegroundColorAttributeName:hexColor(hex: "#66CCFF")])
         }
         
     }

@@ -22,7 +22,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             let formatter = DateFormatter()
             formatter.dateFormat = "E  dd MMM"
             let date = formatter.string(from: pickerWeek[row]!)
-            return NSAttributedString(string: date, attributes: [NSForegroundColorAttributeName:UIColor.white])
+            return NSAttributedString(string: date, attributes: [NSForegroundColorAttributeName:hexColor(hex: "#66CCFF")])
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {

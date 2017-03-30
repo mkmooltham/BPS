@@ -21,8 +21,8 @@ class CalendarController: DayViewController {
         updateStyle(style)
         }
     
-    func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int ,dur: String){
-        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, duration: dur, event: .release)
+    func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int, spaid: String){
+        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, space:spaid, event: .release)
         timeSlotList.append(secondEvent)
         self.dayView.reloadData()
     }
@@ -40,9 +40,15 @@ class CalendarController: DayViewController {
             let datePeriod = TimePeriod(beginning: eventDate, chunk: duration)
             event.datePeriod = datePeriod
         //event title
-            var info = [timeSlotList[i].eventTitle]
-            info.append("\(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)")
-            event.data = info
+            if(timeSlotList[i].duration_hour >= 1){
+                var info = [ "\(timeSlotList[i].spaceID) \(timeSlotList[i].eventTitle)" ]
+                info.append("\(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)")
+                event.data = info
+            }else{
+                let info = [ "\(timeSlotList[i].spaceID) \(timeSlotList[i].eventTitle) \(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)" ]
+                event.data = info
+            }
+            
         //event color
             event.color = timeSlotList[i].eventColor
             events.append(event)

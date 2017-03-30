@@ -26,7 +26,7 @@ class AddEventController: UIViewController{
         self.showAnimate()
         
         //config
-        dateTitle.text = "Select Date\nfor Weekly Schedule"
+        dateTitle.text = "Date for Weekly Schedule"
         popUpBackground.layer.cornerRadius = 10
         
         //weekDayPicker
