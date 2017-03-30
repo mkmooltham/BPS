@@ -67,6 +67,14 @@ class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerVie
         view.addSubview(blurEffectView)
     }
     
+    func removeBlur(){
+        for subview in view.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,6 +10,8 @@ import UIKit
 
 protocol AddEventControllerDelegate {
     func pushEventToCalendar()
+    func addBlur()
+    func removeBlur()
 }
 
 class AddEventController: UIViewController{
@@ -24,6 +26,7 @@ class AddEventController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegate.addBlur()
         self.showAnimate()
         
         //config
@@ -55,10 +58,12 @@ class AddEventController: UIViewController{
     //confirm button
     @IBAction func closePopUp(_ sender: UIButton) {
         delegate.pushEventToCalendar()
+        delegate.removeBlur()
         self.removeAnimate()
     }
     //cancel button
     @IBAction func cancelPopUp(_ sender: UIButton) {
+        delegate.removeBlur()
         self.removeAnimate()
     }
     

@@ -17,6 +17,7 @@ protocol ParkHourSelectDelegate {
 class ParkHourSelectController: UIViewController{
     @IBOutlet weak var popUpBackground: UIImageView!
     @IBOutlet weak var bottomBackground: UIImageView!
+    @IBOutlet weak var hourPicker: UIPickerView!
     
     var delegate: ParkHourSelectDelegate!
  
@@ -25,9 +26,18 @@ class ParkHourSelectController: UIViewController{
         
         //Config
         popUpBackground.layer.cornerRadius = 10
-        
+        popUpBackground.layer.shadowColor = UIColor.black.cgColor
+        popUpBackground.layer.shadowOpacity = 0.8
+        popUpBackground.layer.shadowOffset = CGSize(width: -0.4, height: 0.7)
+        popUpBackground.layer.shadowRadius = 1
         delegate.addBlur()
         self.showAnimate()
+        
+        //HourPicker
+        let hrPickerVC = HourPickerViewController()
+        self.addChildViewController(hrPickerVC)
+        hourPicker.delegate = hrPickerVC
+        hourPicker.dataSource = hrPickerVC
     }
  
     @IBAction func cancel(_ sender: UIButton) {
@@ -36,6 +46,7 @@ class ParkHourSelectController: UIViewController{
     }
     
     @IBAction func confirm(_ sender: UIButton) {
+        delegate.removeBlur()
         self.removeAnimate()
         delegate.moveToMap()
     }

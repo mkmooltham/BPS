@@ -49,9 +49,26 @@ class ShareController: UIViewController, AddEventControllerDelegate {
         }
     }
     
+    func addBlur(){
+        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+    }
+    
+    func removeBlur(){
+        for subview in view.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
     func pushEventToCalendar(){
         self.embeddedViewController.addEventToCalendar(dateid: whatDayIndex, timeid: whatTimeIndex,timeendid: whatEndTimeIndex, spaid: whatSpaceIndex)
     }
+    
     
     @IBAction func addEvent(_ sender: UIButton) {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpAddEvent") as! AddEventController

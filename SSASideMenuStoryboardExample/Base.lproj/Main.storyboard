@@ -328,21 +328,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nun-zU-S86">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nun-zU-S86">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.0" green="0.054901960780000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xtm-Rv-zrL">
-                                <rect key="frame" x="20.666666666666657" y="147.00000000000003" width="372.66666666666663" height="294.66666666666674"/>
+                                <rect key="frame" x="41.333333333333343" y="193.33333333333337" width="331.33333333333337" height="202.66666666666663"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I3o-uf-4AL">
-                                <rect key="frame" x="20" y="195.33333333333331" width="372.66666666666669" height="190.33333333333331"/>
+                                <rect key="frame" x="41" y="240.33333333333337" width="331.33333333333331" height="106.66666666666663"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-z6-dRB">
-                                <rect key="frame" x="70.333333333333343" y="390.66666666666669" width="67.000000000000028" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="74" y="352" width="60" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -351,14 +351,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Specify Parking Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3h-db-P5F">
-                                <rect key="frame" x="20.666666666666657" y="162" width="372.66666666666663" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="41.333333333333343" y="208.33333333333334" width="331.33333333333337" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lED-CO-izE">
-                                <rect key="frame" x="269.66666666666669" y="390.66666666666669" width="82" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="273.66666666666669" y="352" width="74" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Go Park!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -366,32 +366,40 @@
                                     <action selector="confirm:" destination="tp5-13-hqL" eventType="touchUpInside" id="e48-6Q-Qnu"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdY-bu-Gdc">
+                                <rect key="frame" x="90" y="261.66666666666669" width="232" height="64"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IdY-bu-Gdc" firstAttribute="centerY" secondItem="I3o-uf-4AL" secondAttribute="centerY" id="03i-5p-yNY"/>
                             <constraint firstItem="lED-CO-izE" firstAttribute="centerX" secondItem="xtm-Rv-zrL" secondAttribute="centerX" multiplier="1.5" id="2vU-qW-jIn"/>
                             <constraint firstItem="I3o-uf-4AL" firstAttribute="top" secondItem="c3h-db-P5F" secondAttribute="bottom" constant="10" id="GBr-60-lsj"/>
                             <constraint firstItem="c3h-db-P5F" firstAttribute="width" secondItem="xtm-Rv-zrL" secondAttribute="width" id="GI3-tp-FDC"/>
                             <constraint firstItem="lED-CO-izE" firstAttribute="bottom" secondItem="gZf-z6-dRB" secondAttribute="bottom" id="Gc5-sx-0im"/>
                             <constraint firstItem="xtm-Rv-zrL" firstAttribute="centerX" secondItem="qK8-5F-S2F" secondAttribute="centerX" id="Gry-oY-uYT"/>
+                            <constraint firstItem="IdY-bu-Gdc" firstAttribute="width" secondItem="I3o-uf-4AL" secondAttribute="width" multiplier="0.7" id="Naz-zr-eRU"/>
+                            <constraint firstItem="IdY-bu-Gdc" firstAttribute="centerX" secondItem="I3o-uf-4AL" secondAttribute="centerX" id="NbA-Fu-UIH"/>
                             <constraint firstAttribute="trailing" secondItem="nun-zU-S86" secondAttribute="trailing" id="Ne9-vk-0YP"/>
                             <constraint firstItem="xtm-Rv-zrL" firstAttribute="centerY" secondItem="qK8-5F-S2F" secondAttribute="centerY" multiplier="0.8" id="OvS-8v-4Pg"/>
                             <constraint firstItem="I3o-uf-4AL" firstAttribute="width" secondItem="xtm-Rv-zrL" secondAttribute="width" id="PrR-WG-li4"/>
                             <constraint firstItem="nun-zU-S86" firstAttribute="leading" secondItem="qK8-5F-S2F" secondAttribute="leading" id="cIf-2a-s71"/>
                             <constraint firstItem="qPB-AJ-u7M" firstAttribute="top" secondItem="nun-zU-S86" secondAttribute="bottom" id="dKe-BC-OVX"/>
                             <constraint firstItem="nun-zU-S86" firstAttribute="top" secondItem="qK8-5F-S2F" secondAttribute="top" id="dbD-nr-ULB"/>
+                            <constraint firstItem="IdY-bu-Gdc" firstAttribute="height" secondItem="I3o-uf-4AL" secondAttribute="height" multiplier="0.6" id="eb2-II-2GX"/>
                             <constraint firstItem="c3h-db-P5F" firstAttribute="top" secondItem="xtm-Rv-zrL" secondAttribute="top" constant="15" id="fMb-DF-98k"/>
                             <constraint firstItem="gZf-z6-dRB" firstAttribute="top" secondItem="I3o-uf-4AL" secondAttribute="bottom" constant="5" id="ghh-YQ-QOH"/>
-                            <constraint firstItem="xtm-Rv-zrL" firstAttribute="height" secondItem="qK8-5F-S2F" secondAttribute="height" multiplier="0.8:2" id="jwR-bo-KNI"/>
+                            <constraint firstItem="xtm-Rv-zrL" firstAttribute="height" secondItem="qK8-5F-S2F" secondAttribute="height" multiplier="0.55:2" id="jwR-bo-KNI"/>
                             <constraint firstItem="gZf-z6-dRB" firstAttribute="centerX" secondItem="xtm-Rv-zrL" secondAttribute="centerX" multiplier="0.5" id="mrh-sT-2BY"/>
-                            <constraint firstItem="gZf-z6-dRB" firstAttribute="bottom" secondItem="xtm-Rv-zrL" secondAttribute="bottom" constant="-15" id="piV-RN-8Jb"/>
+                            <constraint firstItem="gZf-z6-dRB" firstAttribute="bottom" secondItem="xtm-Rv-zrL" secondAttribute="bottom" constant="-10" id="piV-RN-8Jb"/>
                             <constraint firstItem="c3h-db-P5F" firstAttribute="centerX" secondItem="xtm-Rv-zrL" secondAttribute="centerX" id="ren-jd-5Wb"/>
-                            <constraint firstItem="xtm-Rv-zrL" firstAttribute="width" secondItem="qK8-5F-S2F" secondAttribute="width" multiplier="0.9" id="uZW-gz-bnp"/>
+                            <constraint firstItem="xtm-Rv-zrL" firstAttribute="width" secondItem="qK8-5F-S2F" secondAttribute="width" multiplier="0.8" id="uZW-gz-bnp"/>
                             <constraint firstItem="I3o-uf-4AL" firstAttribute="centerX" secondItem="xtm-Rv-zrL" secondAttribute="centerX" id="yN8-DB-GUw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomBackground" destination="nun-zU-S86" id="G14-UW-Zwl"/>
+                        <outlet property="hourPicker" destination="IdY-bu-Gdc" id="hFi-NU-7SS"/>
                         <outlet property="popUpBackground" destination="xtm-Rv-zrL" id="Kg0-xx-anY"/>
                     </connections>
                 </viewController>
@@ -1582,7 +1590,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-4s-eFn">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-4s-eFn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </imageView>

@@ -26,6 +26,7 @@
 		BB56E42B1E811B71001B2649 /* DurationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */; };
 		BB5E4B421E76BEDC00D16C38 /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */; };
 		BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */; };
+		BB96595E1E8D764D00E96CDB /* HourPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96595D1E8D764D00E96CDB /* HourPickerViewController.swift */; };
 		BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE24B81E28CF0700F7E89B /* publicFunction.swift */; };
 		BBC272E51E23957100235AE3 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC272E41E23957100235AE3 /* CalendarController.swift */; };
 		BBC4108A1E41B49700700E7B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC410891E41B49700700E7B /* LoginController.swift */; };
@@ -94,6 +95,7 @@
 		BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPickerViewController.swift; sourceTree = "<group>"; };
 		BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
 		BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkSpaceController.swift; sourceTree = "<group>"; };
+		BB96595D1E8D764D00E96CDB /* HourPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourPickerViewController.swift; sourceTree = "<group>"; };
 		BBAE24B81E28CF0700F7E89B /* publicFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = publicFunction.swift; sourceTree = "<group>"; };
 		BBC272E41E23957100235AE3 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		BBC410891E41B49700700E7B /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				DC00C78C1ACC661F00BB4A99 /* RightMenuViewController.swift */,
 				DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */,
 				BBE7901A1E8CFDE900406C26 /* ParkHourSelectController.swift */,
+				BB96595D1E8D764D00E96CDB /* HourPickerViewController.swift */,
 				BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */,
 				B23929DC1E67F44100C06C27 /* ParkingRecord.swift */,
 				DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */,
@@ -488,6 +491,7 @@
 				BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */,
 				BB56E42B1E811B71001B2649 /* DurationPickerViewController.swift in Sources */,
 				BB6CC4BB1E23D97600E49EA7 /* ParkSpaceController.swift in Sources */,
+				BB96595E1E8D764D00E96CDB /* HourPickerViewController.swift in Sources */,
 				BB46A60B1E7E6C3D0057EFEE /* AddEventController.swift in Sources */,
 				BB5E4B421E76BEDC00D16C38 /* TimeSlot.swift in Sources */,
 				BBC4108A1E41B49700700E7B /* LoginController.swift in Sources */,

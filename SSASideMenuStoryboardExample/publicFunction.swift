@@ -16,6 +16,7 @@ var signIned = false
 
 //ShareParkSpace
 var timeSlotList = [TimeSlot()]
+let parkHour = Array(1...24)
 let pickerWeek = [
     Date(),
     Calendar.current.date(byAdding: .day, value: 1, to: Date()),
@@ -41,6 +42,7 @@ let spaceID = [
     "A001","A002","A003","A004","A005","A006","B001","B002","B003","B004","B005","B006","B007","B008",
     "B009","B010","C001","C002","C003","C004","C005","C006"
 ]
+var whatParkHourIndex: Int = 0
 var whatDayIndex: Int = 0
 var whatTimeIndex: Int = 0
 var whatEndTimeIndex: Int = 1
