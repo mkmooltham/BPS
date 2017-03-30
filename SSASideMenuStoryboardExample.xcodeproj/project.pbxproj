@@ -33,6 +33,7 @@
 		BBC4108C1E41BFCB00700E7B /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4108B1E41BFCB00700E7B /* SignInController.swift */; };
 		BBC4108E1E41CF0100700E7B /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4108D1E41CF0100700E7B /* AccountController.swift */; };
 		BBD566731E2E19F300CFD32A /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD566721E2E19F300CFD32A /* ProfileController.swift */; };
+		BBE790191E8CF5A300406C26 /* SpacePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE790181E8CF5A300406C26 /* SpacePickerViewController.swift */; };
 		BBFAC5641E542B3C00EED558 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFAC5631E542B3C00EED558 /* StyleGenerator.swift */; };
 		BBFD9EC91E25E1990053AC4B /* RecordTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */; };
 		BBFD9ECA1E25E1990053AC4B /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */; };
@@ -100,6 +101,7 @@
 		BBC4108B1E41BFCB00700E7B /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		BBC4108D1E41CF0100700E7B /* AccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		BBD566721E2E19F300CFD32A /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		BBE790181E8CF5A300406C26 /* SpacePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacePickerViewController.swift; sourceTree = "<group>"; };
 		BBFAC5631E542B3C00EED558 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
 		BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableController.swift; sourceTree = "<group>"; };
 		BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */,
 				BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */,
 				BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */,
+				BBE790181E8CF5A300406C26 /* SpacePickerViewController.swift */,
 				BBC272E41E23957100235AE3 /* CalendarController.swift */,
 				BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */,
 				BBD566721E2E19F300CFD32A /* ProfileController.swift */,
@@ -496,6 +499,7 @@
 				DC00C7901ACC661F00BB4A99 /* RightMenuViewController.swift in Sources */,
 				BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */,
 				DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */,
+				BBE790191E8CF5A300406C26 /* SpacePickerViewController.swift in Sources */,
 				BBC4108C1E41BFCB00700E7B /* SignInController.swift in Sources */,
 				BBFD9ECA1E25E1990053AC4B /* RecordTableViewCell.swift in Sources */,
 				BB1067FB1DF0163F00BE6543 /* ParkInfoController.swift in Sources */,

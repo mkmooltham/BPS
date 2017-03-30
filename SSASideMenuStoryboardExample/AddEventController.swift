@@ -16,6 +16,7 @@ class AddEventController: UIViewController{
     @IBOutlet weak var popUpBackground: UIImageView!
     @IBOutlet weak var weekDayPicker: UIPickerView!
     @IBOutlet weak var durationPicker: UIPickerView!
+    @IBOutlet weak var spacePicker: UIPickerView!
     @IBOutlet weak var dateTitle: UILabel!
     
     var delegate: AddEventControllerDelegate!
@@ -39,6 +40,11 @@ class AddEventController: UIViewController{
         self.addChildViewController(durPickerVC)
         durationPicker.delegate = durPickerVC
         durationPicker.dataSource = durPickerVC
+        //spacePicker
+        let spaPickerVC = SpacePickerViewController()
+        self.addChildViewController(spaPickerVC)
+        spacePicker.delegate = spaPickerVC
+        spacePicker.dataSource = spaPickerVC
     }
     
     override func didReceiveMemoryWarning() {

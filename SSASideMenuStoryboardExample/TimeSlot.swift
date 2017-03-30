@@ -24,12 +24,12 @@ class TimeSlot {
     public var duration_hour: Int = 0
     public var duration_minute: Int = 0
     public var eventTitle: String = ""
-    public var spaceID: String = ""
+    public var spaceName: String = ""
     public var eventColor: UIColor = .white
     
     init(){}
    
-    init(dateIndex: Int, timeIndex:Int, timeEndIndex:Int, space:String ,event:eventType){
+    init(dateIndex: Int, timeIndex:Int, timeEndIndex:Int, spaceIndex:Int ,event:eventType){
         //translate date
         let formatter = DateFormatter()
         let selectedDate = pickerWeek[dateIndex]!
@@ -52,7 +52,7 @@ class TimeSlot {
         duration_minute = Int((Float(timeEndIndex-timeIndex)*0.5-Float(duration_hour))*60)
         
         //translate space ID
-        spaceID = space
+        spaceName = spaceID[spaceIndex]
         
         //translate event type
         switch event {

@@ -50,13 +50,14 @@ class ShareController: UIViewController, AddEventControllerDelegate {
     }
     
     func pushEventToCalendar(){
-        self.embeddedViewController.addEventToCalendar(dateid: whatDayIndex, timeid: whatTimeIndex,timeendid: whatEndTimeIndex, spaid:"AKB48")
+        self.embeddedViewController.addEventToCalendar(dateid: whatDayIndex, timeid: whatTimeIndex,timeendid: whatEndTimeIndex, spaid: whatSpaceIndex)
     }
     
     @IBAction func addEvent(_ sender: UIButton) {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpAddEvent") as! AddEventController
         whatTimeIndex = 0
         whatDayIndex = 0
+        whatSpaceIndex = 0
         popUpVC.delegate = self
         self.addChildViewController(popUpVC)
         popUpVC.view.frame = self.view.frame
