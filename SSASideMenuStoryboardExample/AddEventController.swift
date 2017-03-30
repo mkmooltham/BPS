@@ -32,6 +32,11 @@ class AddEventController: UIViewController{
         //config
         dateTitle.text = "Date for Weekly Schedule"
         popUpBackground.layer.cornerRadius = 10
+        //shadow
+        popUpBackground.layer.shadowColor = UIColor.black.cgColor
+        popUpBackground.layer.shadowOpacity = 0.8
+        popUpBackground.layer.shadowOffset = CGSize(width: 5, height: 5)
+        popUpBackground.layer.shadowRadius = 10
         
         //weekDayPicker
         let pickerVC = PickerViewController()

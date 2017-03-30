@@ -9,38 +9,16 @@
 import UIKit
 import Parse
 
-class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate, ParkHourSelectDelegate{
+class HomeViewController: UIViewController , ParkHourSelectDelegate{
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var findCarLogo: UIImageView!
     @IBOutlet weak var parkSpaceLogo: UIImageView!
     @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var labelNumAvailable: UILabel!
     @IBOutlet weak var infoBoardBackground: UIImageView!
-    @IBOutlet weak var parkModeText: UILabel!
-    @IBOutlet weak var switchControl: UISwitch!
-    @IBOutlet weak var parkTimeText: UITextField!
     
-    var pickerData = Array(1...24)
-    var picker = UIPickerView()
-    
-    //switch Park Mode
-    @IBAction func changeParkMode(_ sender: UISwitch) {
-        if switchControl.isOn == true{
-            parkModeText.text="Busy Mode"
-            parkTimeText.isHidden = false
-            parkTimeText.inputView = picker
-        } else{
-            parkModeText.text="Fast Mode"
-            parkTimeText.isHidden = true
-        }
-    }
-        
     @IBAction func findMyCar(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "click", style: .default, handler: { action in self.moveToMap()})
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-        
+        self.moveToMap()
     }
     
     func moveToMap(){
@@ -78,10 +56,6 @@ class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //picker
-        picker.delegate = self
-        picker.dataSource = self
         
         //Navigation bar
         menuButton.setImage(UIImage(named: "menuIcon.png"), for: .normal)
@@ -122,11 +96,6 @@ class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerVie
         self.labelNumAvailable.layer.shadowOffset = CGSize(width: 1, height: -1)
         self.labelNumAvailable.layer.shadowRadius = 5
         
-        self.parkModeText.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
-        self.parkModeText.layer.shadowOpacity = 0.8
-        self.parkModeText.layer.shadowOffset = CGSize(width: 1, height: -1)
-        self.parkModeText.layer.shadowRadius = 5
-
         //round corner
         infoBoardBackground.layer.cornerRadius = 10
         //shawdow
@@ -165,29 +134,6 @@ class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //Picker View Table
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
-        return 1
-    }
-    
-    
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if(pickerData[row]==1){
-            parkTimeText.text = String(pickerData[row])+" HOUR"
-        }else{
-            parkTimeText.text = String(pickerData[row])+" HOURS"
-        }
-        self.hideKeyboardWhenTappedAround()
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(pickerData[row])
     }
     
 }

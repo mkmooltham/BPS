@@ -18,6 +18,7 @@ class ParkHourSelectController: UIViewController{
     @IBOutlet weak var popUpBackground: UIImageView!
     @IBOutlet weak var bottomBackground: UIImageView!
     @IBOutlet weak var hourPicker: UIPickerView!
+    @IBOutlet weak var colorLine: UIImageView!
     
     var delegate: ParkHourSelectDelegate!
  
@@ -25,11 +26,14 @@ class ParkHourSelectController: UIViewController{
         super.viewDidLoad()
         
         //Config
+        //corner
         popUpBackground.layer.cornerRadius = 10
+        colorLine.layer.cornerRadius = 1
+        //shadow
         popUpBackground.layer.shadowColor = UIColor.black.cgColor
         popUpBackground.layer.shadowOpacity = 0.8
-        popUpBackground.layer.shadowOffset = CGSize(width: -0.4, height: 0.7)
-        popUpBackground.layer.shadowRadius = 1
+        popUpBackground.layer.shadowOffset = CGSize(width: 5, height: 5)
+        popUpBackground.layer.shadowRadius = 10
         delegate.addBlur()
         self.showAnimate()
         

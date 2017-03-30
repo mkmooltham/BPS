@@ -25,12 +25,12 @@ class HourPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var hourTitle = ""
         if(parkHour[row]==1){
-            hourTitle = String(parkHour[row])+" HOUR"
+            hourTitle = String(parkHour[row])+" Hour"
         }else{
-            hourTitle = String(parkHour[row])+" HOURS"
+            hourTitle = String(parkHour[row])+" Hours"
         }
 
-        return NSAttributedString(string: hourTitle, attributes: [NSForegroundColorAttributeName:hexColor(hex: "#66CCFF")])
+        return NSAttributedString(string: hourTitle, attributes: [NSForegroundColorAttributeName:hexColor(hex: "#00FFFF")])
         
     }
     
