@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate{
+class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate, ParkHourSelectDelegate{
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var findCarLogo: UIImageView!
     @IBOutlet weak var parkSpaceLogo: UIImageView!
@@ -34,7 +34,39 @@ class HomeViewController: UIViewController , UIPickerViewDataSource, UIPickerVie
             parkTimeText.isHidden = true
         }
     }
+        
+    @IBAction func findMyCar(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "click", style: .default, handler: { action in self.moveToMap()})
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func moveToMap(){
+        let findCarVc = self.storyboard?.instantiateViewController(withIdentifier: "FindCarMap") as! ParkSpaceController
+        self.navigationController?.pushViewController(findCarVc, animated: true)
 
+    }
+    
+    @IBAction func parkMyCar(_ sender: UIButton) {
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HourSelect") as! ParkHourSelectController
+        popUpVC.delegate = self
+        self.addChildViewController(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+
+    }
+    
+    func addBlur(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
