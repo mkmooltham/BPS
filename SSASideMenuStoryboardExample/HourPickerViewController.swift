@@ -24,7 +24,10 @@ class HourPickerViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var hourTitle = ""
-        if(parkHour[row]==1){
+        if(parkHour[row] == 0) {
+            hourTitle = "On demand"
+        }
+        else if(parkHour[row]==1){
             hourTitle = String(parkHour[row])+" Hour"
         }else{
             hourTitle = String(parkHour[row])+" Hours"

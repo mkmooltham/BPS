@@ -53,6 +53,11 @@ class ParkHourSelectController: UIViewController{
         delegate.removeBlur()
         self.removeAnimate()
         delegate.moveToMap()
+        
+        // TODO: call the check in API
+        let selectedRow = hourPicker.selectedRow(inComponent: 0)
+        //print(selectedRow)
+        print("selected parking hours: \(parkHour[selectedRow])")
     }
     
     
