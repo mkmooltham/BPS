@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ShareController: UIViewController {
+class ShareController: UIViewController, AddEventControllerDelegate {
+    
     @IBOutlet weak var addEventButton: UIButton!
+    private var embeddedViewController: CalendarController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +39,47 @@ class ShareController: UIViewController {
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(SSASideMenu.presentLeftMenuViewController))
         rightSwipe.direction = .right
         view.addGestureRecognizer(rightSwipe)
+        
 
     }
     
-    @IBAction func addEvent(_ sender: UIButton) {
-        if(addEventButton.currentTitle=="+"){
-            addEventButton.setTitle("-", for: .normal)
-        }else{
-            addEventButton.setTitle("+", for: .normal)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let vc = segue.destination as? CalendarController, segue.identifier == "calendarSegue" {
+            self.embeddedViewController = vc
         }
+    }
+    
+    func addBlur(){
+        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+    }
+    
+    func removeBlur(){
+        for subview in view.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
+    func pushEventToCalendar(){
+        self.embeddedViewController.addEventToCalendar(dateid: whatDayIndex, timeid: whatTimeIndex,timeendid: whatEndTimeIndex, spaid: whatSpaceIndex)
+    }
+    
+    
+    @IBAction func addEvent(_ sender: UIButton) {
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpAddEvent") as! AddEventController
+        whatTimeIndex = 0
+        whatDayIndex = 0
+        whatSpaceIndex = 0
+        popUpVC.delegate = self
+        self.addChildViewController(popUpVC)
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
     }
     
     override func didReceiveMemoryWarning() {

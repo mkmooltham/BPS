@@ -10,86 +10,56 @@ import UIKit
 import CalendarKit
 import DateToolsSwift
 
-enum SelectedStyle {
-    case Dark
-    case Light
-}
-
 class CalendarController: DayViewController {
     
-    var data = [["Reserved",
-                 "HKUST"],
-                
-                ["Reserved",
-                 "HKUST"],
-                
-                ["Reserved",
-                 "HKUST"],
-                
-                ["Reserved",
-                 "HKUST"],
-                
-                ["Free",
-                 "HKUST"],
-                
-                ["Free",
-                 "HKUST"],
-                
-                ["Free",
-                 "HKUST"],
-                
-                ["Rent Out",
-                 "HKUST"],
-                
-                ["Rent Out",
-                 "HKUST"],
-                
-                ]
-    
-    var colors = [UIColor.blue,
-                  UIColor.yellow,
-                  UIColor.black,
-                  UIColor.green,
-                  UIColor.red]
- 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Calendar Style
         var style: CalendarStyle!
         style = StyleGenerator.darkStyle()
-        updateStyle(style)        
-
+        updateStyle(style)
         }
- 
-    // MARK: DayViewDataSource
+    
+    func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int, spaid: Int){
+        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)
+        timeSlotList.append(secondEvent)
+        self.dayView.reloadData()
+    }
+    
     override func eventViewsForDate(_ date: Date) -> [EventView] {
-        var date = date.add(TimeChunk(seconds: 0, minutes: 0, hours: Int(arc4random_uniform(10) + 5), days: 0, weeks: 0, months: 0, years: 0))
+        
         var events = [EventView]()
         
-        for _ in 0...5 {
-            let event = EventView()
-            let duration = Int(arc4random_uniform(160) + 60)
-            let datePeriod = TimePeriod(beginning: date,
-                                        chunk: TimeChunk(seconds: 0, minutes: duration, hours: 0, days: 0, weeks: 0, months: 0, years: 0))
-            
+        for i in 0...(timeSlotList.count-1) {
+        let event = EventView()
+        //Date(year,month,day,hours,minutes)
+            let eventDate = Date(year: timeSlotList[i].start_year, month: timeSlotList[i].start_month, day: timeSlotList[i].start_day).add(TimeChunk(seconds: 0, minutes: timeSlotList[i].start_minute, hours: timeSlotList[i].start_hour, days: 0, weeks: 0, months: 0, years: 0))
+        //Duration(hours,minutes)
+            let duration = TimeChunk(seconds: 0, minutes: timeSlotList[i].duration_minute, hours: timeSlotList[i].duration_hour, days: 0, weeks: 0, months: 0, years: 0)
+            let datePeriod = TimePeriod(beginning: eventDate, chunk: duration)
             event.datePeriod = datePeriod
-            var info = data[Int(arc4random_uniform(UInt32(data.count)))]
-            info.append("\(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)")
-            event.data = info
-            event.color = colors[Int(arc4random_uniform(UInt32(colors.count)))]
-            events.append(event)
+        //event title
+            if(timeSlotList[i].duration_hour >= 1){
+                var info = [ "\(timeSlotList[i].spaceName) \(timeSlotList[i].eventTitle)" ]
+                info.append("\(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)")
+                event.data = info
+            }else{
+                let info = [ "\(timeSlotList[i].spaceName) \(timeSlotList[i].eventTitle) \(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)" ]
+                event.data = info
+            }
             
-            let nextOffset = Int(arc4random_uniform(250) + 40)
-            date = date.add(TimeChunk(seconds: 0, minutes: nextOffset, hours: 0, days: 0, weeks: 0, months: 0, years: 0))
+        //event color
+            event.color = timeSlotList[i].eventColor
+            events.append(event)
         }
         
         return events
     }
+
     
     // MARK: DayViewDelegate
     override func dayViewDidSelectEventView(_ eventview: EventView) {
-        
         print("Event has been selected: \(eventview.data)")
     }
     override func dayViewDidLongPressEventView(_ eventView: EventView) {

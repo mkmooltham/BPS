@@ -64,7 +64,9 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
     //Back button
     func back(sender: UIBarButtonItem) {
         //code//
-        _ = navigationController?.popViewController(animated: true)
+//        _ = navigationController?.popViewController(animated: true)
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+        self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
     }
     
     //Zooming
