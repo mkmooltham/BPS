@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ParkSpaceController: UIViewController, UIScrollViewDelegate {
     
@@ -109,6 +110,24 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func arriveBtnClick(_ sender: UIButton) {
+        // Call cloud funtion checkout
+        PFCloud.callFunction(inBackground: "checkout", withParameters: nil, block: { (response:Any?, error:Error?) in
+            if let error = error {
+                let alertCtrl = getErrorAlertCtrl(title: "Cannot check-out", message: error.localizedDescription)
+                self.present(alertCtrl, animated: true, completion: nil)
+                return
+            }
+            
+            print(response ?? "no response")
+            // parse response parking record
+            let parkingRecord = response as! PFObject
+            print(parkingRecord["checkoutTime"])
+            
+        })
+        
     }
     
     
