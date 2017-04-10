@@ -479,6 +479,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="arriveBtnClick:" destination="hxC-Ya-gpm" eventType="touchUpInside" id="cGe-T8-iQs"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A199" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcO-cW-RGm">
                                 <rect key="frame" x="0.0" y="64.666666666666671" width="414" height="35"/>
@@ -591,7 +594,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8Go-CK-CCm"/>
                     <connections>
-                        <outlet property="arrivedButton" destination="iAj-DL-cd3" id="Egp-E5-q8T"/>
+                        <outlet property="arrivedButton" destination="iAj-DL-cd3" id="hxY-VH-Kno"/>
                         <outlet property="carLotNum" destination="XcO-cW-RGm" id="IS4-RR-5Ru"/>
                         <outlet property="carLotTitle" destination="1HX-c9-ism" id="7Xo-95-mmB"/>
                         <outlet property="infoBoardView" destination="Akb-Xu-48r" id="nx6-pI-0Lj"/>

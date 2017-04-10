@@ -21,6 +21,7 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
         self.moveToMap()
     }
     
+    // open the indoor navigation view controller
     func moveToMap(){
         let findCarVc = self.storyboard?.instantiateViewController(withIdentifier: "FindCarMap") as! ParkSpaceController
         self.navigationController?.pushViewController(findCarVc, animated: true)
