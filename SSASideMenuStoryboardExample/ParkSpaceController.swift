@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDelegate {
     
@@ -130,6 +131,7 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
         }
     }
     
+<<<<<<< HEAD
     func changeWord(input: String){
         if input == "Find"{
             temp_title = "Find My Car"
@@ -141,5 +143,25 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
             temp_arrivedButtonTitle = "Arrived"
         }
     }
+=======
+    @IBAction func arriveBtnClick(_ sender: UIButton) {
+        // Call cloud funtion checkout
+        PFCloud.callFunction(inBackground: "checkout", withParameters: nil, block: { (response:Any?, error:Error?) in
+            if let error = error {
+                let alertCtrl = getErrorAlertCtrl(title: "Cannot check-out", message: error.localizedDescription)
+                self.present(alertCtrl, animated: true, completion: nil)
+                return
+            }
+            
+            print(response ?? "no response")
+            // parse response parking record
+            let parkingRecord = response as! PFObject
+            print(parkingRecord["checkoutTime"])
+            
+        })
+        
+    }
+    
+>>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
     
 }

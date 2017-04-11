@@ -16,7 +16,9 @@ var signIned = false
 
 //ShareParkSpace
 var timeSlotList = [TimeSlot()]
-let parkHour = Array(1...24)
+
+// 0 = any hour, 1 .. 23 = 1 to 23 hour(s)
+let parkHour = Array(0...23)
 let pickerWeek = [
     Date(),
     Calendar.current.date(byAdding: .day, value: 1, to: Date()),

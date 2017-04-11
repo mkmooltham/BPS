@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 protocol ParkHourSelectDelegate {
     func moveToMap(input: String)
@@ -52,7 +53,40 @@ class ParkHourSelectController: UIViewController{
     @IBAction func confirm(_ sender: UIButton) {
         delegate.removeBlur()
         self.removeAnimate()
+<<<<<<< HEAD
         delegate.moveToMap(input: "Park")
+=======
+        
+        // TODO: call the check in API
+        let selectedRow = hourPicker.selectedRow(inComponent: 0)
+        //print(selectedRow)
+        print("selected parking hours: \(parkHour[selectedRow])")
+        let parkingHour = parkHour[selectedRow]
+        
+        var param:[String: Int]? = nil
+        
+        // park with time limit
+        if(parkingHour > 0) {
+            param = ["time": parkingHour];
+        }
+        
+        //PFCloud.callFunction(<#T##function: String##String#>, withParameters: <#T##[AnyHashable : Any]?#>)
+        PFCloud.callFunction(inBackground: "checkin", withParameters: param, block: { (response:Any?, error:Error?) in
+            if let error = error {
+                let alertCtrl = getErrorAlertCtrl(title: "Cannot check-in", message: error.localizedDescription)
+                self.present(alertCtrl, animated: true, completion: nil)
+                return
+            }
+            
+            // success check in
+            print(response ?? "no response")
+            // parse response parking space
+            let parkingSpace = response as! PFObject
+            print(parkingSpace["parkingLotId"])
+            
+            self.delegate.moveToMap()
+        })
+>>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
     }
     
     
