@@ -9,6 +9,10 @@
 import UIKit
 import Parse
 
+protocol HomeViewDelegate{
+    func changeWord(input: String)
+}
+
 class HomeViewController: UIViewController , ParkHourSelectDelegate{
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var findCarLogo: UIImageView!
@@ -17,12 +21,17 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
     @IBOutlet weak var labelNumAvailable: UILabel!
     @IBOutlet weak var infoBoardBackground: UIImageView!
     
+    var delegate: HomeViewDelegate!
+    
     @IBAction func findMyCar(_ sender: UIButton) {
-        self.moveToMap()
+        self.moveToMap(input:"Find")
     }
     
-    func moveToMap(){
+    func moveToMap(input: String){
         let findCarVc = self.storyboard?.instantiateViewController(withIdentifier: "FindCarMap") as! ParkSpaceController
+        findCarVc.changeWord(input: input)
+        print(input)
+        
         self.navigationController?.pushViewController(findCarVc, animated: true)
 
     }

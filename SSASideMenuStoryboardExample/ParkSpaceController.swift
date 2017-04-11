@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParkSpaceController: UIViewController, UIScrollViewDelegate {
+class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDelegate {
     
     @IBOutlet weak var arrivedButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -17,11 +17,20 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var carLotNum: UILabel!
     @IBOutlet weak var carLotTitle: UILabel!
     
+    var temp_title = "Park My Car"
+    var temp_carLotTitle = "You Got Parking Space"
+    var temp_carLotNum = "A109"
+    var temp_arrivedButtonTitle = "Arrived"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Title
-        title = "Park My Car"
+        title = temp_title
+        carLotTitle.text = temp_carLotTitle
+        carLotNum.text = temp_carLotNum
+        arrivedButton.setTitle(temp_arrivedButtonTitle, for: .normal)
         
         //Config
         //round corner
@@ -63,8 +72,6 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
     
     //Back button
     func back(sender: UIBarButtonItem) {
-        //code//
-//        _ = navigationController?.popViewController(animated: true)
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
         self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
     }
@@ -105,11 +112,34 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
             print("Portrait")
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    @IBAction func arriveButton(_ sender: UIButton) {
+        if sender.titleLabel!.text == "Leave"{
+            let alert = UIAlertController(title: "Payment Success", message: "You paid $40~ Welcome next time", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+            self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+        }
+        else if sender.titleLabel!.text == "Arrived"{
+            let alert = UIAlertController(title: "Park Success", message: "Your parking has recorded", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
+            self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+        }
     }
     
+    func changeWord(input: String){
+        if input == "Find"{
+            temp_title = "Find My Car"
+            temp_carLotTitle = "Your Car at Parking Space"
+            temp_arrivedButtonTitle = "Leave"
+        }else if input == "Park"{
+            temp_title = "Park My Car"
+            temp_carLotTitle = "You Got Parking Space"
+            temp_arrivedButtonTitle = "Arrived"
+        }
+    }
     
 }

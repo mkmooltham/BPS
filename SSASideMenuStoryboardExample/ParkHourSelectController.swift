@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ParkHourSelectDelegate {
-    func moveToMap()
+    func moveToMap(input: String)
     func addBlur()
     func removeBlur()
 }
@@ -52,7 +52,7 @@ class ParkHourSelectController: UIViewController{
     @IBAction func confirm(_ sender: UIButton) {
         delegate.removeBlur()
         self.removeAnimate()
-        delegate.moveToMap()
+        delegate.moveToMap(input: "Park")
     }
     
     
