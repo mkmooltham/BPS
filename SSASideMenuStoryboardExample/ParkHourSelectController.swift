@@ -79,7 +79,12 @@ class ParkHourSelectController: UIViewController{
             print(response ?? "no response")
             // parse response parking space
             let parkingSpace = response as! PFObject
+            let parkingSpaceID = parkingSpace["parkingLotId"]
             print(parkingSpace["parkingLotId"])
+            
+            // save the parking lot id to internal storage
+            let defaults = UserDefaults.standard
+            defaults.set(parkingSpaceID, forKey: "ParkingSpaceCheckedIn")
             
             self.delegate.moveToMap()
         })

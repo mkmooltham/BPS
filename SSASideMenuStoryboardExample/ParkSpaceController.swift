@@ -21,6 +21,26 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check if current user check in to any parking space
+        let defaults = UserDefaults.standard
+        
+        if let parkingSpaceID = defaults.object(forKey: "ParkingSpaceCheckedIn") as? String {
+            carLotNum.text = parkingSpaceID
+        } else {
+            // not checked in
+            let alertController = UIAlertController(title: "Not checked in", message: "You have not checked in any parking space", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                (result : UIAlertAction) -> Void in
+                // after clicking ok, go back to home view
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+            }
+            alertController.addAction(okAction)
+
+            present(alertController, animated: true, completion: nil)
+        }
+
         //Title
         title = "Park My Car"
         
@@ -59,7 +79,6 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
         
         //Orientation change
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
     }
     
     //Back button
@@ -125,6 +144,10 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate {
             // parse response parking record
             let parkingRecord = response as! PFObject
             print(parkingRecord["checkoutTime"])
+            
+            // Clear the stored checkined parking space
+            let defaults = UserDefaults.standard
+            defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
             
         })
         
