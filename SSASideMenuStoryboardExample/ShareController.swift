@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ShareController: UIViewController, AddEventControllerDelegate {
     
@@ -40,7 +41,15 @@ class ShareController: UIViewController, AddEventControllerDelegate {
         rightSwipe.direction = .right
         view.addGestureRecognizer(rightSwipe)
         
-
+        guard PFUser.current() != nil else {
+            present(getErrorAlertCtrl(title: "Login Required", message: "Please sign in first"),
+                    animated: true, completion: nil)
+            
+            let controller = storyboard?.instantiateViewController(withIdentifier: "Account")
+            sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+            return
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
