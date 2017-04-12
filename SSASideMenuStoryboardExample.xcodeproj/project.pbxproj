@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CEB8D86F3D0E1799EB36C79 /* Pods_SSASideMenuStoryboardExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36049FB251D2D04C8DC7FE0F /* Pods_SSASideMenuStoryboardExample.framework */; };
 		970384B642D14004C92FC456 /* Pods_SSASideMenuStoryboardExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEA955C1F4A1FCC48BB5749 /* Pods_SSASideMenuStoryboardExampleTests.framework */; };
+		B210C6391E9E169D005AA931 /* NavigationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210C6381E9E169D005AA931 /* NavigationMapController.swift */; };
 		B21DB07F1E403EA600861070 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21DB07E1E403EA600861070 /* Bolts.framework */; };
 		B21DB0811E403EAE00861070 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21DB0801E403EAE00861070 /* Parse.framework */; };
 		B21DB0841E405D1600861070 /* Parse.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B21DB0801E403EAE00861070 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -78,6 +79,7 @@
 		36049FB251D2D04C8DC7FE0F /* Pods_SSASideMenuStoryboardExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSASideMenuStoryboardExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D927430D8EE0337FCFD76C6 /* Pods-SSASideMenuStoryboardExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSASideMenuStoryboardExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSASideMenuStoryboardExampleTests/Pods-SSASideMenuStoryboardExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAEA955C1F4A1FCC48BB5749 /* Pods_SSASideMenuStoryboardExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSASideMenuStoryboardExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B210C6381E9E169D005AA931 /* NavigationMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMapController.swift; sourceTree = "<group>"; };
 		B21DB07E1E403EA600861070 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
 		B21DB0801E403EAE00861070 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
 		B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = EstimoteSDK/EstimoteSDK.framework; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */,
+				B210C6381E9E169D005AA931 /* NavigationMapController.swift */,
 			);
 			name = ParkingMap;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				BB46A60B1E7E6C3D0057EFEE /* AddEventController.swift in Sources */,
 				BB5E4B421E76BEDC00D16C38 /* TimeSlot.swift in Sources */,
 				BBC4108A1E41B49700700E7B /* LoginController.swift in Sources */,
+				B210C6391E9E169D005AA931 /* NavigationMapController.swift in Sources */,
 				BBFAC5641E542B3C00EED558 /* StyleGenerator.swift in Sources */,
 				BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */,
 				BBC272E51E23957100235AE3 /* CalendarController.swift in Sources */,
