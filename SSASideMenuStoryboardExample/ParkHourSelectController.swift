@@ -53,10 +53,7 @@ class ParkHourSelectController: UIViewController{
     @IBAction func confirm(_ sender: UIButton) {
         delegate.removeBlur()
         self.removeAnimate()
-<<<<<<< HEAD
-        delegate.moveToMap(input: "Park")
-=======
-        
+
         // TODO: call the check in API
         let selectedRow = hourPicker.selectedRow(inComponent: 0)
         //print(selectedRow)
@@ -82,11 +79,16 @@ class ParkHourSelectController: UIViewController{
             print(response ?? "no response")
             // parse response parking space
             let parkingSpace = response as! PFObject
+            let parkingSpaceID = parkingSpace["parkingLotId"]
             print(parkingSpace["parkingLotId"])
             
-            self.delegate.moveToMap()
+            // save the parking lot id to internal storage
+            let defaults = UserDefaults.standard
+            defaults.set(parkingSpaceID, forKey: "ParkingSpaceCheckedIn")
+            
+            self.delegate.moveToMap(input: "Park")
         })
->>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
+
     }
     
     

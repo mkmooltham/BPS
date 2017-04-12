@@ -27,12 +27,8 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
         self.moveToMap(input:"Find")
     }
     
-<<<<<<< HEAD
+
     func moveToMap(input: String){
-=======
-    // open the indoor navigation view controller
-    func moveToMap(){
->>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
         let findCarVc = self.storyboard?.instantiateViewController(withIdentifier: "FindCarMap") as! ParkSpaceController
         findCarVc.changeWord(input: input)
         print(input)
@@ -42,6 +38,21 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
     }
     
     @IBAction func parkMyCar(_ sender: UIButton) {
+        // Check if current user has already checked into parking space
+        let defaults = UserDefaults.standard
+        
+        if (defaults.object(forKey: "ParkingSpaceCheckedIn") as? String) != nil {
+            let alertController = UIAlertController(title: "Already checked in", message: "You have already checked in a parking space, please click `Find My Car` to see the details", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                (result : UIAlertAction) -> Void in
+                    print("OK")
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HourSelect") as! ParkHourSelectController
         popUpVC.delegate = self
         self.addChildViewController(popUpVC)

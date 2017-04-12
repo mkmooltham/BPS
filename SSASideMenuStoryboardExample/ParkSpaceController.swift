@@ -27,6 +27,26 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check if current user check in to any parking space
+        let defaults = UserDefaults.standard
+        
+        if let parkingSpaceID = defaults.object(forKey: "ParkingSpaceCheckedIn") as? String {
+            carLotNum.text = parkingSpaceID
+        } else {
+            // not checked in
+            let alertController = UIAlertController(title: "Not checked in", message: "You have not checked in any parking space", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                (result : UIAlertAction) -> Void in
+                // after clicking ok, go back to home view
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+            }
+            alertController.addAction(okAction)
+
+            present(alertController, animated: true, completion: nil)
+        }
+
         //Title
         title = temp_title
         carLotTitle.text = temp_carLotTitle
@@ -68,7 +88,6 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
         
         //Orientation change
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
     }
     
     //Back button
@@ -116,6 +135,25 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
 
     @IBAction func arriveButton(_ sender: UIButton) {
         if sender.titleLabel!.text == "Leave"{
+            // Call cloud funtion checkout
+            PFCloud.callFunction(inBackground: "checkout", withParameters: nil, block: { (response:Any?, error:Error?) in
+                if let error = error {
+                    let alertCtrl = getErrorAlertCtrl(title: "Cannot check-out", message: error.localizedDescription)
+                    self.present(alertCtrl, animated: true, completion: nil)
+                    return
+                }
+                
+                print(response ?? "no response")
+                // parse response parking record
+                let parkingRecord = response as! PFObject
+                print(parkingRecord["checkoutTime"])
+                
+                // Clear the stored checkined parking space
+                let defaults = UserDefaults.standard
+                defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
+                
+            })
+            
             let alert = UIAlertController(title: "Payment Success", message: "You paid $40~ Welcome next time", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -129,9 +167,9 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
             self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
         }
+        
     }
     
-<<<<<<< HEAD
     func changeWord(input: String){
         if input == "Find"{
             temp_title = "Find My Car"
@@ -143,25 +181,4 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
             temp_arrivedButtonTitle = "Arrived"
         }
     }
-=======
-    @IBAction func arriveBtnClick(_ sender: UIButton) {
-        // Call cloud funtion checkout
-        PFCloud.callFunction(inBackground: "checkout", withParameters: nil, block: { (response:Any?, error:Error?) in
-            if let error = error {
-                let alertCtrl = getErrorAlertCtrl(title: "Cannot check-out", message: error.localizedDescription)
-                self.present(alertCtrl, animated: true, completion: nil)
-                return
-            }
-            
-            print(response ?? "no response")
-            // parse response parking record
-            let parkingRecord = response as! PFObject
-            print(parkingRecord["checkoutTime"])
-            
-        })
-        
-    }
-    
->>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
-    
 }

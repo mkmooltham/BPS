@@ -9,6 +9,7 @@
 import UIKit
 import CalendarKit
 import DateToolsSwift
+import Parse
 
 class CalendarController: DayViewController {
     
@@ -19,7 +20,47 @@ class CalendarController: DayViewController {
         var style: CalendarStyle!
         style = StyleGenerator.darkStyle()
         updateStyle(style)
+        
+
+        // Call API to retreive parking space schedule
+        guard let currentUser = PFUser.current() else {
+            return
         }
+        let query = PFQuery(className:"ParkingSpace")
+        query.whereKey("owner", equalTo: currentUser)
+        query.getFirstObjectInBackground { (parkingSpace: PFObject?, error: Error?) in
+            if let err = error {
+                print(err.localizedDescription)
+                self.present(getErrorAlertCtrl(title: "Error", message: err.localizedDescription),
+                             animated: true, completion: nil)
+                return
+            }
+            
+            guard parkingSpace != nil else {
+                self.present(getErrorAlertCtrl(title: "No parking space found", message: "You do not own any parking space"),
+                             animated: true, completion: nil)
+                return
+            }
+            
+            // parking space found
+
+            let schedules = parkingSpace!["schedule"] as? [[String: AnyObject]]
+            print(schedules)
+            if let schedules = schedules {
+                for schedule in schedules {
+                    let weekday = schedule["weekday"] as? Int
+                    let startTimeHour = schedule["startTime"] as? Float
+                    let duration = schedule["duration"] as? Float
+                    
+                    print("Schedule item: \(weekday) \(startTimeHour) \(duration)");
+                    // TODO: Jack please insert the schedules into the calendar view
+                    
+                }
+            }
+
+        }
+
+    }
     
     func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int, spaid: Int){
         let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)

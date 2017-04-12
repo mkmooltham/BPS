@@ -45,7 +45,6 @@
 		DC00C77F1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C77E1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift */; };
 		DC00C78E1ACC661F00BB4A99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */; };
 		DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */; };
-		DC00C7901ACC661F00BB4A99 /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78C1ACC661F00BB4A99 /* RightMenuViewController.swift */; };
 		DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8F15F91AE94723009CC3C3 /* SSASideMenu.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,7 +118,6 @@
 		DC00C77E1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSASideMenuStoryboardExampleTests.swift; sourceTree = "<group>"; };
 		DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		DC00C78C1ACC661F00BB4A99 /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkInfoController.swift; sourceTree = "<group>"; };
 		DC8F15F91AE94723009CC3C3 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +157,61 @@
 				8D927430D8EE0337FCFD76C6 /* Pods-SSASideMenuStoryboardExampleTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B210C6331E9DD10C005AA931 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */,
+				BBE7901A1E8CFDE900406C26 /* ParkHourSelectController.swift */,
+				BB96595D1E8D764D00E96CDB /* HourPickerViewController.swift */,
+			);
+			name = HomeView;
+			sourceTree = "<group>";
+		};
+		B210C6341E9DD1D2005AA931 /* ParkingRecord */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD9EF01E2607180053AC4B /* RecordController.swift */,
+				BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */,
+				BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */,
+				B23929DC1E67F44100C06C27 /* ParkingRecord.swift */,
+			);
+			name = ParkingRecord;
+			sourceTree = "<group>";
+		};
+		B210C6351E9DD20F005AA931 /* ParkingSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */,
+				BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */,
+				BBE790181E8CF5A300406C26 /* SpacePickerViewController.swift */,
+				BBFAC5631E542B3C00EED558 /* StyleGenerator.swift */,
+				BB1C900F1E765B180016FFCB /* ShareController.swift */,
+				BBC272E41E23957100235AE3 /* CalendarController.swift */,
+				BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */,
+				BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */,
+			);
+			name = ParkingSchedule;
+			sourceTree = "<group>";
+		};
+		B210C6361E9DD293005AA931 /* ParkingMap */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */,
+			);
+			name = ParkingMap;
+			sourceTree = "<group>";
+		};
+		B210C6371E9DD33B005AA931 /* UserAccount */ = {
+			isa = PBXGroup;
+			children = (
+				BBC4108D1E41CF0100700E7B /* AccountController.swift */,
+				BBC4108B1E41BFCB00700E7B /* SignInController.swift */,
+				BBC410891E41B49700700E7B /* LoginController.swift */,
+				BBD566721E2E19F300CFD32A /* ProfileController.swift */,
+			);
+			name = UserAccount;
 			sourceTree = "<group>";
 		};
 		B25A671D1E3C84980085AE62 /* Frameworks */ = {
@@ -201,31 +254,14 @@
 			children = (
 				B2336E881E3F15BE00C5C670 /* SSASideMenuStoryboardExample.entitlements */,
 				B25A672C1E3C9EDD0085AE62 /* ObjCBridge.h */,
-				DC8F15F81AE946DA009CC3C3 /* SSASideMenu */,
 				DC00C7681ACC65CD00BB4A99 /* AppDelegate.swift */,
-				DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */,
-				DC00C78C1ACC661F00BB4A99 /* RightMenuViewController.swift */,
-				DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */,
-				BBE7901A1E8CFDE900406C26 /* ParkHourSelectController.swift */,
-				BB96595D1E8D764D00E96CDB /* HourPickerViewController.swift */,
-				BB6CC4BA1E23D97600E49EA7 /* ParkSpaceController.swift */,
-				B23929DC1E67F44100C06C27 /* ParkingRecord.swift */,
+				B210C6331E9DD10C005AA931 /* HomeView */,
+				DC8F15F81AE946DA009CC3C3 /* SSASideMenu */,
+				B210C6341E9DD1D2005AA931 /* ParkingRecord */,
+				B210C6351E9DD20F005AA931 /* ParkingSchedule */,
+				B210C6361E9DD293005AA931 /* ParkingMap */,
+				B210C6371E9DD33B005AA931 /* UserAccount */,
 				DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */,
-				BBFD9EF01E2607180053AC4B /* RecordController.swift */,
-				BBFD9EC71E25E1990053AC4B /* RecordTableController.swift */,
-				BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */,
-				BB1C900F1E765B180016FFCB /* ShareController.swift */,
-				BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */,
-				BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */,
-				BB56E42A1E811B71001B2649 /* DurationPickerViewController.swift */,
-				BBE790181E8CF5A300406C26 /* SpacePickerViewController.swift */,
-				BBC272E41E23957100235AE3 /* CalendarController.swift */,
-				BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */,
-				BBC4108D1E41CF0100700E7B /* AccountController.swift */,
-				BBD566721E2E19F300CFD32A /* ProfileController.swift */,
-				BBFAC5631E542B3C00EED558 /* StyleGenerator.swift */,
-				BBC4108B1E41BFCB00700E7B /* SignInController.swift */,
-				BBC410891E41B49700700E7B /* LoginController.swift */,
 				BBAE24B81E28CF0700F7E89B /* publicFunction.swift */,
 				DC00C76F1ACC65CD00BB4A99 /* Images.xcassets */,
 				BB1FA49B1E80054C004555FD /* Main.storyboard */,
@@ -263,6 +299,7 @@
 		DC8F15F81AE946DA009CC3C3 /* SSASideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */,
 				DC8F15F91AE94723009CC3C3 /* SSASideMenu.swift */,
 			);
 			name = SSASideMenu;
@@ -499,7 +536,6 @@
 				BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */,
 				BBC272E51E23957100235AE3 /* CalendarController.swift in Sources */,
 				DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */,
-				DC00C7901ACC661F00BB4A99 /* RightMenuViewController.swift in Sources */,
 				BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */,
 				DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */,
 				BBE7901B1E8CFDE900406C26 /* ParkHourSelectController.swift in Sources */,

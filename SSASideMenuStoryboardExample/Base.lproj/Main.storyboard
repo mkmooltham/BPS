@@ -31,7 +31,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="scaleBackgroundImageView" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="scaleMenuView" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="fadeMenuView" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="rightMenuViewStoryboardID" value="RightMenuViewController"/>
+
                         <userDefinedRuntimeAttribute type="boolean" keyPath="parallaxEnabled" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="bouncesHorizontally" value="YES"/>
                         <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="Background"/>
@@ -298,24 +298,6 @@
             </objects>
             <point key="canvasLocation" x="-30" y="-529"/>
         </scene>
-        <!--Right Menu View Controller-->
-        <scene sceneID="QIS-tf-shj">
-            <objects>
-                <viewController storyboardIdentifier="RightMenuViewController" id="v2D-JY-uvA" customClass="RightMenuViewController" customModule="SSASideMenuStoryboardExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="C99-jg-PSZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jg0-89-TXZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Lyj-0g-OTA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dXv-BH-M6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-30" y="-1216"/>
-        </scene>
         <!--Park Hour Select Controller-->
         <scene sceneID="BJG-Yt-Jab">
             <objects>
@@ -480,11 +462,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-<<<<<<< HEAD
                                     <action selector="arriveButton:" destination="hxC-Ya-gpm" eventType="touchUpInside" id="ojK-gH-1MS"/>
-=======
-                                    <action selector="arriveBtnClick:" destination="hxC-Ya-gpm" eventType="touchUpInside" id="cGe-T8-iQs"/>
->>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A199" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcO-cW-RGm">
