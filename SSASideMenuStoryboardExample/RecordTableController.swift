@@ -45,6 +45,10 @@ class RecordTableController: UITableViewController {
             
             // success retrieve parking recrods
             print("Success get parking records: \(records)")
+            
+            // clear previous parking records
+            parkingRecords.removeAll()
+            
             for record in records! {
                 let parkingSpace = record["parkingSpace"] as? PFObject
                 print("parkingSpace: \(parkingSpace?["parkingLotId"]) checkinTime: \(record["checkinTime"]) checkoutTime: \(record["checkoutTime"])")
