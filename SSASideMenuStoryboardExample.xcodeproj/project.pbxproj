@@ -45,7 +45,6 @@
 		DC00C77F1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C77E1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift */; };
 		DC00C78E1ACC661F00BB4A99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */; };
 		DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */; };
-		DC00C7901ACC661F00BB4A99 /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78C1ACC661F00BB4A99 /* RightMenuViewController.swift */; };
 		DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8F15F91AE94723009CC3C3 /* SSASideMenu.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,7 +118,6 @@
 		DC00C77E1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSASideMenuStoryboardExampleTests.swift; sourceTree = "<group>"; };
 		DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		DC00C78C1ACC661F00BB4A99 /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkInfoController.swift; sourceTree = "<group>"; };
 		DC8F15F91AE94723009CC3C3 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,7 +202,6 @@
 				DC8F15F81AE946DA009CC3C3 /* SSASideMenu */,
 				DC00C7681ACC65CD00BB4A99 /* AppDelegate.swift */,
 				DC00C78B1ACC661F00BB4A99 /* LeftMenuViewController.swift */,
-				DC00C78C1ACC661F00BB4A99 /* RightMenuViewController.swift */,
 				DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */,
 				BBE7901A1E8CFDE900406C26 /* ParkHourSelectController.swift */,
 				BB96595D1E8D764D00E96CDB /* HourPickerViewController.swift */,
@@ -499,7 +496,6 @@
 				BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */,
 				BBC272E51E23957100235AE3 /* CalendarController.swift in Sources */,
 				DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */,
-				DC00C7901ACC661F00BB4A99 /* RightMenuViewController.swift in Sources */,
 				BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */,
 				DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */,
 				BBE7901B1E8CFDE900406C26 /* ParkHourSelectController.swift in Sources */,
