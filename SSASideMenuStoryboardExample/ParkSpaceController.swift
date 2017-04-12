@@ -9,11 +9,9 @@
 import UIKit
 import Parse
 
-class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDelegate {
+class ParkSpaceController: UIViewController, HomeViewDelegate {
     
     @IBOutlet weak var arrivedButton: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var mapImage: UIImageView!
     @IBOutlet weak var infoBoardView: UIImageView!
     @IBOutlet weak var carLotNum: UILabel!
     @IBOutlet weak var carLotTitle: UILabel!
@@ -22,7 +20,6 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
     var temp_carLotTitle = "You Got Parking Space"
     var temp_carLotNum = "A109"
     var temp_arrivedButtonTitle = "Arrived"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,39 +78,17 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
         navigationController?.navigationBar.isTranslucent = true
         let navbarFont = UIFont(name: "Ubuntu", size: titleSize) ?? UIFont.systemFont(ofSize: titleSize)
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navbarFont, NSForegroundColorAttributeName:UIColor.lightText]
-        
-        //zoom config
-        scrollView.backgroundColor = hexColor(hex: "#000e29")
-        setZoomScale()
+
         
         //Orientation change
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
     }
     
     //Back button
     func back(sender: UIBarButtonItem) {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
         self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
-    }
-    
-    //Zooming
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return self.mapImage
-    }
-    func setZoomScale() {
-        
-        let imageViewSize = mapImage.bounds.size
-        let scrollViewSize = scrollView.bounds.size
-        let widthScale = scrollViewSize.width / (imageViewSize.width)
-        let heightScale = scrollViewSize.height / (imageViewSize.height)
-        
-        scrollView.zoomScale = min(widthScale, heightScale)*1.5
-        scrollView.minimumZoomScale = scrollView.zoomScale
-        scrollView.maximumZoomScale = scrollView.zoomScale+2
-    }
-    
-    override func viewWillLayoutSubviews() {
-        setZoomScale()
     }
     
     //orientation change

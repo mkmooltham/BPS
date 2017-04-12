@@ -45,12 +45,16 @@ class RecordTableController: UITableViewController {
             
             // success retrieve parking recrods
             print("Success get parking records: \(records)")
+            
+            // clear previous parking records
+            parkingRecords.removeAll()
+            
             for record in records! {
                 let parkingSpace = record["parkingSpace"] as? PFObject
                 print("parkingSpace: \(parkingSpace?["parkingLotId"]) checkinTime: \(record["checkinTime"]) checkoutTime: \(record["checkoutTime"])")
                 
                 // map the records array to the ParkingRecord object array
-                parkingRecords.append(ParkingRecord(name: parkingSpace?["parkingLotId"] as? String, checkinTimeString: record["checkinTime"] as? Date, checkoutTimeString: record["checkoutTime"] as? Date))
+                parkingRecords.append(ParkingRecord(name: parkingSpace?["parkingLotId"] as? String, checkinTimeString: record["checkinTime"] as? Date, checkoutTimeString: record["checkoutTime"] as? Date, pkHour: record["parkingHour"] as? Float, pkCharge: record["paymentAmount"]as? Float))
             }
 
             self.tableView.reloadData()
@@ -75,8 +79,8 @@ class RecordTableController: UITableViewController {
         //Content
         cell.titleLabel.text = parkingRecords[selectedRow].dateString
         cell.spaceText.text = parkingRecords[selectedRow].parkingSpaceName
-        cell.parkTimeText.text = "1 hr"
-        cell.chargeText.text = "$30"
+        cell.parkTimeText.text = parkingRecords[selectedRow].parkingHourString
+        cell.chargeText.text = parkingRecords[selectedRow].parkingChargeString
         cell.inTimeText.text = parkingRecords[selectedRow].checkinTimeString
         cell.outTimeText.text = parkingRecords[selectedRow].checkoutTimeString
         //color

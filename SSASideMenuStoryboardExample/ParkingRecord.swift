@@ -13,6 +13,8 @@ class ParkingRecord {
     var parkingSpaceName: String?
     var checkinTime: Date?
     var checkoutTime: Date?
+    var parkingHour: Float?
+    var parkingCharge: Float?
     
     // String to display in the table view
     
@@ -49,10 +51,30 @@ class ParkingRecord {
         }
     }
     
-    init(name: String?, checkinTimeString: Date?, checkoutTimeString: Date?) {
+    var parkingHourString: String? {
+        get {
+            if parkingHour != nil {
+                return "\(parkingHour!) hr"
+            }
+            return nil
+        }
+    }
+    
+    var parkingChargeString: String? {
+        get {
+            if parkingCharge != nil {
+                return "$ \(parkingCharge!)"
+            }
+            return nil
+        }
+    }
+    
+    init(name: String?, checkinTimeString: Date?, checkoutTimeString: Date?, pkHour: Float?, pkCharge: Float?) {
         parkingSpaceName = name
         checkinTime = checkinTimeString
         checkoutTime = checkoutTimeString
+        parkingHour = pkHour
+        parkingCharge = pkCharge
     }
     
 }
