@@ -53,10 +53,7 @@ class ParkHourSelectController: UIViewController{
     @IBAction func confirm(_ sender: UIButton) {
         delegate.removeBlur()
         self.removeAnimate()
-<<<<<<< HEAD
-        delegate.moveToMap(input: "Park")
-=======
-        
+
         // TODO: call the check in API
         let selectedRow = hourPicker.selectedRow(inComponent: 0)
         //print(selectedRow)
@@ -89,9 +86,9 @@ class ParkHourSelectController: UIViewController{
             let defaults = UserDefaults.standard
             defaults.set(parkingSpaceID, forKey: "ParkingSpaceCheckedIn")
             
-            self.delegate.moveToMap()
+            self.delegate.moveToMap(input: "Park")
         })
->>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
+
     }
     
     

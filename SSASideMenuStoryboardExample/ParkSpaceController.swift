@@ -135,6 +135,25 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
 
     @IBAction func arriveButton(_ sender: UIButton) {
         if sender.titleLabel!.text == "Leave"{
+            // Call cloud funtion checkout
+            PFCloud.callFunction(inBackground: "checkout", withParameters: nil, block: { (response:Any?, error:Error?) in
+                if let error = error {
+                    let alertCtrl = getErrorAlertCtrl(title: "Cannot check-out", message: error.localizedDescription)
+                    self.present(alertCtrl, animated: true, completion: nil)
+                    return
+                }
+                
+                print(response ?? "no response")
+                // parse response parking record
+                let parkingRecord = response as! PFObject
+                print(parkingRecord["checkoutTime"])
+                
+                // Clear the stored checkined parking space
+                let defaults = UserDefaults.standard
+                defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
+                
+            })
+            
             let alert = UIAlertController(title: "Payment Success", message: "You paid $40~ Welcome next time", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -148,9 +167,9 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "Profile")
             self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
         }
+        
     }
     
-<<<<<<< HEAD
     func changeWord(input: String){
         if input == "Find"{
             temp_title = "Find My Car"
@@ -162,29 +181,4 @@ class ParkSpaceController: UIViewController, UIScrollViewDelegate, HomeViewDeleg
             temp_arrivedButtonTitle = "Arrived"
         }
     }
-=======
-    @IBAction func arriveBtnClick(_ sender: UIButton) {
-        // Call cloud funtion checkout
-        PFCloud.callFunction(inBackground: "checkout", withParameters: nil, block: { (response:Any?, error:Error?) in
-            if let error = error {
-                let alertCtrl = getErrorAlertCtrl(title: "Cannot check-out", message: error.localizedDescription)
-                self.present(alertCtrl, animated: true, completion: nil)
-                return
-            }
-            
-            print(response ?? "no response")
-            // parse response parking record
-            let parkingRecord = response as! PFObject
-            print(parkingRecord["checkoutTime"])
-            
-            // Clear the stored checkined parking space
-            let defaults = UserDefaults.standard
-            defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
-            
-        })
-        
-    }
-    
->>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
-    
 }
