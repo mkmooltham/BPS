@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 protocol ParkHourSelectDelegate {
-    func moveToMap()
+    func moveToMap(input: String)
     func addBlur()
     func removeBlur()
 }
@@ -53,6 +53,9 @@ class ParkHourSelectController: UIViewController{
     @IBAction func confirm(_ sender: UIButton) {
         delegate.removeBlur()
         self.removeAnimate()
+<<<<<<< HEAD
+        delegate.moveToMap(input: "Park")
+=======
         
         // TODO: call the check in API
         let selectedRow = hourPicker.selectedRow(inComponent: 0)
@@ -88,6 +91,7 @@ class ParkHourSelectController: UIViewController{
             
             self.delegate.moveToMap()
         })
+>>>>>>> f5ca7d9618cb8d824427bdb2758e891995463332
     }
     
     
