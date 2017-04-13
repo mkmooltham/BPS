@@ -14,6 +14,11 @@ let titleSize = CGFloat(22)
 let barButtonSize = CGFloat(45)
 var signIned = false
 
+// Car park navigation map options
+var mapShowMyPoint = false
+var mapDirectedGraph = false
+var mapIsGoingToEntrance = false
+
 //ShareParkSpace
 var timeSlotList = [TimeSlot()]
 

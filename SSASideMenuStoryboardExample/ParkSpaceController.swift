@@ -156,4 +156,19 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
             temp_arrivedButtonTitle = "Arrived"
         }
     }
+    
+    @IBAction func toggleShowMyPoint(_ sender: UIButton) {
+        print("toggle show my point option button")
+        mapShowMyPoint = !mapShowMyPoint
+    }
+    
+    @IBAction func toggleDirectedPath(_ sender: UIButton) {
+        print("toggle show directed graph option button")
+        mapDirectedGraph = !mapDirectedGraph
+    }
+    
+    @IBAction func toggleIsGoingToEntrance(_ sender: UIButton) {
+        print("toggle show directed graph option button")
+        mapIsGoingToEntrance = !mapIsGoingToEntrance
+    }
 }

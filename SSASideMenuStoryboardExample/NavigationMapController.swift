@@ -44,14 +44,14 @@ class NavigationMapController: UIViewController, WKUIDelegate, ESTBeaconManagerD
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         print("web content is loaded");
 
-        let dataJsonString = "'[{\"bid\": 22, \"rssi\": -59}]'";
-        let javaScriptFunctionString = "updateMarker(0, 0, 'p55', \(dataJsonString))"
-        print(javaScriptFunctionString)
-        self.webView.evaluateJavaScript(javaScriptFunctionString, completionHandler: { (result:Any?, error:Error?) in
-            if let err = error {
-                print(err)
-            }
-        })
+//        let dataJsonString = "'[{\"bid\": 22, \"rssi\": -59}]'";
+//        let javaScriptFunctionString = "updateMarker(0, 0, 'p55', \(dataJsonString))"
+//        print(javaScriptFunctionString)
+//        self.webView.evaluateJavaScript(javaScriptFunctionString, completionHandler: { (result:Any?, error:Error?) in
+//            if let err = error {
+//                print(err)
+//            }
+//        })
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -71,13 +71,51 @@ class NavigationMapController: UIViewController, WKUIDelegate, ESTBeaconManagerD
             beacon.proximity != .unknown
         }
         print("known beacons: \(knownBeacons)")
-        if(knownBeacons.count > 0) {
-            let closestBeacon = knownBeacons[0] as CLBeacon
-            print(closestBeacon)
-            let dataJsonString = "'[{\"bid\": \(closestBeacon.major), \"rssi\": \(closestBeacon.rssi)}]'";
-            let javaScriptFunctionString = "updateMarker(0, 0, 'p55', \(dataJsonString))"
-            callJavaScriptFunction(fn: javaScriptFunctionString)
+        
+        // debug
+        //        if let f = knownBeacons.first {
+        //            knownBeacons.append(f)
+        //        }
+        
+        var beaconJsonArrayString = "'["
+
+        for (index, beacon) in knownBeacons.enumerated() {
+            if(index > 0) {
+                beaconJsonArrayString.append(",")
+            }
+            
+            var beaconObjectString = "{"
+            beaconObjectString.append("\"bid\":\(beacon.major),")
+            //beaconObjectString.append("\"bid\": 6,") // debug
+            beaconObjectString.append("\"rssi\":\(beacon.rssi)")
+            beaconObjectString.append("}")
+            
+            beaconJsonArrayString.append(beaconObjectString)
         }
+        
+        beaconJsonArrayString.append("]'")
+        
+
+        print(beaconJsonArrayString)
+        
+        let showMyPoint = mapShowMyPoint ? 1 : 0
+        let directedGraph = mapDirectedGraph ? 1 : 0
+        let destPoint = mapIsGoingToEntrance ? "p22" : "p55"
+        
+        let javaScriptFunctionString = "updateMarker(\(showMyPoint), \(directedGraph), '\(destPoint)', \(beaconJsonArrayString))"
+        callJavaScriptFunction(fn: javaScriptFunctionString)
+        
+        /*
+        if let closestBeacon = knownBeacons.first {
+            print(closestBeacon)
+            //let dataJsonString = "'[{\"bid\": 22, \"rssi\": \(closestBeacon.rssi)}]'";
+            let dataJsonString = "'[{\"bid\": \(closestBeacon.major), \"rssi\": \(closestBeacon.rssi)}]'";
+            let showMyPoint = mapShowMyPoint ? 1 : 0
+            let directedGraph = mapDirectedGraph ? 1 : 0
+            // TODO: change p55 to assigned parking space
+            let javaScriptFunctionString = "updateMarker(\(showMyPoint), \(directedGraph), 'p55', \(dataJsonString))"
+            callJavaScriptFunction(fn: javaScriptFunctionString)
+        }*/
     }
     
     func callJavaScriptFunction(fn: String) {
