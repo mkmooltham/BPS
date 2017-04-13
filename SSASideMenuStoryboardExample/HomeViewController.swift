@@ -132,6 +132,7 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
         // Get data from parse
         // TODO: change to live query on the # of available parking space
         let query = PFQuery(className:"CarPark")
+        query.cachePolicy = .cacheThenNetwork
         query.getFirstObjectInBackground { (object: PFObject?, error: Error?) in
             if let errorFound = error {
                 // Log details of the failure
