@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     var window: UIWindow?
     let beaconManager = ESTBeaconManager();
     // the beacons to be monitoring
-    let beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 3, minor: 14125, identifier: "Jack Berry")   // Jack Berry
+    let entranceBeaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 3, minor: 14125, identifier: "Jack Berry")   // Jack Berry
+    let navigationBeaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "BPS")
+    var centralManager: CBCentralManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -35,10 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         beaconManager.returnAllRangedBeaconsAtOnce = true
         
         // start monitoring for push notification
-        beaconManager.startMonitoring(for: beaconRegion)
+        beaconManager.startMonitoring(for: entranceBeaconRegion)
         
         // ranging the beacon rssi every second
-        // beaconManager.startRangingBeacons(in: beaconRegion)
+        //beaconManager.startRangingBeacons(in: beaconRegion)
         
 
         
@@ -112,20 +114,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         }
     }
     
-    func beaconManager(_ manager: Any, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        print(beacons)
-    }
+//    func beaconManager(_ manager: Any, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+//        print(beacons)
+//    }
     
     func beaconManager(_ manager: Any, didFailWithError error: Error) {
         print(error);
     }
     
-    func beaconManager(_ manager: Any, rangingBeaconsDidFailFor region: CLBeaconRegion?, withError error: Error) {
-        print("fail regioning \(error)");
-    }
+//    func beaconManager(_ manager: Any, rangingBeaconsDidFailFor region: CLBeaconRegion?, withError error: Error) {
+//        print("fail regioning \(error)");
+//    }
     
     func beaconManager(_ manager: Any, monitoringDidFailFor region: CLBeaconRegion?, withError error: Error) {
         print("fail monitoring \(error)");
+    }
+    
+    // Check the location service permission
+    func beaconManager(_ manager: Any, didChange status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            simpleAlert(title: "Permission Error", message: "Need Location Service Permission To Access Beacon")
+            break
+            
+        case .denied:
+            simpleAlert(title: "Permission Error", message: "Need Location Service Permission To Access Beacon")
+            break
+            
+        default:
+            break
+        }
+    }
+    
+    func simpleAlert(title:String,message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
 
