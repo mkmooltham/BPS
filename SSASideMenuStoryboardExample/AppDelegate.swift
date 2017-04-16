@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate {
@@ -57,6 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
             configuration.applicationId = "RAYW2_BPS"
             configuration.clientKey = "291fa14b5f8dc421c65f53ab9886edce"
         }))
+        
+        // Stripe config
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_3Ty2zn5Hou7nqABFHqVk5vuK"
 
         return true
     }
