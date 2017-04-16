@@ -18,7 +18,7 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
     
     var temp_title = "Park My Car"
     var temp_carLotTitle = "You Got Parking Space"
-    var temp_carLotNum = "A109"
+    //var temp_carLotNum = "A109"
     var temp_arrivedButtonTitle = "Arrived"
     
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
         //Title
         title = temp_title
         carLotTitle.text = temp_carLotTitle
-        carLotNum.text = temp_carLotNum
+        //carLotNum.text = temp_carLotNum
         arrivedButton.setTitle(temp_arrivedButtonTitle, for: .normal)
         
         //Config

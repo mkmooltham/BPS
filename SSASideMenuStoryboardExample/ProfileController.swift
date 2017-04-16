@@ -21,6 +21,13 @@ class ProfileController: UIViewController {
     @IBOutlet weak var inTimeBoard: UIImageView!
     @IBOutlet weak var averageHourText: UILabel!
     @IBOutlet weak var totalParkTimeText: UILabel!
+    @IBOutlet weak var labelParkingLotNumber: UILabel!
+    @IBOutlet weak var labelTimer: UILabel!
+    @IBOutlet weak var labelCheckinTime: UILabel!
+    
+    var checkInDateTime: Date?
+    var timer: Timer?
+    
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func logoutButton(_ sender: Any) {
@@ -105,7 +112,55 @@ class ProfileController: UIViewController {
         labelUserName.text = PFUser.current()?.username
         labelUserEmail.text = PFUser.current()?.email
         // TODO: show license plate number
+        PFUser.current()?.fetchInBackground(block: { (user:PFObject?, error:Error?) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            if let usr = user {
+                print(usr)
+                let activeRecord = usr["activeRecord"] as? PFObject;
+                activeRecord?.fetchInBackground(block: { (record: PFObject?, error:Error?) in
+                    if let err = error {
+                        print(err.localizedDescription)
+                        return
+                    }
+                    if let rec = record {
+                        print(rec)
+
+                        let checkinDate = rec["checkinTime"] as? Date
+                        self.checkInDateTime = checkinDate
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "h:mm a"
+                        
+                        self.labelCheckinTime.text = dateFormatter.string(from: checkinDate!)
+                        
+                        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+                        self.timer?.fire()
+                    }
+                })
+            }
+            
+        })
         
+        // update parking lot id
+        let defaults = UserDefaults.standard
+        if let parkingSpaceID = defaults.object(forKey: "ParkingSpaceCheckedIn") as? String {
+            labelParkingLotNumber.text = parkingSpaceID
+        }
+    }
+    
+    func updateTimer() {
+        //print("update timer")
+        let timeElapsedSeconds = Int(Date().timeIntervalSince(checkInDateTime!))
+        
+        let h:Int = timeElapsedSeconds / 3600
+        let m:Int = (timeElapsedSeconds/60) % 60
+        let s:Int = timeElapsedSeconds % 60
+        let timeString = String(format: "%u:%02u:%02u", h,m,s)
+        
+        labelTimer.text = String(timeString)
     }
     
     override func didReceiveMemoryWarning() {
@@ -137,5 +192,8 @@ class ProfileController: UIViewController {
                                                                                  options: [], metrics: nil, views: viewBindingsDict))
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        timer?.invalidate()
+    }
 }
 

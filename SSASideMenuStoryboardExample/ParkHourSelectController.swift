@@ -67,7 +67,6 @@ class ParkHourSelectController: UIViewController{
             param = ["time": parkingHour];
         }
         
-        //PFCloud.callFunction(<#T##function: String##String#>, withParameters: <#T##[AnyHashable : Any]?#>)
         PFCloud.callFunction(inBackground: "checkin", withParameters: param, block: { (response:Any?, error:Error?) in
             if let error = error {
                 let alertCtrl = getErrorAlertCtrl(title: "Cannot check-in", message: error.localizedDescription)

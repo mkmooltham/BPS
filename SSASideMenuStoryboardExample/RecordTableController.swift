@@ -33,6 +33,7 @@ class RecordTableController: UITableViewController {
         }
         
         let query = PFQuery(className: "ParkingRecord")
+        query.cachePolicy = .cacheThenNetwork
         query.whereKey("user", equalTo: currentUser)
         query.includeKey("parkingSpace")
         query.order(byDescending: "checkinTime")
