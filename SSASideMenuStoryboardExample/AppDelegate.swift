@@ -15,9 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     var window: UIWindow?
     let beaconManager = ESTBeaconManager();
     // the beacons to be monitoring
-    let entranceBeaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 3, minor: 14125, identifier: "Jack Berry")   // Jack Berry
+    let entranceBeaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 98, identifier: "Entrance")
+    let liftBeaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, major: 98, identifier: "Lift")
+    
     let navigationBeaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "BPS")
-    var centralManager: CBCentralManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -36,13 +37,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         
         beaconManager.returnAllRangedBeaconsAtOnce = true
         
+        entranceBeaconRegion.notifyOnEntry = true
+        entranceBeaconRegion.notifyOnExit = true
+        
+        liftBeaconRegion.notifyOnEntry = true
+        liftBeaconRegion.notifyOnExit = true
+        
         // start monitoring for push notification
         beaconManager.startMonitoring(for: entranceBeaconRegion)
+        beaconManager.startMonitoring(for: liftBeaconRegion)
         
         // ranging the beacon rssi every second
         //beaconManager.startRangingBeacons(in: beaconRegion)
         
-
         
         // Parse client configuration
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
@@ -89,16 +96,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     func beaconManager(_ manager: Any, didEnter region: CLBeaconRegion) {
         NSLog("enter");
         let notification = UILocalNotification()
-        notification.alertBody = "You enter! "
+        notification.alertBody = "Welcome to UST car park! Please use the app to check in."
         UIApplication.shared.presentLocalNotificationNow(notification)
     }
     
     // Trigger when beacon is out of range for at least 30s
     func beaconManager(_ manager: Any, didExitRegion region: CLBeaconRegion) {
         NSLog("exit");
-        let notification = UILocalNotification()
-        notification.alertBody = "You exit! "
-        UIApplication.shared.presentLocalNotificationNow(notification)
+        if region == liftBeaconRegion {
+            let notification = UILocalNotification()
+            notification.alertBody = "Bye, remember to get back your car later!"
+            UIApplication.shared.presentLocalNotificationNow(notification)
+        }
     }
     
     // Trigger when the beacon state changed
@@ -152,6 +161,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
         
         self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showActionSheet() {
+        let alert = UIAlertController(title: "Title", message: "Please Select an Option", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Approve", style: .default , handler:{ (UIAlertAction)in
+            print("User click Approve button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Edit", style: .default , handler:{ (UIAlertAction)in
+            print("User click Edit button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .default , handler:{ (UIAlertAction)in
+            print("User click Delete button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        self.window?.rootViewController?.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    
     }
 }
 

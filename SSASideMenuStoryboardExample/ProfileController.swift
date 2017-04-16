@@ -21,6 +21,10 @@ class ProfileController: UIViewController {
     @IBOutlet weak var inTimeBoard: UIImageView!
     @IBOutlet weak var averageHourText: UILabel!
     @IBOutlet weak var totalParkTimeText: UILabel!
+    @IBOutlet weak var labelParkingLotNumber: UILabel!
+    @IBOutlet weak var labelTimer: UILabel!
+    @IBOutlet weak var labelCheckinTime: UILabel!
+    
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func logoutButton(_ sender: Any) {
@@ -105,7 +109,33 @@ class ProfileController: UIViewController {
         labelUserName.text = PFUser.current()?.username
         labelUserEmail.text = PFUser.current()?.email
         // TODO: show license plate number
-        
+        PFUser.current()?.fetchInBackground(block: { (user:PFObject?, error:Error?) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            if let usr = user {
+                print(usr)
+                let activeRecord = usr["activeRecord"] as? PFObject;
+                activeRecord?.fetchInBackground(block: { (record: PFObject?, error:Error?) in
+                    if let err = error {
+                        print(err.localizedDescription)
+                        return
+                    }
+                    if let rec = record {
+                        print(rec)
+
+                        let checkinDate = rec["checkinTime"] as? Date
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "HH:mm"
+                        
+                        self.labelCheckinTime.text = dateFormatter.string(from: checkinDate!)
+                    }
+                })
+            }
+            
+        })
     }
     
     override func didReceiveMemoryWarning() {
