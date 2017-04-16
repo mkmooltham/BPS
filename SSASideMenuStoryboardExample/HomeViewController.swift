@@ -149,11 +149,26 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
                 print("numAvailable:\(numAvailable) numTotalAvailable:\(numTotalAvailable) hourlyRate:\(hourlyRate) name:\(name) address:\(address)")
                 
                 // update the label
-                self.labelNumAvailable.text = "\(numAvailable!) /\(numTotalAvailable!)"
+                self.labelNumAvailable.text = "\(numAvailable!)/\(numTotalAvailable!)"
                 self.labelAddress.text = address!
                 // TODO: add hourly rate to the UI
             }
         }
+        
+        /*
+        PFCloud.callFunction(inBackground: "getAllAvailableSharedParkingSpaces", withParameters: nil) { (response: Any?, error: Error?) in
+            if let error = error {
+                let alertCtrl = getErrorAlertCtrl(title: "ERROR", message: error.localizedDescription)
+                self.present(alertCtrl, animated: true, completion: nil)
+                return
+            }
+            
+            if let res = response {
+                let availbaleParkingSpaces = res as? [PFObject]
+                print("parkingSpaceAvail: \(availbaleParkingSpaces)")
+            }
+        }
+         */
         
     }
 

@@ -25,6 +25,9 @@ class ProfileController: UIViewController {
     @IBOutlet weak var labelTimer: UILabel!
     @IBOutlet weak var labelCheckinTime: UILabel!
     
+    var checkInDateTime: Date?
+    var timer: Timer?
+    
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func logoutButton(_ sender: Any) {
@@ -126,16 +129,38 @@ class ProfileController: UIViewController {
                         print(rec)
 
                         let checkinDate = rec["checkinTime"] as? Date
+                        self.checkInDateTime = checkinDate
                         
                         let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "HH:mm"
+                        dateFormatter.dateFormat = "h:mm a"
                         
                         self.labelCheckinTime.text = dateFormatter.string(from: checkinDate!)
+                        
+                        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+                        self.timer?.fire()
                     }
                 })
             }
             
         })
+        
+        // update parking lot id
+        let defaults = UserDefaults.standard
+        if let parkingSpaceID = defaults.object(forKey: "ParkingSpaceCheckedIn") as? String {
+            labelParkingLotNumber.text = parkingSpaceID
+        }
+    }
+    
+    func updateTimer() {
+        //print("update timer")
+        let timeElapsedSeconds = Int(Date().timeIntervalSince(checkInDateTime!))
+        
+        let h:Int = timeElapsedSeconds / 3600
+        let m:Int = (timeElapsedSeconds/60) % 60
+        let s:Int = timeElapsedSeconds % 60
+        let timeString = String(format: "%u:%02u:%02u", h,m,s)
+        
+        labelTimer.text = String(timeString)
     }
     
     override func didReceiveMemoryWarning() {
@@ -167,5 +192,8 @@ class ProfileController: UIViewController {
                                                                                  options: [], metrics: nil, views: viewBindingsDict))
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        timer?.invalidate()
+    }
 }
 
