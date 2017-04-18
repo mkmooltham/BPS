@@ -12,8 +12,10 @@ import Parse
 let cellID = "cell"
 var parkingRecords: [ParkingRecord] = []
 
-var titleColor: [String] = ["#0091EA","#FF3D00","#6200EA","#C51162"]
-var cellColor: [String] = ["#80D8FF","#FF9E80","#EA80FC","#FF80AB"]
+//var titleColor: [String] = ["#0091EA","#FF3D00","#6200EA","#C51162"]
+//var cellColor: [String] = ["#80D8FF","#FF9E80","#EA80FC","#FF80AB"]
+var titleColor: [String] = ["#00a152","#0e9999"]
+var cellColor: [String] = ["#18191B","#18191B"]
 
 
 class RecordTableController: UITableViewController {
@@ -96,13 +98,13 @@ class RecordTableController: UITableViewController {
         cell.cellTitleBoard.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.cellTitleBoard.layer.shadowRadius = 10
         for image in imageArray{
-            image.layer.shadowColor = UIColor.black.cgColor
+            image.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
             image.layer.shadowOpacity = 0.8
             image.layer.shadowOffset = CGSize(width: -0.4, height: 0.7)
             image.layer.shadowRadius = 1
         }
         for text in labelArray{
-            text.layer.shadowColor = UIColor.black.cgColor
+            text.layer.shadowColor = hexColor(hex: "#18FFFF").cgColor
             text.layer.shadowOpacity = 0.8
             text.layer.shadowOffset = CGSize(width: -0.4, height: 0.7)
             text.layer.shadowRadius = 1
