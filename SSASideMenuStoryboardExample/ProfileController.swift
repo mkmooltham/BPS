@@ -38,6 +38,10 @@ class ProfileController: UIViewController, STPAddCardViewControllerDelegate{
                 print("cannot logout \(error.localizedDescription)")
             } else {
                 print("logout success")
+                
+                // Clear the stored checkined parking space
+                let defaults = UserDefaults.standard
+                defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
             }
         })
         
@@ -231,20 +235,24 @@ class ProfileController: UIViewController, STPAddCardViewControllerDelegate{
     
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
         print(token)
-        // TODO: call api to save the token to current parse user
-        self.dismiss(animated: true, completion: nil)
-        completion(nil)
-        //        self.submitTokenToBackend(token, completion: { (error: Error?) in
-        //            if let error = error {
-        //                completion(error)
-        //            } else {
-        //                self.dismiss(animated: true, completion: {
-        //                    self.showReceiptPage()
-        //                    completion(nil)
-        //                })
-        //            }
-        //        })
-        
+        // call api to save the token to current parse user
+        PFCloud.callFunction(inBackground: "addCreditCard", withParameters: ["stripeToken" : token.tokenId]) { (response: Any?, error: Error?) in
+            print("call api")
+            if let error = error {
+                print(error)
+                let alertCtrl = getErrorAlertCtrl(title: "ERROR", message: error.localizedDescription)
+                self.present(alertCtrl, animated: true, completion: nil)
+                completion(error)
+                return
+            }
+            
+            if let res = response {
+                print(res)
+                print("Add credit card success: \(res)")
+                self.dismiss(animated: true, completion: nil)
+                completion(nil)
+            }
+        }
     }
     
 }
