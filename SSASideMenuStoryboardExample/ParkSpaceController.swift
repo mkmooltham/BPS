@@ -111,7 +111,7 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
     @IBAction func arriveButton(_ sender: UIButton) {
         if sender.titleLabel!.text == "Leave"{
             // Call cloud funtion checkout
-            PFCloud.callFunction(inBackground: "checkout", withParameters: nil, block: { (response:Any?, error:Error?) in
+            PFCloud.callFunction(inBackground: "checkoutAndPay", withParameters: nil, block: { (response:Any?, error:Error?) in
                 if let error = error {
                     let alertCtrl = getErrorAlertCtrl(title: "Cannot check-out", message: error.localizedDescription)
                     self.present(alertCtrl, animated: true, completion: nil)
@@ -122,18 +122,20 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
                 // parse response parking record
                 let parkingRecord = response as! PFObject
                 print(parkingRecord["checkoutTime"])
+                print(parkingRecord["paymentAmount"])
                 
                 // Clear the stored checkined parking space
                 let defaults = UserDefaults.standard
                 defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
                 
+                let alert = UIAlertController(title: "Payment Success", message: "You have paid HKD$ \(parkingRecord["paymentAmount"]!)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+                
             })
             
-            let alert = UIAlertController(title: "Payment Success", message: "You paid $40~ Welcome next time", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-            self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
         }
         else if sender.titleLabel!.text == "Arrived"{
             let alert = UIAlertController(title: "Park Success", message: "Your parking has recorded", preferredStyle: UIAlertControllerStyle.alert)
