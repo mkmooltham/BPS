@@ -22,6 +22,8 @@ var mapIsGoingToEntrance = false
 //ShareParkSpace
 var timeSlotList = [TimeSlot()]
 
+var checkoutInvoiceRecord = ParkingRecord()
+
 // 0 = any hour, 1 .. 23 = 1 to 23 hour(s)
 let parkHour = Array(0...23)
 let pickerWeek = [

@@ -109,7 +109,7 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
     }
 
     @IBAction func arriveButton(_ sender: UIButton) {
-        if sender.titleLabel!.text == "Leave"{
+        if sender.titleLabel!.text == "Checkout"{
             // Call cloud funtion checkout
             PFCloud.callFunction(inBackground: "checkoutAndPay", withParameters: nil, block: { (response:Any?, error:Error?) in
                 if let error = error {
@@ -128,12 +128,17 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
                 let defaults = UserDefaults.standard
                 defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
                 
-                let alert = UIAlertController(title: "Payment Success", message: "You have paid HKD$ \(parkingRecord["paymentAmount"]!)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+                checkoutInvoiceRecord.checkinTime = parkingRecord["checkinTime"] as? Date
                 
+                
+                
+//                let alert = UIAlertController(title: "Payment Success", message: "You have paid HKD$ \(parkingRecord["paymentAmount"]!)", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+//                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Invoice")
+                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
             })
             
         }
@@ -151,7 +156,7 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
         if input == "Find"{
             temp_title = "Find My Car"
             temp_carLotTitle = "Your Car at Parking Space"
-            temp_arrivedButtonTitle = "Leave"
+            temp_arrivedButtonTitle = "Checkout"
         }else if input == "Park"{
             temp_title = "Park My Car"
             temp_carLotTitle = "You Got Parking Space"

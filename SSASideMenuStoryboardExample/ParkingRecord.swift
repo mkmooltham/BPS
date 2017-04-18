@@ -69,6 +69,8 @@ class ParkingRecord {
         }
     }
     
+    init() {}
+    
     init(name: String?, checkinTimeString: Date?, checkoutTimeString: Date?, pkHour: Float?, pkCharge: Float?) {
         parkingSpaceName = name
         checkinTime = checkinTimeString
