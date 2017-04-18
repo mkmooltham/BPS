@@ -35,19 +35,19 @@ Optional: Run `carthage update --pathform iOS` to update the frameworks to the l
 - [x] Add [Estimote SDK](https://github.com/Estimote/iOS-SDK)
 - [x] Add [Parse SDK](https://github.com/ParsePlatform/Parse-SDK-iOS-OSX)
 - [x] Add [CalendarKit](https://github.com/richardtop/CalendarKit)
-- [ ] Add [Stripe SDK](https://github.com/stripe/stripe-ios)
+- [x] Add [Stripe SDK](https://github.com/stripe/stripe-ios)
 - [ ] Add [Parse Live Query SDK](https://github.com/ParsePlatform/ParseLiveQuery-iOS-OSX)
 
 **Workflows**
 - [x] Sign up & Sign in
-- [ ] Check-in parking space
-- [ ] Check-out parking space
-- [ ] Online payment
+- [x] Check-in parking space
+- [x] Check-out parking space
+- [x] Online payment
 - [ ] Release timeslots (car park owner)
  
 **UI Design**
 - [x] Sign up & Sign in page
 - [x] Show brief car park information in home view
-- [ ] Hour picker in check in
-- [ ] Floor plan web view
+- [x] Hour picker in check in
+- [x] Floor plan web view
 - [ ] Show a Google map button to display the car park location
