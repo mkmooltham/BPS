@@ -8,8 +8,9 @@
 
 import UIKit
 import Parse
+import Stripe
 
-class ProfileController: UIViewController {
+class ProfileController: UIViewController, STPAddCardViewControllerDelegate{
     
     @IBOutlet weak var coverView: UIImageView!
     @IBOutlet weak var proPicIcon: UIImageView!
@@ -37,6 +38,10 @@ class ProfileController: UIViewController {
                 print("cannot logout \(error.localizedDescription)")
             } else {
                 print("logout success")
+                
+                // Clear the stored checkined parking space
+                let defaults = UserDefaults.standard
+                defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
             }
         })
         
@@ -195,5 +200,60 @@ class ProfileController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         timer?.invalidate()
     }
+    
+    @IBAction func addCreditCardButtonClicked(_ sender: UIButton) {
+        /*
+        let darkTheme = STPTheme()
+        darkTheme.primaryBackgroundColor = UIColor(red:0.16, green:0.23, blue:0.31, alpha:1.00)
+        darkTheme.secondaryBackgroundColor = UIColor(red:0.22, green:0.29, blue:0.38, alpha:1.00)
+        darkTheme.primaryForegroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.00)
+        darkTheme.secondaryForegroundColor = UIColor(red:0.60, green:0.64, blue:0.71, alpha:1.00)
+        darkTheme.accentColor = UIColor(red:0.98, green:0.80, blue:0.00, alpha:1.00)
+        darkTheme.errorColor = UIColor(red:0.85, green:0.48, blue:0.48, alpha:1.00)
+        //darkTheme.font = UIFont(name: "GillSans", size: 17)
+        //darkTheme.emphasisFont = UIFont(name: "GillSans", size: 17)
+         */
+
+
+        //let addCardViewController = STPAddCardViewController.init(theme: darkTheme)
+        let addCardViewController = STPAddCardViewController()
+        addCardViewController.delegate = self
+
+        // set the default card patment method
+        let info = STPUserInformation()
+        info.email = PFUser.current()?.email
+        addCardViewController.prefilledInformation = info
+        
+        // STPAddCardViewController must be shown inside a UINavigationController.
+        let navigationController = UINavigationController(rootViewController: addCardViewController)
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
+        print(token)
+        // call api to save the token to current parse user
+        PFCloud.callFunction(inBackground: "addCreditCard", withParameters: ["stripeToken" : token.tokenId]) { (response: Any?, error: Error?) in
+            print("call api")
+            if let error = error {
+                print(error)
+                let alertCtrl = getErrorAlertCtrl(title: "ERROR", message: error.localizedDescription)
+                self.present(alertCtrl, animated: true, completion: nil)
+                completion(error)
+                return
+            }
+            
+            if let res = response {
+                print(res)
+                print("Add credit card success: \(res)")
+                self.dismiss(animated: true, completion: nil)
+                completion(nil)
+            }
+        }
+    }
+    
 }
 

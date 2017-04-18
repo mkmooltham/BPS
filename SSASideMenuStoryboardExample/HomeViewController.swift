@@ -38,27 +38,48 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
     }
     
     @IBAction func parkMyCar(_ sender: UIButton) {
-        // Check if current user has already checked into parking space
-        let defaults = UserDefaults.standard
         
-        if (defaults.object(forKey: "ParkingSpaceCheckedIn") as? String) != nil {
-            let alertController = UIAlertController(title: "Already checked in", message: "You have already checked in a parking space, please click `Find My Car` to see the details", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                (result : UIAlertAction) -> Void in
-                    print("OK")
+        // check if the user has added the credit card
+        PFUser.current()?.fetchInBackground(block: { (user: PFObject?, error:Error?) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
             }
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
+            guard let usr = user, let customerID = usr["customerID"] else{
+                let alertController = UIAlertController(title: "Please add a credit card", message: "You have to add a credit card first before start using this car park", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    (result : UIAlertAction) -> Void in
+                    print("OK")
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                return
+            }
+            
+            // Check if current user has already checked into parking space
+            let defaults = UserDefaults.standard
+            
+            if (defaults.object(forKey: "ParkingSpaceCheckedIn") as? String) != nil {
+                let alertController = UIAlertController(title: "Already checked in", message: "You have already checked in a parking space, please click `Find My Car` to see the details", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    (result : UIAlertAction) -> Void in
+                    print("OK")
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                return
+            }
+            
+            let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HourSelect") as! ParkHourSelectController
+            popUpVC.delegate = self
+            self.addChildViewController(popUpVC)
+            popUpVC.view.frame = self.view.frame
+            self.view.addSubview(popUpVC.view)
+            popUpVC.didMove(toParentViewController: self)
 
-        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HourSelect") as! ParkHourSelectController
-        popUpVC.delegate = self
-        self.addChildViewController(popUpVC)
-        popUpVC.view.frame = self.view.frame
-        self.view.addSubview(popUpVC.view)
-        popUpVC.didMove(toParentViewController: self)
+        })
 
     }
     
