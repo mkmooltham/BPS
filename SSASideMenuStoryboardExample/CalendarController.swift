@@ -45,66 +45,108 @@ class CalendarController: DayViewController {
             // parking space found
 
             let schedules = parkingSpace!["schedule"] as? [[String: AnyObject]]
-            print(schedules)
+            print(schedules ?? "No schedule")
             if let schedules = schedules {
+                // clear previous schedules
+                myParkingSchdules.removeAll()
+                
+            
                 for schedule in schedules {
-                    let weekday = schedule["weekday"] as? Int
-                    let startTimeHour = schedule["startTime"] as? Float
-                    let duration = schedule["duration"] as? Float
-                    
-                    print("Schedule item: \(weekday) \(startTimeHour) \(duration)");
-                    // TODO: Jack please insert the schedules into the calendar view
-                    
+                    if let weekday = schedule["weekday"] as? Int,
+                        let startTimeHour = schedule["startTime"] as? Float,
+                        let duration = schedule["duration"] as? Float {
+                        
+                        print("Schedule item: \(weekday) \(startTimeHour) \(duration)");
+                        let newParkingSchedule = ParkingSchedule.init(weekday: weekday + 1, startTimeHours: startTimeHour, duration: duration, parkingLotID: "A123")
+                        myParkingSchdules.append(newParkingSchedule)
+                    }
                 }
+                
             }
-
+            
+            // reload calendar view
+            self.dayView.reloadData()
         }
 
     }
     
     func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int, spaid: Int){
-        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)
-        timeSlotList.append(secondEvent)
+        let timeslot = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)
+        let schedule = ParkingSchedule.init(year: timeslot.start_year, month: timeslot.start_month, day: timeslot.start_day, hour: timeslot.start_hour, minute: timeslot.start_minute, durationHour: timeslot.duration_hour, durationMinute: timeslot.duration_minute, parkingLotID: "Test")
+        //timeSlotList.append(secondEvent)
+        
+        myParkingSchdules.append(schedule)
+        
+        // TODO: Upload the updated schedule to Server
+        
         self.dayView.reloadData()
     }
     
-    override func eventViewsForDate(_ date: Date) -> [EventView] {
+    override func eventsForDate(_ date: Date) -> [EventDescriptor] {
+        var events = [Event]()
         
-        var events = [EventView]()
+        print("Load view of \(myParkingSchdules.count) events")
         
-        for i in 0...(timeSlotList.count-1) {
-        let event = EventView()
-        //Date(year,month,day,hours,minutes)
-            let eventDate = Date(year: timeSlotList[i].start_year, month: timeSlotList[i].start_month, day: timeSlotList[i].start_day).add(TimeChunk(seconds: 0, minutes: timeSlotList[i].start_minute, hours: timeSlotList[i].start_hour, days: 0, weeks: 0, months: 0, years: 0))
-        //Duration(hours,minutes)
-            let duration = TimeChunk(seconds: 0, minutes: timeSlotList[i].duration_minute, hours: timeSlotList[i].duration_hour, days: 0, weeks: 0, months: 0, years: 0)
-            let datePeriod = TimePeriod(beginning: eventDate, chunk: duration)
-            event.datePeriod = datePeriod
-        //event title
-            if(timeSlotList[i].duration_hour >= 1){
-                var info = [ "\(timeSlotList[i].spaceName) \(timeSlotList[i].eventTitle)" ]
-                info.append("\(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)")
-                event.data = info
-            }else{
-                let info = [ "\(timeSlotList[i].spaceName) \(timeSlotList[i].eventTitle) \(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)" ]
-                event.data = info
-            }
+        for schedule in myParkingSchdules {
+            //print("Calendar load \(schedule)")
             
-        //event color
-            event.color = timeSlotList[i].eventColor
+            // Create new EventView
+            let event = Event()
+        
+            // Specify TimePeriod
+        
+            let datePeriod = TimePeriod(beginning: schedule.startDateTime, end: schedule.endDateTime)
+            event.datePeriod = datePeriod
+
+            // Set "text" value of event by formatting all the information needed for display
+            event.color = UIColor.white
+            event.backgroundColor = UIColor.blue
+            event.text = "\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"
             events.append(event)
         }
         
         return events
     }
 
-    
     // MARK: DayViewDelegate
     override func dayViewDidSelectEventView(_ eventview: EventView) {
-        print("Event has been selected: \(eventview.data)")
+        print("Event has been selected: \(eventview.descriptor?.datePeriod)")
+        
     }
     override func dayViewDidLongPressEventView(_ eventView: EventView) {
-        print("Event has been longPressed: \(eventView.data)")
+        
+        print("Event has been longPressed: \(eventView.descriptor?.datePeriod.beginning)")
+        let alert = UIAlertController(title: "Delete?", message: "Do you want to delete this timeslot?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            let selectedPeriod = eventView.descriptor?.datePeriod
+            if let selectedPeriod = selectedPeriod, let startTime = selectedPeriod.beginning, let endTime = selectedPeriod.end {
+                var indexToBeDeleted: Int?
+                for (index, schdule) in myParkingSchdules.enumerated() {
+                    if schdule.startDateTime.equals(startTime) && schdule.endDateTime.equals(endTime) {
+                        print("Delete \(startTime) \(endTime)")
+                        indexToBeDeleted = index
+                        break;
+                    }
+                }
+                
+                // Delete that timeslot
+                if let i = indexToBeDeleted {
+                    print("Array size : \(myParkingSchdules.count)")
+                    print("Delete \(i)")
+                    //myParkingSchdules.removeAll()
+                    myParkingSchdules.remove(at: i)
+                    self.dayView.reloadData()
+                    eventView.reloadInputViews()
+                }
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
