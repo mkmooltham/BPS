@@ -114,39 +114,38 @@ class CalendarController: DayViewController {
         return events
     }
  */
-    override func eventViewsForDate(_ date: Date) -> [EventView] {
-        var events = [EventView]()
+
+    override func eventsForDate(_ date: Date) -> [EventDescriptor] {
+        var events = [Event]()
         
         
         for schedule in myParkingSchdules {
             //print("Calendar load \(schedule)")
             
             // Create new EventView
-            let event = EventView()
+            let event = Event()
         
             // Specify TimePeriod
         
             let datePeriod = TimePeriod(beginning: schedule.startDateTime, end: schedule.endDateTime)
             event.datePeriod = datePeriod
-            // Add info: event title, subtitle, location to the array of Strings
-            //var info = [model.title, model.location]
-            //info.append("\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))")
+
             // Set "text" value of event by formatting all the information needed for display
-            //event.text = info.reduce("", {$0 + $1 + "\n"})
-            event.data = ["date", "\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"]
+            event.color = UIColor.white
+            event.backgroundColor = UIColor.blue
+            event.text = "\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"
             events.append(event)
         }
         
         return events
     }
 
-    
     // MARK: DayViewDelegate
     override func dayViewDidSelectEventView(_ eventview: EventView) {
-        print("Event has been selected: \(eventview.data)")
+        print("Event has been selected: \(eventview.descriptor?.text)")
     }
     override func dayViewDidLongPressEventView(_ eventView: EventView) {
-        print("Event has been longPressed: \(eventView.data)")
+        print("Event has been longPressed: \(eventView.descriptor?.text)")
     }
     
     override func didReceiveMemoryWarning() {
