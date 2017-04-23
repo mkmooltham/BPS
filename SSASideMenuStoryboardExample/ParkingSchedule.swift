@@ -52,4 +52,24 @@ class ParkingSchedule {
         
         self.parkingLotID = parkingLotID
     }
+    
+    
+    init(year: Int, month: Int, day: Int, hour: Int, minute: Int, durationHour: Int, durationMinute: Int, parkingLotID: String) {
+        var components = DateComponents()
+        components.year = year
+        components.month = month
+        components.day = day
+        components.hour = hour
+        components.minute = minute
+        
+        let calendar = Calendar.current
+        
+        let startDate = calendar.date(from: components)!
+        self.startDateTime = startDate
+        
+        let endDate = calendar.date(byAdding: .minute, value: durationHour * 60 + durationMinute, to: startDate)!
+        self.endDateTime = endDate
+        
+        self.parkingLotID = parkingLotID
+    }
 }

@@ -52,10 +52,6 @@ class CalendarController: DayViewController {
                 
             
                 for schedule in schedules {
-                    //let weekday = schedule["weekday"] as? Int
-                    //let startTimeHour = schedule["startTime"] as? Float
-                    //let duration = schedule["duration"] as? Float
-                    
                     if let weekday = schedule["weekday"] as? Int,
                         let startTimeHour = schedule["startTime"] as? Float,
                         let duration = schedule["duration"] as? Float {
@@ -64,57 +60,28 @@ class CalendarController: DayViewController {
                         let newParkingSchedule = ParkingSchedule.init(weekday: weekday + 1, startTimeHours: startTimeHour, duration: duration, parkingLotID: "A123")
                         myParkingSchdules.append(newParkingSchedule)
                     }
-                    
-                    
                 }
                 
             }
             
             // reload calendar view
             self.dayView.reloadData()
-
         }
 
     }
     
     func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int, spaid: Int){
-        let secondEvent = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)
-        timeSlotList.append(secondEvent)
+        let timeslot = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)
+        let schedule = ParkingSchedule.init(year: timeslot.start_year, month: timeslot.start_month, day: timeslot.start_day, hour: timeslot.start_hour, minute: timeslot.start_minute, durationHour: timeslot.duration_hour, durationMinute: timeslot.duration_minute, parkingLotID: "Test")
+        //timeSlotList.append(secondEvent)
+        
+        myParkingSchdules.append(schedule)
+        
+        // TODO: Upload the updated schedule to Server
+        
         self.dayView.reloadData()
     }
     
-    /*
-    override func eventViewsForDate(_ date: Date) -> [EventView] {
-        
-        var events = [EventView]()
-        
-        for i in 0...(timeSlotList.count-1) {
-        let event = EventView()
-        //Date(year,month,day,hours,minutes)
-            let eventDate = Date(year: timeSlotList[i].start_year, month: timeSlotList[i].start_month, day: timeSlotList[i].start_day).add(TimeChunk(seconds: 0, minutes: timeSlotList[i].start_minute, hours: timeSlotList[i].start_hour, days: 0, weeks: 0, months: 0, years: 0))
-        //Duration(hours,minutes)
-            let duration = TimeChunk(seconds: 0, minutes: timeSlotList[i].duration_minute, hours: timeSlotList[i].duration_hour, days: 0, weeks: 0, months: 0, years: 0)
-            let datePeriod = TimePeriod(beginning: eventDate, chunk: duration)
-            event.datePeriod = datePeriod
-        //event title
-            if(timeSlotList[i].duration_hour >= 1){
-                var info = [ "\(timeSlotList[i].spaceName) \(timeSlotList[i].eventTitle)" ]
-                info.append("\(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)")
-                event.data = info
-            }else{
-                let info = [ "\(timeSlotList[i].spaceName) \(timeSlotList[i].eventTitle) \(datePeriod.beginning!.format(with: "HH:mm")!) - \(datePeriod.end!.format(with: "HH:mm")!)" ]
-                event.data = info
-            }
-            
-        //event color
-            event.color = timeSlotList[i].eventColor
-            events.append(event)
-        }
-        
-        return events
-    }
- */
-
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         var events = [Event]()
         
