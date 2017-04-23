@@ -85,6 +85,7 @@ class CalendarController: DayViewController {
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         var events = [Event]()
         
+        print("Load view of \(myParkingSchdules.count) events")
         
         for schedule in myParkingSchdules {
             //print("Calendar load \(schedule)")
@@ -109,10 +110,43 @@ class CalendarController: DayViewController {
 
     // MARK: DayViewDelegate
     override func dayViewDidSelectEventView(_ eventview: EventView) {
-        print("Event has been selected: \(eventview.descriptor?.text)")
+        print("Event has been selected: \(eventview.descriptor?.datePeriod)")
+        
     }
     override func dayViewDidLongPressEventView(_ eventView: EventView) {
-        print("Event has been longPressed: \(eventView.descriptor?.text)")
+        
+        print("Event has been longPressed: \(eventView.descriptor?.datePeriod.beginning)")
+        let alert = UIAlertController(title: "Delete?", message: "Do you want to delete this timeslot?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            let selectedPeriod = eventView.descriptor?.datePeriod
+            if let selectedPeriod = selectedPeriod, let startTime = selectedPeriod.beginning, let endTime = selectedPeriod.end {
+                var indexToBeDeleted: Int?
+                for (index, schdule) in myParkingSchdules.enumerated() {
+                    if schdule.startDateTime.equals(startTime) && schdule.endDateTime.equals(endTime) {
+                        print("Delete \(startTime) \(endTime)")
+                        indexToBeDeleted = index
+                        break;
+                    }
+                }
+                
+                // Delete that timeslot
+                if let i = indexToBeDeleted {
+                    print("Array size : \(myParkingSchdules.count)")
+                    print("Delete \(i)")
+                    //myParkingSchdules.removeAll()
+                    myParkingSchdules.remove(at: i)
+                    self.dayView.reloadData()
+                    eventView.reloadInputViews()
+                }
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
