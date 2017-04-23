@@ -45,18 +45,33 @@ class CalendarController: DayViewController {
             // parking space found
 
             let schedules = parkingSpace!["schedule"] as? [[String: AnyObject]]
-            print(schedules)
+            print(schedules ?? "No schedule")
             if let schedules = schedules {
+                // clear previous schedules
+                myParkingSchdules.removeAll()
+                
+            
                 for schedule in schedules {
-                    let weekday = schedule["weekday"] as? Int
-                    let startTimeHour = schedule["startTime"] as? Float
-                    let duration = schedule["duration"] as? Float
+                    //let weekday = schedule["weekday"] as? Int
+                    //let startTimeHour = schedule["startTime"] as? Float
+                    //let duration = schedule["duration"] as? Float
                     
-                    print("Schedule item: \(weekday) \(startTimeHour) \(duration)");
-                    // TODO: Jack please insert the schedules into the calendar view
+                    if let weekday = schedule["weekday"] as? Int,
+                        let startTimeHour = schedule["startTime"] as? Float,
+                        let duration = schedule["duration"] as? Float {
+                        
+                        print("Schedule item: \(weekday) \(startTimeHour) \(duration)");
+                        let newParkingSchedule = ParkingSchedule.init(weekday: weekday + 1, startTimeHours: startTimeHour, duration: duration, parkingLotID: "A123")
+                        myParkingSchdules.append(newParkingSchedule)
+                    }
+                    
                     
                 }
+                
             }
+            
+            // reload calendar view
+            self.dayView.reloadData()
 
         }
 
@@ -68,6 +83,7 @@ class CalendarController: DayViewController {
         self.dayView.reloadData()
     }
     
+    /*
     override func eventViewsForDate(_ date: Date) -> [EventView] {
         
         var events = [EventView]()
@@ -92,6 +108,32 @@ class CalendarController: DayViewController {
             
         //event color
             event.color = timeSlotList[i].eventColor
+            events.append(event)
+        }
+        
+        return events
+    }
+ */
+    override func eventViewsForDate(_ date: Date) -> [EventView] {
+        var events = [EventView]()
+        
+        
+        for schedule in myParkingSchdules {
+            //print("Calendar load \(schedule)")
+            
+            // Create new EventView
+            let event = EventView()
+        
+            // Specify TimePeriod
+        
+            let datePeriod = TimePeriod(beginning: schedule.startDateTime, end: schedule.endDateTime)
+            event.datePeriod = datePeriod
+            // Add info: event title, subtitle, location to the array of Strings
+            //var info = [model.title, model.location]
+            //info.append("\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))")
+            // Set "text" value of event by formatting all the information needed for display
+            //event.text = info.reduce("", {$0 + $1 + "\n"})
+            event.data = ["date", "\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"]
             events.append(event)
         }
         

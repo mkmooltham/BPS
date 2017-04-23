@@ -21,6 +21,7 @@ var mapIsGoingToEntrance = false
 
 //ShareParkSpace
 var timeSlotList = [TimeSlot()]
+var myParkingSchdules : [ParkingSchedule] = []
 
 var checkoutInvoiceRecord = ParkingRecord()
 

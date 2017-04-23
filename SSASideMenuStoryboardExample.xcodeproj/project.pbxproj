@@ -21,6 +21,7 @@
 		B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */; };
 		B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67241E3C85020085AE62 /* SystemConfiguration.framework */; };
 		B29EA1061EA3AE1F00E21D4F /* Stripe.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B29EA1051EA3AE1F00E21D4F /* Stripe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B29EA1081EAC9FE800E21D4F /* ParkingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29EA1071EAC9FE700E21D4F /* ParkingSchedule.swift */; };
 		BB1067FB1DF0163F00BE6543 /* ParkInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC00C78D1ACC661F00BB4A99 /* ParkInfoController.swift */; };
 		BB1C90101E765B180016FFCB /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C900F1E765B180016FFCB /* ShareController.swift */; };
 		BB1FA15E1E7FAB6F0056A0DE /* PickerVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */; };
@@ -95,6 +96,7 @@
 		B25A67241E3C85020085AE62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B25A672C1E3C9EDD0085AE62 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		B29EA1051EA3AE1F00E21D4F /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = Carthage/Build/iOS/Stripe.framework; sourceTree = "<group>"; };
+		B29EA1071EAC9FE700E21D4F /* ParkingSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingSchedule.swift; sourceTree = "<group>"; };
 		BB1C900F1E765B180016FFCB /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		BB1FA15D1E7FAB6F0056A0DE /* PickerVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerVIewController.swift; sourceTree = "<group>"; };
 		BB1FA49C1E80054C004555FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				BBC272E41E23957100235AE3 /* CalendarController.swift */,
 				BB46A60A1E7E6C3D0057EFEE /* AddEventController.swift */,
 				BB5E4B411E76BEDC00D16C38 /* TimeSlot.swift */,
+				B29EA1071EAC9FE700E21D4F /* ParkingSchedule.swift */,
 			);
 			name = ParkingSchedule;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */,
 				BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */,
 				DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */,
+				B29EA1081EAC9FE800E21D4F /* ParkingSchedule.swift in Sources */,
 				BBE7901B1E8CFDE900406C26 /* ParkHourSelectController.swift in Sources */,
 				BBE790191E8CF5A300406C26 /* SpacePickerViewController.swift in Sources */,
 				BB8489201EA6272400BD5FA2 /* InvoiceController.swift in Sources */,
