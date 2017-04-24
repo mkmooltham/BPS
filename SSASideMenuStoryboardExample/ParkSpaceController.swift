@@ -121,22 +121,15 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
                 print(response ?? "no response")
                 // parse response parking record
                 let parkingRecord = response as! PFObject
-                print(parkingRecord["checkoutTime"])
-                print(parkingRecord["paymentAmount"])
+//                print(parkingRecord["checkoutTime"])
+//                print(parkingRecord["paymentAmount"])
                 
                 // Clear the stored checkined parking space
                 let defaults = UserDefaults.standard
                 defaults.set(nil, forKey: "ParkingSpaceCheckedIn")
                 
-                checkoutInvoiceRecord.checkinTime = parkingRecord["checkinTime"] as? Date
+                checkoutInvoiceRecord = ParkingRecord.init(name: "Test", checkinTimeString: parkingRecord["checkinTime"] as? Date, checkoutTimeString: parkingRecord["checkoutTime"] as? Date, pkHour: parkingRecord["parkingHour"] as? Float, pkCharge: parkingRecord["paymentAmount"] as? Float)
                 
-                
-                
-//                let alert = UIAlertController(title: "Payment Success", message: "You have paid HKD$ \(parkingRecord["paymentAmount"]!)", preferredStyle: UIAlertControllerStyle.alert)
-//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
-//                let controller = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-//                self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
                 let controller = self.storyboard?.instantiateViewController(withIdentifier: "Invoice")
                 self.sideMenuViewController?.contentViewController = UINavigationController(rootViewController: controller!)
             })

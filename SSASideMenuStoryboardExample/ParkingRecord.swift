@@ -29,10 +29,32 @@ class ParkingRecord {
         }
     }
     
+    var checkinTimeDetailedString: String? {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM HH:mm:ss"
+            if let inTime = checkinTime {
+                return dateFormatter.string(from: inTime)
+            }
+            return nil
+        }
+    }
+    
     var checkoutTimeString: String? {
         get {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm"
+            if let outTime = checkoutTime {
+                return dateFormatter.string(from: outTime)
+            }
+            return nil
+        }
+    }
+    
+    var checkoutTimeDetailedString: String? {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM HH:mm:ss"
             if let outTime = checkoutTime {
                 return dateFormatter.string(from: outTime)
             }
