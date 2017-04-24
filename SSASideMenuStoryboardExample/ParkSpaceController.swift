@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import FontAwesome
 
 class ParkSpaceController: UIViewController, HomeViewDelegate {
     
@@ -15,6 +16,11 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
     @IBOutlet weak var infoBoardView: UIImageView!
     @IBOutlet weak var carLotNum: UILabel!
     @IBOutlet weak var carLotTitle: UILabel!
+    
+    @IBOutlet weak var buttonShowMyPoint: UIButton!
+    @IBOutlet weak var buttonDirectedGraph: UIButton!
+    @IBOutlet weak var buttonEntrance: UIButton!
+    
     
     var temp_title = "Park My Car"
     var temp_carLotTitle = "You Got Parking Space"
@@ -82,6 +88,20 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
         
         //Orientation change
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        
+        // Set the 3 navigation buttons
+        buttonShowMyPoint.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        buttonShowMyPoint.setTitle(String.fontAwesomeIcon(name: .eyeSlash), for: .normal)
+        buttonShowMyPoint.setTitleColor(UIColor.black, for: .normal)
+        
+        buttonDirectedGraph.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        buttonDirectedGraph.setTitle(String.fontAwesomeIcon(name: .vine), for: .normal)
+        buttonDirectedGraph.setTitleColor(UIColor.black, for: .normal)
+        
+        buttonEntrance.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        buttonEntrance.setTitle(String.fontAwesomeIcon(name: .signOut), for: .normal)
+        buttonEntrance.setTitleColor(UIColor.black, for: .normal)
         
     }
     
@@ -159,16 +179,34 @@ class ParkSpaceController: UIViewController, HomeViewDelegate {
     
     @IBAction func toggleShowMyPoint(_ sender: UIButton) {
         print("toggle show my point option button")
+        if mapShowMyPoint {
+            buttonShowMyPoint.setTitleColor(UIColor.black, for: .normal)
+        } else {
+            buttonShowMyPoint.setTitleColor(UIColor.white, for: .normal)
+        }
+        
         mapShowMyPoint = !mapShowMyPoint
     }
     
     @IBAction func toggleDirectedPath(_ sender: UIButton) {
         print("toggle show directed graph option button")
+        if mapDirectedGraph {
+            buttonDirectedGraph.setTitleColor(UIColor.black, for: .normal)
+        } else {
+            buttonDirectedGraph.setTitleColor(UIColor.white, for: .normal)
+        }
+        
         mapDirectedGraph = !mapDirectedGraph
     }
     
     @IBAction func toggleIsGoingToEntrance(_ sender: UIButton) {
         print("toggle show directed graph option button")
+        if mapIsGoingToEntrance {
+            buttonEntrance.setTitleColor(UIColor.black, for: .normal)
+        } else {
+            buttonEntrance.setTitleColor(UIColor.white, for: .normal)
+        }
+        
         mapIsGoingToEntrance = !mapIsGoingToEntrance
     }
 }
