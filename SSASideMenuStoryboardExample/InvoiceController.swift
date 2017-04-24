@@ -41,13 +41,11 @@ class InvoiceController: UIViewController {
         view.addGestureRecognizer(rightSwipe)
         
         //Read Data
-        checkInTime.text = "12:00"
-        checkOutTime.text = "15:00"
-        parkHour.text = "3 hrs"
-        hourlyCharge.text = "$45"
-        totalCharge.text = "$135"
-        
-        
+        checkInTime.text = checkoutInvoiceRecord.checkinTimeDetailedString
+        checkOutTime.text = checkoutInvoiceRecord.checkoutTimeDetailedString
+        parkHour.text = checkoutInvoiceRecord.parkingHourString
+        hourlyCharge.text = "$40"
+        totalCharge.text = checkoutInvoiceRecord.parkingChargeString
     }
     
     
