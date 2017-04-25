@@ -57,7 +57,7 @@ class CalendarController: DayViewController {
                         let duration = schedule["duration"] as? Float {
                         
                         print("Schedule item: \(weekday) \(startTimeHour) \(duration)");
-                        let newParkingSchedule = ParkingSchedule.init(weekday: weekday + 1, startTimeHours: startTimeHour, duration: duration, parkingLotID: "A123")
+                        let newParkingSchedule = ParkingSchedule.init(weekday: weekday + 1, startTimeHours: startTimeHour, duration: duration, parkingLotID: parkingSpace!["parkingLotId"] as? String ?? "A100")
                         myParkingSchdules.append(newParkingSchedule)
                     }
                 }
@@ -101,7 +101,7 @@ class CalendarController: DayViewController {
             // Set "text" value of event by formatting all the information needed for display
             event.color = UIColor.white
             event.backgroundColor = UIColor.blue
-            event.text = "\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"
+            event.text = "\(schedule.parkingLotID)\n \(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"
             events.append(event)
         }
         
@@ -137,7 +137,9 @@ class CalendarController: DayViewController {
                     //myParkingSchdules.removeAll()
                     myParkingSchdules.remove(at: i)
                     self.dayView.reloadData()
-                    eventView.reloadInputViews()
+                    self.dayView.reloadInputViews()
+                    //eventView.reloadInputViews()
+                    
                 }
             }
         }))
