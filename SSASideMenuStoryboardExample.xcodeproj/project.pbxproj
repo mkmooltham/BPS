@@ -19,6 +19,7 @@
 		B23929DD1E67F44100C06C27 /* ParkingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23929DC1E67F44100C06C27 /* ParkingRecord.swift */; };
 		B24C73F11EADFC4E00C2FC19 /* FontAwesome.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B24C73F01EADFC4E00C2FC19 /* FontAwesome.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B24C73F31EB1DF5400C2FC19 /* Presentr.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B24C73F21EB1DF5400C2FC19 /* Presentr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B24C73F51EB1E4ED00C2FC19 /* SharedParkingSpaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C73F41EB1E4ED00C2FC19 /* SharedParkingSpaceTableViewController.swift */; };
 		B25A67211E3C84E00085AE62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67201E3C84E00085AE62 /* CoreLocation.framework */; };
 		B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */; };
 		B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67241E3C85020085AE62 /* SystemConfiguration.framework */; };
@@ -97,6 +98,7 @@
 		B23929DC1E67F44100C06C27 /* ParkingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRecord.swift; sourceTree = "<group>"; };
 		B24C73F01EADFC4E00C2FC19 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
 		B24C73F21EB1DF5400C2FC19 /* Presentr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Presentr.framework; path = Carthage/Build/iOS/Presentr.framework; sourceTree = "<group>"; };
+		B24C73F41EB1E4ED00C2FC19 /* SharedParkingSpaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedParkingSpaceTableViewController.swift; sourceTree = "<group>"; };
 		B25A67201E3C84E00085AE62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B25A67241E3C85020085AE62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -182,6 +184,7 @@
 				DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */,
 				BBE7901A1E8CFDE900406C26 /* ParkHourSelectController.swift */,
 				BB96595D1E8D764D00E96CDB /* HourPickerViewController.swift */,
+				B24C73F41EB1E4ED00C2FC19 /* SharedParkingSpaceTableViewController.swift */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				BBFAC5641E542B3C00EED558 /* StyleGenerator.swift in Sources */,
 				BBAE24B91E28CF0700F7E89B /* publicFunction.swift in Sources */,
 				BBC272E51E23957100235AE3 /* CalendarController.swift in Sources */,
+				B24C73F51EB1E4ED00C2FC19 /* SharedParkingSpaceTableViewController.swift in Sources */,
 				DC8F15FA1AE94723009CC3C3 /* SSASideMenu.swift in Sources */,
 				BBFD9EF11E2607180053AC4B /* RecordController.swift in Sources */,
 				DC00C78F1ACC661F00BB4A99 /* LeftMenuViewController.swift in Sources */,
