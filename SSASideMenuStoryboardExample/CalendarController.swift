@@ -13,6 +13,8 @@ import Parse
 
 class CalendarController: DayViewController {
     
+    var myParkingSpaceID: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,49 +45,73 @@ class CalendarController: DayViewController {
             }
             
             // parking space found
-
+            self.myParkingSpaceID = parkingSpace?.objectId
+            spaceID = [(parkingSpace?["parkingLotId"] as? String)!]
             let schedules = parkingSpace!["schedule"] as? [[String: AnyObject]]
             print(schedules ?? "No schedule")
             if let schedules = schedules {
                 // clear previous schedules
                 myParkingSchdules.removeAll()
                 
-            
                 for schedule in schedules {
                     if let weekday = schedule["weekday"] as? Int,
                         let startTimeHour = schedule["startTime"] as? Float,
                         let duration = schedule["duration"] as? Float {
                         
                         print("Schedule item: \(weekday) \(startTimeHour) \(duration)");
-                        let newParkingSchedule = ParkingSchedule.init(weekday: weekday + 1, startTimeHours: startTimeHour, duration: duration, parkingLotID: "A123")
+                        let newParkingSchedule = ParkingSchedule.init(weekday: weekday + 1, startTimeHours: startTimeHour, duration: duration, parkingLotID: parkingSpace!["parkingLotId"] as? String ?? "A100")
                         myParkingSchdules.append(newParkingSchedule)
                     }
                 }
                 
+                // reload calendar view
+                self.dayView.reloadData()
             }
             
-            // reload calendar view
-            self.dayView.reloadData()
+
         }
 
     }
     
     func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int, spaid: Int){
         let timeslot = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)
-        let schedule = ParkingSchedule.init(year: timeslot.start_year, month: timeslot.start_month, day: timeslot.start_day, hour: timeslot.start_hour, minute: timeslot.start_minute, durationHour: timeslot.duration_hour, durationMinute: timeslot.duration_minute, parkingLotID: "Test")
+        let schedule = ParkingSchedule.init(year: timeslot.start_year, month: timeslot.start_month, day: timeslot.start_day, hour: timeslot.start_hour, minute: timeslot.start_minute, durationHour: timeslot.duration_hour, durationMinute: timeslot.duration_minute, parkingLotID: timeslot.spaceName)
         //timeSlotList.append(secondEvent)
         
         myParkingSchdules.append(schedule)
         
         // TODO: Upload the updated schedule to Server
+        syncScheduleWithServer()
         
         self.dayView.reloadData()
     }
     
+    func syncScheduleWithServer() -> Void {
+        var requestParam = [String: Any]()
+        var scheduleArray = [Any]()
+        for schedule in myParkingSchdules {
+            scheduleArray.append(schedule.getDictionary())
+        }
+        requestParam["schedule"] = scheduleArray
+        requestParam["parkingSpaceId"] = self.myParkingSpaceID ?? ""
+        
+        print(requestParam)
+        
+        
+        PFCloud.callFunction(inBackground: "release", withParameters: requestParam) { (response:Any?, error:Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            if let res = response {
+                print(res)
+            }
+        }
+    }
+    
+    
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         var events = [Event]()
-        
-        print("Load view of \(myParkingSchdules.count) events")
         
         for schedule in myParkingSchdules {
             //print("Calendar load \(schedule)")
@@ -100,10 +126,13 @@ class CalendarController: DayViewController {
 
             // Set "text" value of event by formatting all the information needed for display
             event.color = UIColor.white
-            event.backgroundColor = UIColor.blue
-            event.text = "\(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"
+            event.backgroundColor = UIColor.init(r: 107, g: 69, b: 186, a: 100)
+            event.text = "\(schedule.parkingLotID)\n \(datePeriod.beginning!.format(with: "HH:mm")) - \(datePeriod.end!.format(with: "HH:mm"))"
+            print(event.text)
             events.append(event)
         }
+        
+        print("Load view of \(myParkingSchdules.count) / \(events.count) events")
         
         return events
     }
@@ -136,8 +165,12 @@ class CalendarController: DayViewController {
                     print("Delete \(i)")
                     //myParkingSchdules.removeAll()
                     myParkingSchdules.remove(at: i)
+                    self.reloadInputViews()
+                    self.reloadData()
                     self.dayView.reloadData()
-                    eventView.reloadInputViews()
+                    self.dayView.reloadInputViews()
+                    //eventView.reloadInputViews()
+                    self.syncScheduleWithServer()
                 }
             }
         }))

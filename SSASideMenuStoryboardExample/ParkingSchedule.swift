@@ -13,6 +13,16 @@ class ParkingSchedule {
     var endDateTime: Date
     var parkingLotID: String
     
+    func getDictionary() -> [String: Any] {
+        var dict = [String:Any]()
+        dict["weekday"] = startDateTime.weekday - 1
+        let hourOffset = (startDateTime.minute == 30) ? 0.5 : 0
+        dict["startTime"] = Double(startDateTime.hour) + hourOffset
+        let dateDiff = endDateTime.timeIntervalSince(startDateTime)
+        dict["duration"] = Double(dateDiff) / 60 / 60
+        return dict
+    }
+    
     // weeday 1 = sunday, 2 = monday ... 7 = saturday
     init(weekday: Int, startTimeHours: Float, duration: Float, parkingLotID: String) {
         let curDate = Date()
@@ -72,4 +82,5 @@ class ParkingSchedule {
         
         self.parkingLotID = parkingLotID
     }
+    
 }

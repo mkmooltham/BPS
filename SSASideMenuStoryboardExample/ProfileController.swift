@@ -149,6 +149,23 @@ class ProfileController: UIViewController, STPAddCardViewControllerDelegate{
             
         })
         
+        PFCloud.callFunction(inBackground: "getUserParkingStatistics", withParameters: nil) { (result:Any?, error:Error?) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            
+            //print(result)
+            if let res = result as? NSDictionary,
+                let avghrs = res.value(forKey: "avgParkingHours") as? Double,
+                let count = res.value(forKey: "count") as? Int{
+                print(res)
+    
+                self.averageHourText.text = String(format: "%.02f", avghrs) // round to nearest 2dp
+                self.totalParkTimeText.text = String(describing: count)
+            }
+        }
+        
         // update parking lot id
         let defaults = UserDefaults.standard
         if let parkingSpaceID = defaults.object(forKey: "ParkingSpaceCheckedIn") as? String {

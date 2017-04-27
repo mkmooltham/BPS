@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Presentr
 
 protocol HomeViewDelegate{
     func changeWord(input: String)
@@ -190,8 +191,29 @@ class HomeViewController: UIViewController , ParkHourSelectDelegate{
             }
         }
          */
-        
     }
+    
+    @IBAction func buttonCheckSharedParkingSpaceClicked(_ sender: UIButton) {
+        let presenter: Presentr = {
+            let width = ModalSize.full
+            let height = ModalSize.fluid(percentage: 0.40)
+            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 0, y: 0))
+            let customType = PresentationType.custom(width: width, height: height, center: center)
+            
+            let customPresenter = Presentr(presentationType: customType)
+            customPresenter.transitionType = .coverVerticalFromTop
+            customPresenter.dismissTransitionType = .crossDissolve
+            customPresenter.roundCorners = false
+            customPresenter.backgroundColor = .black
+            customPresenter.backgroundOpacity = 0.5
+            customPresenter.dismissOnSwipe = true
+            customPresenter.dismissOnSwipeDirection = .top
+            return customPresenter
+        }()
+        let controller = SharedParkingSpaceTableViewController()
+        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

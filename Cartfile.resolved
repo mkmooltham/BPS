@@ -1,4 +1,5 @@
 github "BoltsFramework/Bolts-ObjC" "1.8.4"
-github "ParsePlatform/Parse-SDK-iOS-OSX" "1.14.2"
+github "IcaliaLabs/Presentr" "1.2.3"
+github "ParsePlatform/Parse-SDK-iOS-OSX" "1.14.4"
 github "stripe/stripe-ios" "v10.0.1"
 github "thii/FontAwesome.swift" "1.1.2"
