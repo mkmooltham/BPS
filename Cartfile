@@ -1,3 +1,4 @@
 github "ParsePlatform/Parse-SDK-iOS-OSX"
 github "stripe/stripe-ios"
 github "thii/FontAwesome.swift"
+github "IcaliaLabs/Presentr"

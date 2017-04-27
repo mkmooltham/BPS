@@ -18,6 +18,7 @@
 		B2336E871E3F150F00C5C670 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2336E861E3F150F00C5C670 /* EstimoteSDK.framework */; };
 		B23929DD1E67F44100C06C27 /* ParkingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23929DC1E67F44100C06C27 /* ParkingRecord.swift */; };
 		B24C73F11EADFC4E00C2FC19 /* FontAwesome.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B24C73F01EADFC4E00C2FC19 /* FontAwesome.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B24C73F31EB1DF5400C2FC19 /* Presentr.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B24C73F21EB1DF5400C2FC19 /* Presentr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B25A67211E3C84E00085AE62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67201E3C84E00085AE62 /* CoreLocation.framework */; };
 		B25A67231E3C84E70085AE62 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */; };
 		B25A67251E3C85020085AE62 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25A67241E3C85020085AE62 /* SystemConfiguration.framework */; };
@@ -71,6 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B24C73F31EB1DF5400C2FC19 /* Presentr.framework in CopyFiles */,
 				B24C73F11EADFC4E00C2FC19 /* FontAwesome.framework in CopyFiles */,
 				B29EA1061EA3AE1F00E21D4F /* Stripe.framework in CopyFiles */,
 				B21DB0851E405D1E00861070 /* Bolts.framework in CopyFiles */,
@@ -94,6 +96,7 @@
 		B2336E881E3F15BE00C5C670 /* SSASideMenuStoryboardExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SSASideMenuStoryboardExample.entitlements; sourceTree = "<group>"; };
 		B23929DC1E67F44100C06C27 /* ParkingRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRecord.swift; sourceTree = "<group>"; };
 		B24C73F01EADFC4E00C2FC19 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
+		B24C73F21EB1DF5400C2FC19 /* Presentr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Presentr.framework; path = Carthage/Build/iOS/Presentr.framework; sourceTree = "<group>"; };
 		B25A67201E3C84E00085AE62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B25A67221E3C84E70085AE62 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B25A67241E3C85020085AE62 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -234,6 +237,7 @@
 		B25A671D1E3C84980085AE62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B24C73F21EB1DF5400C2FC19 /* Presentr.framework */,
 				B24C73F01EADFC4E00C2FC19 /* FontAwesome.framework */,
 				B29EA1051EA3AE1F00E21D4F /* Stripe.framework */,
 				B21DB0801E403EAE00861070 /* Parse.framework */,
