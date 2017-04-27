@@ -46,6 +46,7 @@ class CalendarController: DayViewController {
             
             // parking space found
             self.myParkingSpaceID = parkingSpace?.objectId
+            spaceID = [(parkingSpace?["parkingLotId"] as? String)!]
             let schedules = parkingSpace!["schedule"] as? [[String: AnyObject]]
             print(schedules ?? "No schedule")
             if let schedules = schedules {
@@ -74,7 +75,7 @@ class CalendarController: DayViewController {
     
     func addEventToCalendar(dateid: Int,timeid: Int,timeendid: Int, spaid: Int){
         let timeslot = TimeSlot(dateIndex: dateid, timeIndex: timeid, timeEndIndex: timeendid, spaceIndex:spaid, event: .release)
-        let schedule = ParkingSchedule.init(year: timeslot.start_year, month: timeslot.start_month, day: timeslot.start_day, hour: timeslot.start_hour, minute: timeslot.start_minute, durationHour: timeslot.duration_hour, durationMinute: timeslot.duration_minute, parkingLotID: "Test")
+        let schedule = ParkingSchedule.init(year: timeslot.start_year, month: timeslot.start_month, day: timeslot.start_day, hour: timeslot.start_hour, minute: timeslot.start_minute, durationHour: timeslot.duration_hour, durationMinute: timeslot.duration_minute, parkingLotID: timeslot.spaceName)
         //timeSlotList.append(secondEvent)
         
         myParkingSchdules.append(schedule)
@@ -170,7 +171,6 @@ class CalendarController: DayViewController {
                     self.dayView.reloadInputViews()
                     //eventView.reloadInputViews()
                     self.syncScheduleWithServer()
-                    
                 }
             }
         }))
