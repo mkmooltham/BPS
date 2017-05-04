@@ -127,12 +127,12 @@
 		BBFD9EC81E25E1990053AC4B /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		BBFD9EF01E2607180053AC4B /* RecordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordController.swift; sourceTree = "<group>"; };
 		C379C5BA7533854B38EDAFC2 /* Pods-SSASideMenuStoryboardExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSASideMenuStoryboardExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSASideMenuStoryboardExampleTests/Pods-SSASideMenuStoryboardExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DC00C7631ACC65CD00BB4A99 /* SSASideMenuStoryboardExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSASideMenuStoryboardExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC00C7631ACC65CD00BB4A99 /* BPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC00C7671ACC65CD00BB4A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC00C7681ACC65CD00BB4A99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC00C76F1ACC65CD00BB4A99 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC00C7721ACC65CD00BB4A99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DC00C7781ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSASideMenuStoryboardExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC00C7781ACC65CD00BB4A99 /* BPSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BPSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC00C77D1ACC65CD00BB4A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC00C77E1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSASideMenuStoryboardExampleTests.swift; sourceTree = "<group>"; };
 		DC00C78A1ACC661F00BB4A99 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		DC00C75A1ACC65CD00BB4A99 = {
 			isa = PBXGroup;
 			children = (
-				DC00C7651ACC65CD00BB4A99 /* SSASideMenuStoryboardExample */,
+				DC00C7651ACC65CD00BB4A99 /* BPS */,
 				DC00C77B1ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests */,
 				DC00C7641ACC65CD00BB4A99 /* Products */,
 				B25A671D1E3C84980085AE62 /* Frameworks */,
@@ -269,13 +269,13 @@
 		DC00C7641ACC65CD00BB4A99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC00C7631ACC65CD00BB4A99 /* SSASideMenuStoryboardExample.app */,
-				DC00C7781ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.xctest */,
+				DC00C7631ACC65CD00BB4A99 /* BPS.app */,
+				DC00C7781ACC65CD00BB4A99 /* BPSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC00C7651ACC65CD00BB4A99 /* SSASideMenuStoryboardExample */ = {
+		DC00C7651ACC65CD00BB4A99 /* BPS */ = {
 			isa = PBXGroup;
 			children = (
 				B210C63A1E9E2CC3005AA931 /* web */,
@@ -295,7 +295,7 @@
 				DC00C7711ACC65CD00BB4A99 /* LaunchScreen.xib */,
 				DC00C7661ACC65CD00BB4A99 /* Supporting Files */,
 			);
-			path = SSASideMenuStoryboardExample;
+			path = BPS;
 			sourceTree = "<group>";
 		};
 		DC00C7661ACC65CD00BB4A99 /* Supporting Files */ = {
@@ -335,9 +335,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC00C7621ACC65CD00BB4A99 /* SSASideMenuStoryboardExample */ = {
+		DC00C7621ACC65CD00BB4A99 /* BPS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "SSASideMenuStoryboardExample" */;
+			buildConfigurationList = DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "BPS" */;
 			buildPhases = (
 				ACDC70AD524E390AB02571E2 /* [CP] Check Pods Manifest.lock */,
 				DC00C75F1ACC65CD00BB4A99 /* Sources */,
@@ -351,14 +351,14 @@
 			);
 			dependencies = (
 			);
-			name = SSASideMenuStoryboardExample;
+			name = BPS;
 			productName = SSASideMenuStoryboardExample;
-			productReference = DC00C7631ACC65CD00BB4A99 /* SSASideMenuStoryboardExample.app */;
+			productReference = DC00C7631ACC65CD00BB4A99 /* BPS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DC00C7771ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests */ = {
+		DC00C7771ACC65CD00BB4A99 /* BPSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC00C7851ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "SSASideMenuStoryboardExampleTests" */;
+			buildConfigurationList = DC00C7851ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "BPSTests" */;
 			buildPhases = (
 				6E2205D3E9C05D3F836D9C13 /* [CP] Check Pods Manifest.lock */,
 				DC00C7741ACC65CD00BB4A99 /* Sources */,
@@ -372,9 +372,9 @@
 			dependencies = (
 				DC00C77A1ACC65CD00BB4A99 /* PBXTargetDependency */,
 			);
-			name = SSASideMenuStoryboardExampleTests;
+			name = BPSTests;
 			productName = SSASideMenuStoryboardExampleTests;
-			productReference = DC00C7781ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests.xctest */;
+			productReference = DC00C7781ACC65CD00BB4A99 /* BPSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -408,7 +408,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "SSASideMenuStoryboardExample" */;
+			buildConfigurationList = DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "BPS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -421,8 +421,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC00C7621ACC65CD00BB4A99 /* SSASideMenuStoryboardExample */,
-				DC00C7771ACC65CD00BB4A99 /* SSASideMenuStoryboardExampleTests */,
+				DC00C7621ACC65CD00BB4A99 /* BPS */,
+				DC00C7771ACC65CD00BB4A99 /* BPSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -591,7 +591,7 @@
 /* Begin PBXTargetDependency section */
 		DC00C77A1ACC65CD00BB4A99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC00C7621ACC65CD00BB4A99 /* SSASideMenuStoryboardExample */;
+			target = DC00C7621ACC65CD00BB4A99 /* BPS */;
 			targetProxy = DC00C7791ACC65CD00BB4A99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -715,7 +715,7 @@
 					"$(PROJECT_DIR)/EstimoteSDK",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SSASideMenuStoryboardExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BPS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RAYW2.BeaconPS;
@@ -737,7 +737,7 @@
 					"$(PROJECT_DIR)/EstimoteSDK",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SSASideMenuStoryboardExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BPS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RAYW2.BeaconPS;
@@ -765,7 +765,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "SebastianAndersen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSASideMenuStoryboardExample.app/SSASideMenuStoryboardExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BPS.app/BPS";
 			};
 			name = Debug;
 		};
@@ -783,14 +783,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "SebastianAndersen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSASideMenuStoryboardExample.app/SSASideMenuStoryboardExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BPS.app/BPS";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "SSASideMenuStoryboardExample" */ = {
+		DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "BPS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC00C7801ACC65CD00BB4A99 /* Debug */,
@@ -799,7 +799,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "SSASideMenuStoryboardExample" */ = {
+		DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "BPS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC00C7831ACC65CD00BB4A99 /* Debug */,
@@ -808,7 +808,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC00C7851ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "SSASideMenuStoryboardExampleTests" */ = {
+		DC00C7851ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "BPSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC00C7861ACC65CD00BB4A99 /* Debug */,
